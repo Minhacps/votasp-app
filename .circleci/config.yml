@@ -9,11 +9,11 @@ jobs:
     steps:
       - checkout
 
-        - run:
+      - run:
           name: install dependencies
           command: npm install
 
-        - run:
+      - run:
           name: Run tests
           command: npm test
 
@@ -27,32 +27,32 @@ jobs:
       - setup_remote_docker
 
       - run:
-        name: Build image
-        command: |
-          docker build -t votasp/app:$CIRCLE_BUILD_NUM .
-          docker build -t votasp/app:latest .
+          name: Build image
+          command: |
+            docker build -t votasp/app:$CIRCLE_BUILD_NUM .
+            docker build -t votasp/app:latest .
 
       - run:
-        name: Deploy to docker hub
-        command: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASS
-          docker push votasp/app:$CIRCLE_BUILD_NUM
-          docker push votasp/app:latest
+          name: Deploy to docker hub
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker push votasp/app:$CIRCLE_BUILD_NUM
+            docker push votasp/app:latest
 
       - run:
-        name: Deploy to rancher
-        command: |
-          set +o pipefail
+          name: Deploy to rancher
+          command: |
+            set +o pipefail
 
-          sed -i 's/$version/$CIRCLE_BUILD_NUM/g' "docker-compose.yml"
+            sed -i 's/$version/$CIRCLE_BUILD_NUM/g' "docker-compose.yml"
 
-          rancher-compose \
-            --url http://rancher.votasp.org.br \
-            --access-key $RANCHER_ACCESS_KEY \
-            --secret-key $RANCHER_SECRET_KEY \
-            -p Front-end \
-            --file docker-compose.yml \
-            up -u -p -c -d
+            rancher-compose \
+              --url http://rancher.votasp.org.br \
+              --access-key $RANCHER_ACCESS_KEY \
+              --secret-key $RANCHER_SECRET_KEY \
+              -p Front-end \
+              --file docker-compose.yml \
+              up -u -p -c -d
 
 workflows:
   version: 2
