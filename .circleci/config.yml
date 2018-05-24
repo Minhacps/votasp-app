@@ -20,7 +20,7 @@ jobs:
   deploy:
     working_directory: ~/deploy
     docker:
-      - image: protocool/rancher-circlei
+      - image: protocool/rancher-circleci
     steps:
       - checkout
 
