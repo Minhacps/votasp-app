@@ -5,9 +5,9 @@ jobs:
   tests:
     working_directory: ~/deploy
     docker:
-      - image: circleci/nodejs
-      steps:
-        - checkout
+      - image: circleci/node
+    steps:
+      - checkout
 
         - run:
           name: install dependencies
