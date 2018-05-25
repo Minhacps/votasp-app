@@ -29,8 +29,7 @@ jobs:
       - run:
           name: Build image
           command: |
-            docker build -t votasp/app:$CIRCLE_BUILD_NUM .
-            docker build -t votasp/app:latest .
+            docker build -t votasp/app:$CIRCLE_BUILD_NUM -t votasp/app:latest .
 
       - run:
           name: Deploy to docker hub
