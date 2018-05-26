@@ -8,3 +8,5 @@ COPY package-lock.json /usr/src/app/
 RUN npm install --only=prod
 
 COPY . /usr/src/app
+
+CMD npm start
