@@ -1,0 +1,43 @@
+PAGE: LOGIN
+
+Font sizes:
+Toggle Buttons: 12px;
+CTA Buttons: 16px;
+Inputs: 14px;
+Helper Text: 11px;
+Social Links: 14px;
+
+
+Border Radius
+Inputs Button: 6px
+Login Card: 11px
+
+
+Color:
+Toggle Buttons "entrar" BG: #808080 // Border: #4d4d4d // Text: #999
+Toggle Buttons "cadastro" BG: #f2f2f2 // Border: #4d4d4d // Text: #fff
+CTA Button BG: #59455c // Text: #fff
+Inputs Button BG: #f2f2f2 // Border: #4d4d4d // Text: #666
+Helper Text: #333
+Social Link Faceboook: #365395
+Social Link Instagram: #f0047f
+
+
+
+PAGE: CADASTRO
+
+Font sizes:
+Title: 30px
+
+Color:
+Title: #333
+
+
+
+PAGE: BEM-VINDO
+
+Font Size
+Category Buttons title: 14px; (bold)
+Category Button numbers: 16px (normal)
+
+Color Category: #a4c51c (verde) // #ffb312 (amarelo) // #f56711 (laranja) // #1aa5ad (azul) // #1853a3 (azul escuro) // #620e81 (roxo)
