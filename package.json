@@ -5,10 +5,15 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel index.html",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./enzyme-setup.js"
+    "setupTestFrameworkScriptFile": "./enzyme-setup.js",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|scss|sass)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   },
   "semistandard": {
     "globals": [
@@ -33,6 +38,7 @@
     "babel-preset-react-app": "^3.1.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^4.19.1",
     "jest": "^22.1.4",
     "node-sass": "^4.9.0",
