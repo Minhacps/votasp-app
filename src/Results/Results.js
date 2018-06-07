@@ -2,20 +2,31 @@ import React, { Component } from 'react';
 import Deputado from './Deputado';
 
 const candidatos = [{
-  deputadoName: 'Bla',
-  deputadoNumber: 534,
-  partidoName: 'Jfdjsaif',
-  matchPercent: 80
+  nome: 'Blar1',
+  numero: 537,
+  partido: 'Jfdjsaif',
+  afinidade: 80
 }, {
-  deputadoName: 'Blar1',
-  deputadoNumber: 537,
-  partidoName: 'Jfdjsaif',
-  matchPercent: 80
+  nome: 'Blar2',
+  numero: 537,
+  partido: 'Jfdjsaif2',
+  afinidade: 80
 }];
 
 class Results extends Component {
+  onClickShare(deputado) {
+    console.log(deputado);
+  }
+
+  onClickPlus(deputado) {
+    console.log(deputado);
+  }
+
   render() {
-    const deputados = candidatos.map((c, index) => <Deputado key={index} {...c} />);
+    const deputados = candidatos.map((c, index) => <Deputado key={index} {...c}
+      onClickPlus={this.onClickPlus.bind(this, c)}
+      onClickShare={this.onClickShare.bind(this, c)}/>);
+
     return(
       <div className='container'>
         <div className='header'>
