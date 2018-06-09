@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should match snapshot 1`] = `
+<header
+  className="header"
+>
+  <img
+    alt="Logotipo escrito Vota em branco e SP em amarelo."
+    src="test-file-stub"
+  />
+</header>
+`;
