@@ -1,0 +1,82 @@
+PAGE: LOGIN
+
+Font sizes:
+Toggle Buttons: 12px;
+CTA Buttons: 16px;
+Inputs: 14px;
+Helper Text: 11px;
+Social Links: 14px;
+
+
+Border Radius
+Inputs Button: 6px
+Login Card: 11px
+
+
+Color:
+Toggle Buttons "entrar" BG: #808080 // Border: #4d4d4d // Text: #999
+Toggle Buttons "cadastro" BG: #f2f2f2 // Border: #4d4d4d // Text: #fff
+CTA Button BG: #59455c // Text: #fff
+Inputs Button BG: #f2f2f2 // Border: #4d4d4d // Text: #666
+Helper Text: #333
+Social Link Faceboook: #365395
+Social Link Instagram: #f0047f
+
+
+
+PAGE: CADASTRO
+
+Font sizes:
+Title: 30px
+
+Color:
+Title: #333
+
+
+
+PAGE: BEM-VINDO
+
+Font Size
+Category Buttons title: 14px; (bold)
+Category Button numbers: 16px (normal)
+Tittle: 30px;
+Conteúdo: 16px;
+CTA Button: 16px
+
+Color Category: #a4c51c (verde) // #ffb312 (amarelo) // #f56711 (laranja) // #1aa5ad (azul) // #1853a3 (azul escuro) // #620e81 (roxo)
+
+
+
+PAGE: PERGUNTAS
+
+Font Size
+"Progresso das Respostas": 16px;
+"min/fim": 8px;
+Categoria nome: 17px;
+"ir para": 10px;
+números: 17px;
+pergunta e alternativas: 16px;
+
+Color
+Textos: #333333
+Progresso BG: #ccc // Texto: #333 // Barra: #f9b557
+Ir para números BG: #e5e5e5 // Texto: #666
+
+
+
+PAGE: RANKING
+
+Font sizes:
+Title: 30px
+Texto Conteúdo: 16px;
+Toggle Buttons: 12px;
+Info Candidato: 16px;
+Porcentagem: 14px;
+
+Color:
+Title: #333 // Texto Conteúdo: #333
+Toggle Buttons "deputado federal" BG: #808080 // Border: #4d4d4d // Text: #999
+Toggle Buttons "deputado estadual" BG: #f2f2f2 // Border: #4d4d4d // Text: #fff
+Porcentagem BG: #59455c
+
+
