@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import WelcomeMessage from '../components/WelcomeMessage/WelcomeMessage';
 
-class Home extends Component {
-  render () {
-    return (
-      <WelcomeMessage />
-    );
-  }
-}
+const Home = () => <WelcomeMessage />;
 
 export default Home;
