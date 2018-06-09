@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "server": "http-server dist -p 80",
     "start": "parcel index.html",
     "build": "parcel build index.html",
     "test": "jest",
