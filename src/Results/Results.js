@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import Deputado from './Deputado';
+import Deputado from '../components/Deputado/Deputado';
 
 const candidatos = [{
-  nome: 'Blar1',
-  numero: 537,
-  partido: 'Jfdjsaif',
+  nome: 'Nome do Candidato 1',
+  numero: 999,
+  partido: 'Nome Partido 1',
   afinidade: 80
 }, {
-  nome: 'Blar2',
-  numero: 537,
-  partido: 'Jfdjsaif2',
+  nome: 'Nome do Candidato 2',
+  numero: 999,
+  partido: 'Nome Partido 2',
   afinidade: 80
 }];
 
@@ -33,7 +33,7 @@ class Results extends Component {
           <h1>Ranking</h1>
           <p>Texto explicativo sobre o ranking, falando que ele e baseado na compatibilidade com as respostas escolhidas comparadas aos candidatos cadastrados.</p>
         </div>
-        <div>
+        <div className='content'>
           <div className='buttons'>
             <button>Deputado Federal</button>
             <button>Deputado Estadual</button>
