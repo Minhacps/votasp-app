@@ -9,7 +9,6 @@ import renderAuthenticated from './Auth0/renderAuthenticated';
 import Home from './Home/Home';
 import history from './history';
 
-
 export const makeMainRoutes = () => {
   const auth = new Auth0();
 
@@ -18,10 +17,18 @@ export const makeMainRoutes = () => {
       <Header />
       <Router history={history}>
         <Switch>
-          <Route exact path='/' render={(props) => renderAuthenticated(Home, props)} />
-          <Route exact path='/callback' render={(props) => <Auth0Callback auth={auth} {...props} />} />
+          <Route
+            exact
+            path="/"
+            render={props => renderAuthenticated(Home, props)}
+          />
+          <Route
+            exact
+            path="/login/callback"
+            render={props => <Auth0Callback auth={auth} {...props} />}
+          />
         </Switch>
-    </Router>
+      </Router>
     </React.Fragment>
   );
 };
