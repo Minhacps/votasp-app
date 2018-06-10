@@ -12,4 +12,12 @@ describe('<WelcomeMessage />', () => {
 
     expect(toJson(welcomeMessage)).toMatchSnapshot();
   });
+
+  it('should accept valid regionTag', () => {
+    const welcomeMessage = shallow((
+      <WelcomeMessage regionTag='sp' />
+    ))
+
+    expect(toJson(welcomeMessage)).toMatchSnapshot();
+  });
 });
