@@ -20,4 +20,12 @@ describe('<WelcomeMessage />', () => {
 
     expect(toJson(welcomeMessage)).toMatchSnapshot();
   });
+
+  it('should use sp if invalid regionTag', () => {
+    const welcomeMessage = shallow((
+      <WelcomeMessage regionTag='huehuehue' />
+    ))
+
+    expect(toJson(welcomeMessage)).toMatchSnapshot();
+  });
 });
