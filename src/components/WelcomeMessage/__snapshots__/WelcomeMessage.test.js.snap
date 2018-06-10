@@ -11,7 +11,11 @@ exports[`<WelcomeMessage /> should match snapshot 1`] = `
       </strong>
     </h2>
     <p>
-      O projeto VotaSP nasceu com o objetivo de ajudar a população do estado de São Paulo a escolher seus candidatos. Através de questões objetivas os eleitores podem verificar suas afinidades com os candidatos.
+      O projeto 
+      VotaSP
+       nasceu com o objetivo de ajudar a população do estado de 
+      São Paulo
+       a escolher seus candidatos. Através de questões objetivas os eleitores podem verificar suas afinidades com os candidatos.
       <br />
       <strong>
         É muito simples e prático!
