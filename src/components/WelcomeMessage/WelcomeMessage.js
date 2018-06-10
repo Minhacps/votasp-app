@@ -6,8 +6,8 @@ const regions = {
   sp: { name: 'São Paulo', projectName: 'VotaSP' },
 };
 
-const WelcomeMessage = ({ regionTag = 'sp' }) => {
-  const region = regions[regionTag];
+const WelcomeMessage = ({ regionTag }) => {
+  const region = regions[regionTag] || regions['sp'];
 
   return (
     <section>
