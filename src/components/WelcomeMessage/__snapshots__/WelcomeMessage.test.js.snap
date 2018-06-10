@@ -32,7 +32,7 @@ exports[`<WelcomeMessage /> should accept valid regionTag 1`] = `
 </section>
 `;
 
-exports[`<WelcomeMessage /> should match snapshot 1`] = `
+exports[`<WelcomeMessage /> should render component without props 1`] = `
 <section>
   <div
     className="container welcome-text"

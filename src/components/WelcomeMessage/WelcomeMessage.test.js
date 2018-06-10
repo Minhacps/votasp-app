@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import WelcomeMessage from './WelcomeMessage';
 
 describe('<WelcomeMessage />', () => {
-  it('should match snapshot', () => {
+  it('should render component without props', () => {
     const welcomeMessage = shallow((
       <WelcomeMessage />
     ))
