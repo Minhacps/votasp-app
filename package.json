@@ -26,15 +26,12 @@
     ]
   },
   "dependencies": {
-    "assemble": "^0.3.83",
     "auth0-js": "^9.5.1",
-    "components": "^0.1.0",
-    "grunt": "^0.4.5",
     "history": "^4.7.2",
+    "parcel": "^1.8.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-router-dom": "^4.2.2",
-    "styles": "^0.2.1"
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "babel-preset-react-app": "^3.1.1",
@@ -43,8 +40,6 @@
     "enzyme-to-json": "^3.3.4",
     "eslint": "^4.19.1",
     "jest": "^22.1.4",
-    "node-sass": "^4.9.0",
-    "parcel": "^1.8.1",
     "semistandard": "^12.0.1"
   }
 }
