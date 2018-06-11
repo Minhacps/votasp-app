@@ -1,4 +1,4 @@
-FROM node:9-alpine
+FROM node:9-alpine as build
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
@@ -15,4 +15,4 @@ RUN npm run build
 FROM nginx:1.15.0-alpine
 
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY dist /usr/src/app
+COPY --from=build /usr/src/app/dist /usr/src/app
