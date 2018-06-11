@@ -6,7 +6,7 @@
   "scripts": {
     "server": "http-server dist -p 80",
     "start": "NODE_ENV=dev parcel index.html",
-    "build": "NODE_ENV=prod parcel build index.html",
+    "build": "parcel build index.html",
     "test": "jest",
     "test:watch": "jest --watch"
   },
