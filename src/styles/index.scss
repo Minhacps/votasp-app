@@ -15,3 +15,22 @@ body {
   font-size: 16px;
   font-family: 'Asap', sans-serif;
 }
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 25px;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  font-size: 16px;
+  background-color: var(--roxo);
+  color: #fff;
+}
