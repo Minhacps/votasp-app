@@ -2,7 +2,7 @@ export default {
   auth0: {
     originalDomain: 'minhacampinas.auth0.com',
     domain: 'minhacampinas.auth0.com',
-    clientId: 'vYyUQhCzwFmmw0iZcxTXZM8A6Ufw6PtL',
+    clientId: 'xlqRIQx9UxwMkj9XOONKbEn6ksrEt3Pg',
     callbackUrl: 'https://app.votasp.org.br/login/callback',
     responseType: 'token id_token',
     scope: 'openid'
