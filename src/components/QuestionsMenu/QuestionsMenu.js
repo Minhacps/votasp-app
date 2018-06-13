@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+
+import './QuestionsMenu.css';
 
 class QuestionsMenu extends Component {
+
   constructor(props) {
     super(props);
 
@@ -23,35 +26,34 @@ class QuestionsMenu extends Component {
       )
     );
 
-    const questionsList = questionsMock.map((question) => {
-      return (
-        <li key={question.questionId}>
-          {question.questionId}
-        </li>
-      );
+    const QuestionItem = id => (<td className="question-item current-question" key={id}>{id}</td>);
+
+    // const QuestionRow = questionItens => (<tr>{questionItens}</tr>)
+
+    const questionsTable = questionsMock.map((question) => {
+      return QuestionItem(question.questionId);
     })
 
-    return questionsList;
+    return questionsTable;
   }
 
   render() {
     return (
       <div className="questions-menu">
-        <div className="questions-header">
-          <button
-            type="button"
-            className="questions-button"
-            onClick={this.toggleQuestionsBoard}
-          >
-            Questões
-          </button>
-        </div>
+        <button
+          type="button"
+          className="questions-button"
+          onClick={this.toggleQuestionsBoard}
+        >
+          Questões
+          <div className="arrow"/>
+        </button>
 
         {this.state.isOpen &&
           <div className="questions-board">
-            <ul>
+            <table>
               {this.renderListOfQuestions()}
-            </ul>
+            </table>
           </div>
         }
       </div>
