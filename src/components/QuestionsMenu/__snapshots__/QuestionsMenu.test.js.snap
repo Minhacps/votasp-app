@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionsMenu should match a snapshot 1`] = `
+<div
+  className="questions-menu"
+>
+  <div
+    className="questions-header"
+  >
+    <button
+      className="questions-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Questões
+    </button>
+  </div>
+</div>
+`;
