@@ -17,12 +17,18 @@ class QuestionsMenu extends Component {
   }
 
   renderListOfQuestions() {
-    const questionsArray = Array
-    .apply(null, {length: 40})
-    .map(Function.call, Number);
+    const questionsMock = Array.from(
+      new Array(40),(val,index) => (
+        { questionId: index + 1 }
+      )
+    );
 
-    const questionsList = questionsArray.map(function(question) {
-      return <li>{question + 1}</li>
+    const questionsList = questionsMock.map((question) => {
+      return (
+        <li key={question.questionId}>
+          {question.questionId}
+        </li>
+      );
     })
 
     return questionsList;
@@ -34,6 +40,7 @@ class QuestionsMenu extends Component {
         <div className="questions-header">
           <button
             type="button"
+            className="questions-button"
             onClick={this.toggleQuestionsBoard}
           >
             Questões
@@ -42,7 +49,9 @@ class QuestionsMenu extends Component {
 
         {this.state.isOpen &&
           <div className="questions-board">
-            {this.renderListOfQuestions()}
+            <ul>
+              {this.renderListOfQuestions()}
+            </ul>
           </div>
         }
       </div>
