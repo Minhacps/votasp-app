@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "auth0-js": "^9.5.1",
+    "classnames": "^2.2.6",
     "history": "^4.7.2",
     "parcel": "^1.8.1",
     "react": "^16.3.2",
