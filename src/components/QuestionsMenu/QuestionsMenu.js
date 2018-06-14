@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import some from 'lodash/some';
+import { answersMock, questionsMock } from './QuestionsMenuMock';
 
 import './QuestionsMenu.css';
 
@@ -20,18 +23,23 @@ class QuestionsMenu extends Component {
   }
 
   renderListOfQuestions() {
-    const questionsMock = Array.from(
-      new Array(40),(val,index) => (
-        { questionId: index + 1 }
-      )
+    const QuestionItem = (id, isAnsweredQuestion) => (
+      <li
+        className={classnames(
+          'question-item',
+          { 'current-question': false },
+          { 'question-answered': isAnsweredQuestion },
+        )}
+        key={id}
+      >
+        {id}
+      </li>
     );
 
-    const QuestionItem = id => (<td className="question-item current-question" key={id}>{id}</td>);
-
-    // const QuestionRow = questionItens => (<tr>{questionItens}</tr>)
-
     const questionsTable = questionsMock.map((question) => {
-      return QuestionItem(question.questionId);
+      const isAnsweredQuestion = some(answersMock, { questionId: question.id });
+
+      return QuestionItem(question.id, isAnsweredQuestion);
     })
 
     return questionsTable;
@@ -51,9 +59,9 @@ class QuestionsMenu extends Component {
 
         {this.state.isOpen &&
           <div className="questions-board">
-            <table>
+            <ul>
               {this.renderListOfQuestions()}
-            </table>
+            </ul>
           </div>
         }
       </div>

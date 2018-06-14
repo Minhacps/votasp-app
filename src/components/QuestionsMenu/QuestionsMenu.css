@@ -4,13 +4,14 @@
 
 .questions-button {
   display: flex;
-  background:none;
-  border:none;
+  background: none;
+  border: none;
   font-size: 1em;
   text-transform: uppercase;
   font-weight: bold;
   width: 100%;
   height: 25px;
+  padding: 0;
 }
 .arrow {
   margin: 5px 0 0 10px;
@@ -23,7 +24,6 @@
 }
 
 .question-item {
-  padding: 0 15px;
   text-align: center;
 }
 
@@ -33,11 +33,19 @@
   display: block;
   height: 3px;
   position: relative;
-  width: 20px;
 }
 
 .current-question {
   background-color: #7E798C;
   color: #ffffff;
-  border-radius: 50%
+  border-radius: 50%;
+}
+
+.questions-board ul {
+  padding-left: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-flow: dense;
+  grid-gap: 10px 25px;
 }
