@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Deputado /> should match snapshot 1`] = `
+<div
+  className="deputado-list-item"
+>
+  <div
+    className="photo"
+  >
+    <img
+      alt=""
+      src="http://via.placeholder.com/150x150?text=Foto"
+    />
+  </div>
+  <div
+    className="info"
+  >
+    <div>
+      <span
+        className="candidat-name"
+      >
+        Nome do Candidato 1
+      </span>
+      <span
+        className="candidat-number"
+      >
+        999
+      </span>
+    </div>
+    <div>
+      <span
+        className="partido-name"
+      >
+        Nome Partido 1
+      </span>
+    </div>
+    <div>
+      Afinidade: 
+      <span
+        className="match-percent"
+      >
+        80
+        %
+      </span>
+    </div>
+  </div>
+  <div
+    className="buttons"
+  >
+    <Component
+      content="+"
+      onClick={[MockFunction]}
+    />
+    <Component
+      content="+"
+      onClick={[MockFunction]}
+    />
+  </div>
+</div>
+`;

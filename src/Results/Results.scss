@@ -1,0 +1,27 @@
+.results {
+  color: var(--pretoClaro);
+
+  .description {
+    padding: 0px 30px;
+    text-align: center;
+  }
+
+  .deputados {
+    margin-top: 10px;
+  }
+
+  .barra-ver-mais {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+
+    .ver-mais {
+      padding: 10px 30px;
+      border-radius: 10px;
+      background-color: var(--roxoClaro);
+      color: white;
+      font-size: 1.2em;
+      border: 0px;
+    }
+  }
+}
