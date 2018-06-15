@@ -13,7 +13,7 @@
   height: 25px;
   padding: 0;
 }
-.arrow {
+.arrow-up {
   margin: 5px 0 0 10px;
   height: 10px;
   width: 10px;
@@ -21,6 +21,16 @@
   transform: rotate(45deg);
   border-right: none;
   border-bottom: none;
+}
+
+.arrow-down {
+  margin: 0px 0 0 10px;
+  height: 10px;
+  width: 10px;
+  border: 2px solid #000;
+  transform: rotate(45deg);
+  border-left: none;
+  border-top: none;
 }
 
 .question-item {
@@ -39,6 +49,7 @@
   background-color: #7E798C;
   color: #ffffff;
   border-radius: 50%;
+  font-weight: bold;
 }
 
 .questions-board ul {

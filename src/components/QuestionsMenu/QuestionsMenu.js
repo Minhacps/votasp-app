@@ -7,7 +7,6 @@ import { answersMock, questionsMock } from './QuestionsMenuMock';
 import './QuestionsMenu.css';
 
 class QuestionsMenu extends Component {
-
   constructor(props) {
     super(props);
 
@@ -23,11 +22,11 @@ class QuestionsMenu extends Component {
   }
 
   renderListOfQuestions() {
-    const QuestionItem = (id, isAnsweredQuestion) => (
+    const QuestionItem = (id, isAnsweredQuestion, isCurrentQuestion) => (
       <li
         className={classnames(
           'question-item',
-          { 'current-question': false },
+          { 'current-question': isCurrentQuestion },
           { 'question-answered': isAnsweredQuestion },
         )}
         key={id}
@@ -36,10 +35,11 @@ class QuestionsMenu extends Component {
       </li>
     );
 
-    const questionsTable = questionsMock.map((question) => {
-      const isAnsweredQuestion = some(answersMock, { questionId: question.id });
+    const questionsTable = this.props.questionsArray.map((question) => {
+      const isAnsweredQuestion = some(this.props.answersArray, { questionId: question.id });
+      const isCurrentQuestion = this.props.currentQuestion === question.id;
 
-      return QuestionItem(question.id, isAnsweredQuestion);
+      return QuestionItem(question.id, isAnsweredQuestion, isCurrentQuestion);
     })
 
     return questionsTable;
@@ -54,19 +54,30 @@ class QuestionsMenu extends Component {
           onClick={this.toggleQuestionsBoard}
         >
           Questões
-          <div className="arrow"/>
+          <div className={classnames(
+            { 'arrow-up': this.state.isOpen },
+            { 'arrow-down': !this.state.isOpen },
+          )}/>
         </button>
 
         {this.state.isOpen &&
           <div className="questions-board">
             <ul>
               {this.renderListOfQuestions()}
+              <li className="current-question">
+              </li>
             </ul>
           </div>
         }
       </div>
     )
   }
+}
+
+QuestionsMenu.propTypes = {
+  answersArray: PropTypes.array,
+  questionsArray: PropTypes.array,
+  currentQuestion: PropTypes.number,
 }
 
 export default QuestionsMenu;
