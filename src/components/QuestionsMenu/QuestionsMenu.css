@@ -1,5 +1,5 @@
 .questions-menu {
-  padding: 15px 30px;
+  padding: 15px 20px;
   max-height: 55px;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
@@ -33,7 +33,10 @@
 }
 
 .question-item {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .question-answered::after {
@@ -41,6 +44,8 @@
   content: '';
   display: block;
   height: 3px;
+  width: 100%;
+  border-radius: 20px;
   position: relative;
 }
 
@@ -61,11 +66,13 @@
   visibility: visible;
 }
 
-.questions-board ul {
+.questions-board ol {
   padding-left: 0;
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-auto-flow: dense;
-  grid-gap: 10px 25px;
+  grid-template-columns: repeat(7, 30px);
+  grid-gap: 7px 12px;
+  grid-template-rows: repeat(6, 30px);
+  width: 285px;
+  margin: 15px auto;
 }
