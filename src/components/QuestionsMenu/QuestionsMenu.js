@@ -63,11 +63,11 @@ class QuestionsMenu extends Component {
         </button>
 
         <div className="questions-board">
-          <ul>
+          <ol>
             {this.renderListOfQuestions()}
             <li className="current-question">
             </li>
-          </ul>
+          </ol>
         </div>
       </div>
     )
