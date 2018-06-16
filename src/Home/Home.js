@@ -1,6 +1,21 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+
+import Loader from '../components/Loader/Loader';
 import WelcomeMessage from '../components/WelcomeMessage/WelcomeMessage';
 
-const Home = () => <WelcomeMessage />;
+class Home extends PureComponent {
+  render() {
+    if (this.props.auth0.isLoading) {
+      return <Loader />;
+    }
 
-export default Home;
+    return <WelcomeMessage userName={this.props.auth0.userData.name} />;
+  }
+}
+
+const mapStateToProps = state => ({
+  auth0: state.auth0
+});
+
+export default connect(mapStateToProps)(Home);
