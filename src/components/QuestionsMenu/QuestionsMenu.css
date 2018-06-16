@@ -33,6 +33,9 @@
 }
 
 .question-item {
+  flex-basis: 30px;
+  height: 30px;
+  margin: 2px 3px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,10 +72,17 @@
 .questions-board ol {
   padding-left: 0;
   list-style-type: none;
-  display: grid;
-  grid-template-columns: repeat(7, 30px);
-  grid-gap: 7px 12px;
-  grid-template-rows: repeat(6, 30px);
+  display: flex;
+  flex-wrap: wrap;
   width: 285px;
   margin: 15px auto;
+}
+
+@supports (display: grid) {
+  .questions-board ol {
+    display: grid;
+    grid-template-columns: repeat(7, 30px);
+    grid-gap: 7px 12px;
+    grid-template-rows: repeat(6, 30px);
+  }
 }
