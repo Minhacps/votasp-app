@@ -2,6 +2,8 @@ import auth0 from 'auth0-js';
 
 import env from '../env';
 import history from '../history';
+import store from '../redux/store';
+import { storeUserData } from '../redux/modules/auth0';
 
 export default class Auth {
   constructor() {
@@ -42,9 +44,13 @@ export default class Auth {
     let expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );
+
     window.localStorage.setItem('access_token', authResult.accessToken);
     window.localStorage.setItem('id_token', authResult.idToken);
     window.localStorage.setItem('expires_at', expiresAt);
+
+    this.getUserInfo();
+
     history.replace('/');
   }
 
@@ -58,5 +64,21 @@ export default class Auth {
   isAuthenticated() {
     let expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
+  }
+
+  getUserInfo() {
+    const accessToken = window.localStorage.getItem('access_token');
+
+    if (!accessToken) {
+      return;
+    }
+
+    this.auth0.client.userInfo(accessToken, (error, userData) => {
+      if (error) {
+        throw error;
+      }
+
+      store.dispatch(storeUserData(userData));
+    });
   }
 }
