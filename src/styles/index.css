@@ -5,6 +5,13 @@
   --amareloClaro: #fbdaab;
 }
 
+:focus {
+  outline-color: var(--amarelo);
+  outline-color: #feb557;
+  outline-offset: 4px;
+  outline-width: 4px;
+}
+
 * {
   box-sizing: border-box;
 }
