@@ -13,6 +13,7 @@
   height: 25px;
   padding: 0;
 }
+
 .arrow-up {
   margin: 5px 0 0 10px;
   height: 10px;
@@ -39,14 +40,14 @@
 
 .question-answered::after {
   background-color: #ffc66e;
-  content: "";
+  content: '';
   display: block;
   height: 3px;
   position: relative;
 }
 
 .current-question {
-  background-color: #7E798C;
+  background-color: #7e798c;
   color: #ffffff;
   border-radius: 50%;
   font-weight: bold;
