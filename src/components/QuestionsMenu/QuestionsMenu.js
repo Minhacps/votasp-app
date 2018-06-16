@@ -47,7 +47,10 @@ class QuestionsMenu extends Component {
 
   render() {
     return (
-      <div className="questions-menu">
+      <div className={classnames(
+        'questions-menu',
+        { 'active': this.state.isOpen },
+      )}>
         <button
           type="button"
           className="questions-button"
@@ -59,15 +62,13 @@ class QuestionsMenu extends Component {
           </svg>
         </button>
 
-        {this.state.isOpen &&
-          <div className="questions-board">
-            <ul>
-              {this.renderListOfQuestions()}
-              <li className="current-question">
-              </li>
-            </ul>
-          </div>
-        }
+        <div className="questions-board">
+          <ul>
+            {this.renderListOfQuestions()}
+            <li className="current-question">
+            </li>
+          </ul>
+        </div>
       </div>
     )
   }

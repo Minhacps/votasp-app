@@ -1,5 +1,13 @@
 .questions-menu {
   padding: 15px 30px;
+  max-height: 55px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  will-change: max-height;
+}
+
+.questions-menu.active {
+  max-height: 300px;
 }
 
 .questions-button {
@@ -41,6 +49,16 @@
   color: #ffffff;
   border-radius: 50%;
   font-weight: bold;
+}
+
+.questions-board {
+  visibility: hidden;
+  transition: visibility 0.3s ease-in-out;
+  will-change: visibility;
+}
+
+.active .questions-board {
+  visibility: visible;
 }
 
 .questions-board ul {
