@@ -16,7 +16,7 @@ export default class Auth {
       redirectUri: env.auth0.callbackUrl,
       audience: `https://${env.auth0.originalDomain}/userinfo`,
       responseType: 'token id_token',
-      scope: 'openid'
+      scope: 'openid profile'
     });
   }
 
