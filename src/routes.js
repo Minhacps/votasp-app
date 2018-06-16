@@ -7,6 +7,7 @@ import Auth0Callback from './Auth0/Auth0.callback';
 import renderAuthenticated from './Auth0/renderAuthenticated';
 
 import Home from './Home/Home';
+import Perguntas from './Perguntas/Perguntas';
 import history from './history';
 
 
@@ -19,6 +20,7 @@ export const makeMainRoutes = () => {
       <Router history={history}>
         <Switch>
           <Route exact path='/' render={(props) => renderAuthenticated(Home, props)} />
+          <Route exact path='/perguntas' render={(props) => renderAuthenticated(Perguntas, props)} />
           <Route exact path='/callback' render={(props) => <Auth0Callback auth={auth} {...props} />} />
         </Switch>
     </Router>
