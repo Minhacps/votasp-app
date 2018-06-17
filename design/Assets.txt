@@ -24,6 +24,11 @@ BG: #ccc
 Barra até o mínimo: #feb557
 Barra até o final: #c58e45
 
+ICONES
+Amarelo: #feb557
+Roxo: #57455c
+
+
 
 
 _______ ANTIGO
