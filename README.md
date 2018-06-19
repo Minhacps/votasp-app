@@ -24,3 +24,7 @@ Agradecemos por considerar contribuir com o VotaSP! Você encontra como fazê-lo
 ## Código de Conduta
 
 Para garantir que a comunidade do VotaSP seja acolhedora para todos, leia e siga o nosso [Código de Conduta](CODE_OF_CONDUCT.md).
+
+## Licença
+
+O VotaSP é um software de código aberto licenciado sob a [Licença MIT](LICENSE.md).
