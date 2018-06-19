@@ -16,3 +16,7 @@ Esse software está sendo feito de forma colaborativa por um grupo de desenvolve
 
 - `EditorConfig`: Garante que todos os nossos editores estejam com a mesma padronização de espaçamentos, etc.
 - `Prettier - Code formatter`: Mantém nosso código no padrão automaticamente, garantindo uma boa mantenabilidade.
+
+## Contribuição
+
+Agradecemos por considerar contribuir com o VotaSP! Você encontra como fazê-lo em nosso [Guia de Contribuição](CONTRIBUTING.md).
