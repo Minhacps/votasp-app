@@ -1,13 +1,16 @@
 import React from 'react';
 import './Footer.css';
 import './bootstrap.min.css';
+import logoifsp from '../../img/logo-institutosp.png';
+import logoFrontCampinas from '../../img/logo-frontcampinas.png';
+import logoMinhaCampinas from '../../img/logo-minhacampinas.png';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
         <div className="row">
-          <div className="col contato d-none d-lg-block col-lg-3 ">
+          <div className="col-12 col-sm-3 contato text-center">
             <h4 className="bold upper">Fale Conosco</h4>
             <div className="email">
               <a href="mailto:contato@minhacampinas.org.br">contato@minhacampinas.org.br</a>
@@ -16,15 +19,18 @@ const Footer = () => {
               <a href="tel:01925152252">(19) 2515-2252</a>
             </div>
           </div>
-          <div className="ajude d-flex align-items-center justify-content-center justify-content-lg-start flex-lg-column col-sm-12 col-lg-2">
+          <div className="col-12 col-sm-3 ajude text-center">
             <h4 className="bold upper">Ajude o projeto</h4>
-            <a href="https://benfeitoria.com/votasp" target="_blank" className="btn btn-primary">Contribua!</a>
+            <a href="https://www.eufaco.minhacampinas.org.br/" target="_blank" className="btn-custom btn-prim text-center">Contribua!</a>
           </div>
-          <div className="d-flex align-items-center justify-content-center justify-content-lg-start col-sm-12 col-lg-7 realizacao" />
-          <img src='../../img/logo-minhacampinas.png' alt="Logo Minha Campinas" />
-          <img src='../../img/logo-frontcampinas.png' alt="Logo Front End Campinas" />
-          <img src='../../img/logo-institutosp.png' alt="Logo do IFSP"/>
-          
+          <div className="col-12 col-sm-6 realizacao text-center">
+            <a href="http://www.minhacampinas.org.br"><img src={logoMinhaCampinas} className="img-responsive" alt="Logo Minha Campinas" />
+            </a>
+            <img src={logoFrontCampinas} className="img-responsive" alt="Logo Front End Campinas" />
+            <a href="https://cmp.ifsp.edu.br/">
+              <img src={logoifsp} className="img-responsive" alt="Logo do IFSP"/>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

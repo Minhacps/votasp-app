@@ -29,6 +29,7 @@ export const makeMainRoutes = () => {
           />
         </Switch>
       </Router>
+      <Footer />
     </React.Fragment>
   );
 };
