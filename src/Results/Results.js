@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Deputado from '../components/Deputado/Deputado';
+import ProgressBar from '../components/ProgressBar/ProgressBar';
 import './Results.scss';
 
 const candidatos = [{
@@ -37,8 +38,16 @@ class Results extends Component {
       onClickPlus={this.onClickPlus.bind(this, c)}
       onClickShare={this.onClickShare.bind(this, c)}/>);
 
+    const steps = [
+      { value: 10, label: 'min' },
+      { value: 15, label: 'max' }
+    ];
+
     return(
       <div className='container results'>
+        <div className='progress-bar'>
+          <ProgressBar steps={steps} value={11} total={15} />
+        </div>
         <div className='description'>
           <h1 className='uppercase'>Ranking</h1>
           <p>Texto explicativo sobre o ranking, falando que ele e baseado na compatibilidade com as respostas escolhidas comparadas aos candidatos cadastrados.</p>
