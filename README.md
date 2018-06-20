@@ -19,12 +19,12 @@ Esse software está sendo feito de forma colaborativa por um grupo de desenvolve
 
 ## Contribuição
 
-Agradecemos por considerar contribuir com o VotaSP! Você encontra como fazê-lo em nosso [Guia de Contribuição](CONTRIBUTING.md).
+Agradecemos por considerar contribuir com o VotaSP! Você encontra como fazê-lo em nosso [Guia de Contribuição](https://github.com/Minhacps/votasp/blob/master/CONTRIBUTING.md).
 
 ## Código de Conduta
 
-Para garantir que a comunidade do VotaSP seja acolhedora para todos, leia e siga o nosso [Código de Conduta](CODE_OF_CONDUCT.md).
+Para garantir que a comunidade do VotaSP seja acolhedora para todos, leia e siga o nosso [Código de Conduta](https://github.com/Minhacps/votasp/blob/master/CODE_OF_CONDUCT.md).
 
 ## Licença
 
-O VotaSP é um software de código aberto licenciado sob a [Licença MIT](LICENSE.md).
+O VotaSP é um software de código aberto licenciado sob a [Licença MIT](https://github.com/Minhacps/votasp/blob/master/LICENSE.md).
