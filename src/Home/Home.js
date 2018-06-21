@@ -14,8 +14,8 @@ class Home extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  auth0: state.auth0
+const mapStateToProps = ({ auth0 }) => ({
+  auth0,
 });
 
 export default connect(mapStateToProps)(Home);
