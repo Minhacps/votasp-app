@@ -38,16 +38,16 @@ class Results extends Component {
       onClickPlus={this.onClickPlus.bind(this, c)}
       onClickShare={this.onClickShare.bind(this, c)}/>);
 
-    const steps = [
-      { value: 40, label: 'MIN' },
-      { value: 100, label: 'MAX' }
+    const values = [
+      { value: 70, color: '#feb557' },
+      { value: 50, color: '#fbdaab' }
     ];
 
     return(
       <div className='container results'>
         <div className='progress-bar'>
           <h1 className='progress-bar-title'>Progresso das respostas</h1>
-          <ProgressBar steps={steps} value={50} />
+          <ProgressBar values={values} />
         </div>
         <div className='description'>
           <h1 className='uppercase'>Ranking</h1>
