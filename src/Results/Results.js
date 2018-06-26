@@ -39,14 +39,14 @@ class Results extends Component {
       onClickShare={this.onClickShare.bind(this, c)}/>);
 
     const steps = [
-      { value: 10, label: 'min' },
-      { value: 15, label: 'max' }
+      { value: 40, label: 'MIN' },
+      { value: 100, label: 'MAX' }
     ];
 
     return(
       <div className='container results'>
         <div className='progress-bar'>
-          <ProgressBar steps={steps} value={11} total={15} />
+          <ProgressBar steps={steps} value={50} />
         </div>
         <div className='description'>
           <h1 className='uppercase'>Ranking</h1>

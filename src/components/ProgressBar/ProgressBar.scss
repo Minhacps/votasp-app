@@ -3,6 +3,28 @@
 
   width: 100%;
 
+  .view-port {
+    background-color: var(--cinza);
+
+    .fill-bar {
+      stroke: var(--amarelo)
+    }
+
+    .step-point {
+      fill: white;
+      stroke: white;
+
+      &.active {
+        fill: var(--amarelo)
+      }
+    }
+
+    .step-point-label {
+      font-size: 4;
+      text-anchor: middle;
+    }
+  }
+
   .outside-bar {
     position: relative;
     background-color: white;
