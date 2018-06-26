@@ -17,25 +17,20 @@
       "\\.(css|scss|sass)$": "<rootDir>/__mocks__/styleMock.js"
     }
   },
-  "semistandard": {
-    "globals": [
-      "jest",
-      "describe",
-      "it",
-      "expect"
-    ]
-  },
   "dependencies": {
     "auth0-js": "^9.5.1",
     "classnames": "^2.2.6",
     "history": "^4.7.2",
     "parcel": "^1.8.1",
-    "react": "^16.3.2",
+    "react": "^16.4.1",
     "react-dom": "^16.3.2",
-    "react-router-dom": "^4.2.2"
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0"
   },
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-react-app": "^3.1.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",

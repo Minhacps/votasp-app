@@ -1,3 +1,38 @@
+FONTE PADRÃO
+ASAP - Regular e Bold
+
+FONTE TAMANHOS
+Títulos: 30px
+Texto Padrão: 16px
+Sub-texto: 14px ("Progresso das respostas" e informação adicional das questões)
+
+COR TEXTO
+Padrão: #333
+Sub-texto: #808080
+
+BOTÃO PADRÃO
+Ativo: #57455c e #fff (fundo, borda ou texto)
+Inativo: BG #ccc | Text: #fff
+Border-Radius: 8px
+
+INPUT TEXTO
+BG: #f2f2f2 | Border: #4d4d4d
+Border-Radius: 8px
+
+BARRA DE PROGRESSO
+BG: #ccc
+Barra até o mínimo: #feb557
+Barra até o final: #c58e45
+
+ICONES
+Amarelo: #feb557
+Roxo: #57455c
+
+
+
+
+_______ ANTIGO
+
 PAGE: LOGIN
 
 Font sizes:
@@ -40,7 +75,7 @@ Font Size
 Category Buttons title: 14px; (bold)
 Category Button numbers: 16px (normal)
 Tittle: 30px;
-Conte�do: 16px;
+Conteúdo: 16px;
 CTA Button: 16px
 
 Color Category: #a4c51c (verde) // #ffb312 (amarelo) // #f56711 (laranja) // #1aa5ad (azul) // #1853a3 (azul escuro) // #620e81 (roxo)
@@ -54,13 +89,13 @@ Font Size
 "min/fim": 8px;
 Categoria nome: 17px;
 "ir para": 10px;
-n�meros: 17px;
+números: 17px;
 pergunta e alternativas: 16px;
 
 Color
 Textos: #333333
 Progresso BG: #ccc // Texto: #333 // Barra: #f9b557
-Ir para n�meros BG: #e5e5e5 // Texto: #666
+Ir para números BG: #e5e5e5 // Texto: #666
 
 
 
@@ -68,15 +103,16 @@ PAGE: RANKING
 
 Font sizes:
 Title: 30px
-Texto Conte�do: 16px;
+Texto Conteúdo: 16px;
 Toggle Buttons: 12px;
 Info Candidato: 16px;
 Porcentagem: 14px;
 
 Color:
-Title: #333 // Texto Conte�do: #333
+Title: #333 // Texto Conteúdo: #333
 Toggle Buttons "deputado federal" BG: #808080 // Border: #4d4d4d // Text: #999
 Toggle Buttons "deputado estadual" BG: #f2f2f2 // Border: #4d4d4d // Text: #fff
 Porcentagem BG: #59455c
+
 
 
