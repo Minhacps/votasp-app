@@ -1,6 +1,17 @@
 .results {
   color: var(--pretoClaro);
 
+  .progress-bar {
+    background-color: #CCCCCC;
+    padding: 10px 20px;
+
+    .progress-bar-title {
+      text-transform: uppercase;
+      font-size: 1em;
+      text-align: center;
+    }
+  }
+
   .description {
     padding: 0px 30px;
     text-align: center;

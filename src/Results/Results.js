@@ -46,6 +46,7 @@ class Results extends Component {
     return(
       <div className='container results'>
         <div className='progress-bar'>
+          <h1 className='progress-bar-title'>Progresso das respostas</h1>
           <ProgressBar steps={steps} value={50} />
         </div>
         <div className='description'>

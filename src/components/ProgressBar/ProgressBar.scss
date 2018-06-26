@@ -4,7 +4,7 @@
   width: 100%;
 
   .view-port {
-    background-color: var(--cinza);
+    background-color: #CCCCCC;
 
     .fill-bar {
       stroke: var(--amarelo)
@@ -20,33 +20,9 @@
     }
 
     .step-point-label {
-      font-size: 4;
+      font-size: 3;
       text-anchor: middle;
-    }
-  }
-
-  .outside-bar {
-    position: relative;
-    background-color: white;
-    padding: 5px;
-    border-radius: 30px;
-
-    .inside-bar {
-      background-color: var(--amarelo);
-      min-height: var(--height);
-      content: ' ';
-      border-radius: calc(var(--height)/2);
-    }
-
-    .step {
-      --size: calc(var(--height) + 6px);
-
-      top: calc(50% - (var(--size) / 2));
-      position: absolute;
-      width: var(--size);
-      height: var(--size);
-      background-color: black;
-      border-radius: calc(var(--size)/2);
+      fill: var(--pretoClaro);
     }
   }
 }

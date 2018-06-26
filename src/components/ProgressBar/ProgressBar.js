@@ -20,7 +20,7 @@ export default props => {
   });
 
   return <div className='progress-bar-container'>
-    <svg viewBox='-6 0 112 15' className='view-port'>
+    <svg viewBox='-4 0 108 15' className='view-port'>
       <line x1='0' x2='100' y1='5' y2='5' strokeWidth='4' strokeLinecap='round' stroke='white' />
       { stepPoints }
       <line x1='0' x2={value} y1='5' y2='5' strokeWidth='2' strokeLinecap='round' className='fill-bar' />
