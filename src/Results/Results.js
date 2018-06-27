@@ -3,27 +3,6 @@ import Deputado from '../components/Deputado/Deputado';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 import './Results.scss';
 
-const candidatos = [{
-  nome: 'Nome do Candidato 1',
-  numero: 999,
-  partido: 'Nome Partido 1',
-  afinidade: 80
-}, {
-  nome: 'Nome do Candidato 2',
-  numero: 999,
-  partido: 'Nome Partido 2',
-  afinidade: 80
-}];
-
-for (let i = 0; i < 1; i++) {
-  candidatos.push({
-    nome: 'Nome do Candidato ' + i,
-    numero: 999,
-    partido: 'Nome Partido ' + i,
-    afinidade: 80
-  });
-}
-
 class Results extends Component {
   onClickShare(deputado) {
     console.log(deputado);
@@ -33,11 +12,27 @@ class Results extends Component {
     console.log(deputado);
   }
 
-  render() {
-    const deputados = candidatos.map((c, index) => <Deputado key={index} {...c}
+  renderBotaoVerMais() {
+    const { temMaisRegistros = false } = this.props;
+
+    if(temMaisRegistros) {
+      return (
+        <div className='barra-ver-mais'>
+          <button className='ver-mais'>Ver mais</button>
+        </div>
+      );
+    }
+  }
+
+  renderCandidatos() {
+    const { candidatos = [] } = this.props;
+
+    return candidatos.map((c, index) => <Deputado key={index} {...c}
       onClickPlus={this.onClickPlus.bind(this, c)}
       onClickShare={this.onClickShare.bind(this, c)}/>);
+  }
 
+  render() {
     const values = [
       { value: 70, color: '#feb557' },
       { value: 50, color: '#fbdaab' }
@@ -48,6 +43,11 @@ class Results extends Component {
         <div className='progress-bar'>
           <h1 className='progress-bar-title'>Progresso das respostas</h1>
           <ProgressBar values={values} />
+        </div>
+        <div>
+          <select id='question-list' className='question-list'>
+            <option value="">Questões</option>
+          </select>
         </div>
         <div className='description'>
           <h1 className='uppercase'>Ranking</h1>
@@ -60,12 +60,10 @@ class Results extends Component {
           </div>
 
           <div className='deputados'>
-            {deputados}
+            { this.renderCandidatos() }
           </div>
 
-          <div className='barra-ver-mais'>
-            <button className='ver-mais'>Ver mais</button>
-          </div>
+          { this.renderBotaoVerMais() }
         </div>
       </div>
     )

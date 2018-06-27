@@ -12,6 +12,17 @@
     }
   }
 
+  .question-list {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    border: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    box-shadow: 0px 5px 10px var(--cinzaClaro);
+  }
+
   .description {
     padding: 0px 30px;
     text-align: center;
