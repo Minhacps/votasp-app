@@ -74,6 +74,18 @@ export default class Auth {
       return;
     }
 
+    console.log(this.auth0);
+    this.auth0.checkSession(
+      {
+        audience: `https://minhacampinas.auth0.com/api/v2/`,
+        scope: 'read:current_user'
+      },
+      (err, result) => {
+        console.log(err);
+        console.log(result);
+      }
+    );
+
     this.auth0.client.userInfo(accessToken, (error, userData) => {
       if (error) {
         throw error;

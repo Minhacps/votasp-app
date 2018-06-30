@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Loader from '../components/Loader/Loader';
 import WelcomeMessage from '../components/WelcomeMessage/WelcomeMessage';
+import CompleteSignup from '../components/CompleteSignup/CompleteSignup';
 
 class Home extends PureComponent {
   render() {
@@ -10,12 +11,18 @@ class Home extends PureComponent {
       return <Loader />;
     }
 
-    return <WelcomeMessage userName={this.props.auth0.userData.name} />;
+    return (
+      <React.Fragment>
+        <WelcomeMessage userName={this.props.auth0.userData.name} />
+        <hr />
+        <CompleteSignup />
+      </React.Fragment>
+    );
   }
 }
 
 const mapStateToProps = ({ auth0 }) => ({
-  auth0,
+  auth0
 });
 
 export default connect(mapStateToProps)(Home);
