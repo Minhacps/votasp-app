@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import Loader from '../components/Loader/Loader';
+import PageLayout from '../components/PageLayout/PageLayout';
 import WelcomeMessage from '../components/WelcomeMessage/WelcomeMessage';
 
 class Home extends PureComponent {
@@ -10,12 +11,16 @@ class Home extends PureComponent {
       return <Loader />;
     }
 
-    return <WelcomeMessage userName={this.props.auth0.userData.name} />;
+    return (
+      <PageLayout>
+        <WelcomeMessage userName={this.props.auth0.userData.name} />
+      </PageLayout>
+    );
   }
 }
 
 const mapStateToProps = ({ auth0 }) => ({
-  auth0,
+  auth0
 });
 
 export default connect(mapStateToProps)(Home);
