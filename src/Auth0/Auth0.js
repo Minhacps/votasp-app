@@ -1,3 +1,4 @@
+import axios from 'axios';
 import auth0 from 'auth0-js';
 
 import env from '../env';
@@ -18,7 +19,7 @@ export default class Auth {
       redirectUri: env.auth0.callbackUrl,
       audience: `https://${env.auth0.originalDomain}/userinfo`,
       responseType: 'token id_token',
-      scope: 'openid profile'
+      scope: 'openid profile user_metadata'
     });
   }
 
