@@ -31,7 +31,6 @@ const Routes = () => (
             path="/login/callback"
             render={props => <Auth0Callback auth={auth} {...props} />}
           />
-
           <Route exact path='/perguntas' render={(props) => renderAuthenticated(Perguntas, props)} />
           <Route exact path='/callback' render={(props) => <Auth0Callback auth={auth} {...props} />} />
         </Switch>
