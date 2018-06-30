@@ -6,25 +6,23 @@ import WelcomeMessage from './WelcomeMessage';
 
 describe('<WelcomeMessage />', () => {
   it('should render component without props', () => {
-    const welcomeMessage = shallow((
-      <WelcomeMessage />
-    ))
+    const welcomeMessage = shallow(<WelcomeMessage userName="Foo Bar" />);
 
     expect(toJson(welcomeMessage)).toMatchSnapshot();
   });
 
   it('should accept valid regionTag', () => {
-    const welcomeMessage = shallow((
-      <WelcomeMessage regionTag='sp' />
-    ))
+    const welcomeMessage = shallow(
+      <WelcomeMessage regionTag="sp" userName="Foo Bar" />
+    );
 
     expect(toJson(welcomeMessage)).toMatchSnapshot();
   });
 
   it('should use sp if invalid regionTag', () => {
-    const welcomeMessage = shallow((
-      <WelcomeMessage regionTag='huehuehue' />
-    ))
+    const welcomeMessage = shallow(
+      <WelcomeMessage regionTag="huehuehue" userName="Foo Bar" />
+    );
 
     expect(toJson(welcomeMessage)).toMatchSnapshot();
   });
