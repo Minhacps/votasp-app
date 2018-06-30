@@ -1,12 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> should match snapshot 1`] = `
-<header
-  className="header"
->
-  <img
-    alt="Logotipo escrito Vota em branco e SP em amarelo."
-    src="test-file-stub"
-  />
-</header>
+<React.Fragment>
+  <header
+    className="header"
+  >
+    <Link
+      replace={false}
+      to="/"
+    >
+      <img
+        alt="Logotipo escrito Vota em branco e SP em amarelo."
+        className="logo"
+        src="test-file-stub"
+      />
+    </Link>
+    <nav
+      className="navigation-menu"
+    >
+      <ul
+        className="navigation-menu__list"
+      >
+        <li
+          className="navigation-menu__item"
+        >
+          <Link
+            className="navigation-menu__link"
+            replace={false}
+            to="/como-funciona"
+          >
+            Como funciona
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</React.Fragment>
 `;
