@@ -61,14 +61,15 @@ class QuestionsMenu extends Component {
             <path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/>
           </svg>
         </button>
-
-        <div className="questions-board">
-          <ol>
-            {this.renderListOfQuestions()}
-            <li className="current-question">
-            </li>
-          </ol>
-        </div>
+        {this.state.isOpen &&
+          <div className="questions-board">
+            <ol>
+              {this.renderListOfQuestions()}
+              <li className="current-question">
+              </li>
+            </ol>
+          </div>
+        }
       </div>
     )
   }
