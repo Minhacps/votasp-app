@@ -1,20 +1,23 @@
 import React from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
+import store from './redux/store';
 import Header from './components/Header/Header';
 import Auth0 from './Auth0/Auth0';
 import Auth0Callback from './Auth0/Auth0.callback';
 import renderAuthenticated from './Auth0/renderAuthenticated';
-
 import Home from './Home/Home';
 import history from './history';
 
-export const makeMainRoutes = () => {
-  const auth = new Auth0();
+const auth = new Auth0();
+auth.getUserInfo();
 
-  return (
-    <React.Fragment>
-      <Header />
+const Routes = () => (
+  <React.Fragment>
+    <Header />
+
+    <Provider store={store}>
       <Router history={history}>
         <Switch>
           <Route
@@ -29,6 +32,8 @@ export const makeMainRoutes = () => {
           />
         </Switch>
       </Router>
-    </React.Fragment>
-  );
-};
+    </Provider>
+  </React.Fragment>
+);
+
+export default Routes;

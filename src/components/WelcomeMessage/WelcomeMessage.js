@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import './WelcomeMessage.css';
 
 const regions = {
   sp: { name: 'São Paulo', projectName: 'VotaSP' }
 };
 
-const WelcomeMessage = ({ regionTag }) => {
+const WelcomeMessage = ({ regionTag, userName }) => {
   const region = regions[regionTag] || regions['sp'];
 
   return (
     <section>
       <div className="container welcome-text">
         <h2>
-          <strong>BEM-VINDO</strong>
+          <strong>Olá, {userName}</strong>
         </h2>
         <p>
           O projeto {region.projectName} nasceu com o objetivo de ajudar a

@@ -7,7 +7,8 @@ exports[`<WelcomeMessage /> should accept valid regionTag 1`] = `
   >
     <h2>
       <strong>
-        BEM-VINDO
+        Olá, 
+        Foo Bar
       </strong>
     </h2>
     <p>
@@ -39,7 +40,8 @@ exports[`<WelcomeMessage /> should render component without props 1`] = `
   >
     <h2>
       <strong>
-        BEM-VINDO
+        Olá, 
+        Foo Bar
       </strong>
     </h2>
     <p>
@@ -71,7 +73,8 @@ exports[`<WelcomeMessage /> should use sp if invalid regionTag 1`] = `
   >
     <h2>
       <strong>
-        BEM-VINDO
+        Olá, 
+        Foo Bar
       </strong>
     </h2>
     <p>
