@@ -1,4 +1,3 @@
-import axios from 'axios';
 import auth0 from 'auth0-js';
 
 import env from '../env';
