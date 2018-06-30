@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
 
 import Header from './components/Header/Header';
+import ComoFunciona from './components/ComoFunciona/ComoFunciona';
+
 import Auth0 from './Auth0/Auth0';
 import Auth0Callback from './Auth0/Auth0.callback';
 import renderAuthenticated from './Auth0/renderAuthenticated';
@@ -14,7 +16,6 @@ export const makeMainRoutes = () => {
 
   return (
     <React.Fragment>
-      <Header />
       <Router history={history}>
         <Switch>
           <Route
@@ -22,6 +23,7 @@ export const makeMainRoutes = () => {
             path="/"
             render={props => renderAuthenticated(Home, props)}
           />
+          <Route exact path="/como-funciona" component={ComoFunciona} />
           <Route
             exact
             path="/login/callback"
