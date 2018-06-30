@@ -16,8 +16,21 @@ class Home extends PureComponent {
     }
 
     return (
-      <React.Fragment>
         <WelcomeMessage userName={this.props.auth0.userData.name} />
+      </React.Fragment>
+    )
+  }
+}
+
+class Home extends PureComponent {
+  render() {
+    if (this.props.auth0.isLoading) {
+      return <Loader />;
+    }
+
+    return (
+      <React.Fragment>
+        <WelcomeMessage userName={this.props.auth0.userData.name} />;
         <QuestionsMenu answersArray={answersMock} questionsArray={questionsMock} />
       </React.Fragment>
     )
