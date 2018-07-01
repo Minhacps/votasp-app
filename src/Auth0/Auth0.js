@@ -11,9 +11,9 @@ export default class Auth {
       domain: env.auth0.domain,
       clientID: env.auth0.clientId,
       redirectUri: env.auth0.callbackUrl,
-      audience: `https://${env.auth0.originalDomain}/userinfo`,
+      audience: `https://${env.auth0.originalDomain}/api/v2/`,
       responseType: 'token id_token',
-      scope: 'openid profile user_metadata'
+      scope: 'openid profile user_metadata update:current_user_metadata'
     });
   }
 
@@ -36,7 +36,6 @@ export default class Auth {
   };
 
   setSession = authResult => {
-    console.log(authResult);
     let expiresAt = JSON.stringify(
       authResult.expiresIn * 1000 + new Date().getTime()
     );
@@ -70,17 +69,10 @@ export default class Auth {
       return;
     }
 
-    const auth0Manage = new auth0.Management({
-      domain: env.auth0.domain,
-      token: idToken
-    });
-
     this.auth0.client.userInfo(accessToken, (error, userData) => {
       if (error) {
         throw error;
       }
-
-      auth0Manage.getUser(userData.sub, console.log);
 
       store.dispatch(storeUserData(userData));
     });
