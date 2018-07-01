@@ -18,11 +18,11 @@
     }
   },
   "dependencies": {
-    "auth0-js": "^9.5.1",
-    "babel-preset-env": "^1.7.0",
+    "auth0-js": "^9.6.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-react-app": "^3.1.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react-app": "^3.1.2",
     "classnames": "^2.2.6",
     "history": "^4.7.2",
     "parcel": "^1.9.3",
@@ -36,6 +36,6 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
-    "jest": "^22.1.4"
+    "jest": "^23.2.0"
   }
 }
