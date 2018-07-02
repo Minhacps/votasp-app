@@ -36,9 +36,7 @@ export default class Auth {
   };
 
   setSession = authResult => {
-    let expiresAt = JSON.stringify(
-      authResult.expiresIn * 1000 + new Date().getTime()
-    );
+    let expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
 
     window.localStorage.setItem('access_token', authResult.accessToken);
     window.localStorage.setItem('id_token', authResult.idToken);
@@ -62,7 +60,6 @@ export default class Auth {
   };
 
   getUserInfo = () => {
-    const idToken = window.localStorage.getItem('id_token');
     const accessToken = window.localStorage.getItem('access_token');
 
     if (!accessToken) {
@@ -76,5 +73,18 @@ export default class Auth {
 
       store.dispatch(storeUserData(userData));
     });
+  };
+
+  updateUserMetadata = userMetadata => {
+    const accessToken = window.localStorage.getItem('access_token');
+
+    const auth0Manage = new auth0.Management({
+      domain: env.auth0.domain,
+      token: accessToken
+    });
+
+    const userId = store.getState().auth0.userData.sub;
+
+    auth0Manage.patchUserMetadata(userId, userMetadata);
   };
 }

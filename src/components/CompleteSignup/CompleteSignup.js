@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Auth0 from '../../Auth0/Auth0';
+
 class CompleteSignup extends Component {
   state = {
     userProfile: 'voter'
@@ -8,6 +10,14 @@ class CompleteSignup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+
+    const auth = new Auth0();
+
+    const userMetadata = {
+      userProfile: event.target.userProfile.value
+    };
+
+    auth.updateUserMetadata(userMetadata);
   };
 
   handleUserProfileChange = event => {
