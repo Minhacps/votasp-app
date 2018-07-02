@@ -12,14 +12,16 @@ import icone4 from '../../img/icone-04.svg';
 const ComoFunciona = () => {
   return (
     <PageLayout>
-      <section>
+      <section className="como-funciona">
         <div className="container">
           <div className="row">
             <div className="col">
-              <h2 className="bold upper text-center">Como Funciona</h2>
+              <h2 className="upper text-center titulo">
+                Como Funciona
+              </h2>
             </div>
           </div>
-          <div className="row">
+          <div className="row descricao">
             <h4 className="text-center">
               O projeto VotaSP nasceu com o objetivo de ajudar a população do
               estado de São Paulo a escolher os seus candidatos a deputado
@@ -27,9 +29,9 @@ const ComoFunciona = () => {
               suas campanhas.
             </h4>
           </div>
-          <div className="como-funciona">
+          <div>
             <div className="row">
-              <div className="col-6 col-lg-3">
+              <div className="col-6">
                 <figure className="passos passo1">
                   <img
                     className="icone"
@@ -41,7 +43,7 @@ const ComoFunciona = () => {
                   Você responde um questionário de (no mínimo) 21 questões.
                 </p>
               </div>
-              <div className="col-6 col-lg-3">
+              <div className="col-6">
                 <figure className="passos passo2">
                   <img
                     className="icone"
@@ -54,7 +56,7 @@ const ComoFunciona = () => {
                   cadastradas.
                 </p>
               </div>
-              <div className="col-6 col-lg-3">
+              <div className="col-6">
                 <figure className="passos passo3">
                   <img
                     className="icone"
@@ -67,7 +69,7 @@ const ComoFunciona = () => {
                   parecido com você.
                 </p>
               </div>
-              <div className="col-6 col-lg-3">
+              <div className="col-6">
                 <figure className="passos passo4">
                   <img
                     className="icone"
