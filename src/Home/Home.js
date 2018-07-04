@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Loader from '../components/Loader/Loader';
 import PageLayout from '../components/PageLayout/PageLayout';
 import WelcomeMessage from '../components/WelcomeMessage/WelcomeMessage';
-import CompleteSignup from '../components/CompleteSignup/CompleteSignup';
 import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
 import { answersMock, questionsMock } from '../components/QuestionsMenu/QuestionsMenuMock';
 
