@@ -1,0 +1,69 @@
+.complete-signup__background {
+  content: '';
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://raw.githubusercontent.com/Minhacps/votasp-app/master/design/app-mobile-page-fundo.jpg);
+  position: absolute;
+  top: 64px;
+  left: 0;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.complete-signup {
+  padding: 30px 30px 20px 30px;
+  max-width: 500px;
+  margin: 30px auto;
+  z-index: 10;
+  position: relative;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.complete-signup__header {
+  text-align: center;
+}
+
+.user-profile__title {
+  font-weight: 600;
+}
+
+.user-profile {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.user-profile-field {
+  text-align: center;
+}
+
+.user-profile-field label {
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+
+.field-wrapper label {
+  display: block;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  background-color: #fff;
+  height: 45px;
+  border-radius: 3px;
+  border: 1px solid #cbcbd1;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--amarelo);
+}
+
+.complete-signup__footer {
+  display: flex;
+  justify-content: flex-end;
+}
