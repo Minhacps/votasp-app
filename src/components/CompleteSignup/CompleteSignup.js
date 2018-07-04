@@ -42,7 +42,7 @@ class CompleteSignup extends Component {
                 checked={this.state.userProfile === 'voter'}
                 onChange={this.handleUserProfileChange}
               />
-              Eleitora ou eleitor
+              Vou votar
             </label>
           </div>
           <div>
@@ -54,7 +54,7 @@ class CompleteSignup extends Component {
                 checked={this.state.userProfile === 'candidate'}
                 onChange={this.handleUserProfileChange}
               />
-              Candidata ou candidato
+              Vou me candidatar
             </label>
           </div>
         </div>
