@@ -36,7 +36,7 @@ export default class Auth {
   };
 
   setSession = authResult => {
-    let expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
+    const expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
 
     window.localStorage.setItem('access_token', authResult.accessToken);
     window.localStorage.setItem('id_token', authResult.idToken);
@@ -55,7 +55,7 @@ export default class Auth {
   };
 
   isAuthenticated = () => {
-    let expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
+    const expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   };
 
