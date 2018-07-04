@@ -6,10 +6,7 @@ import PageLayout from '../components/PageLayout/PageLayout';
 import WelcomeMessage from '../components/WelcomeMessage/WelcomeMessage';
 import CompleteSignup from '../components/CompleteSignup/CompleteSignup';
 import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
-import {
-  answersMock,
-  questionsMock
-} from '../components/QuestionsMenu/QuestionsMenuMock';
+import { answersMock, questionsMock } from '../components/QuestionsMenu/QuestionsMenuMock';
 
 class Home extends PureComponent {
   render() {
@@ -20,12 +17,7 @@ class Home extends PureComponent {
     return (
       <PageLayout>
         <WelcomeMessage userName={this.props.auth0.userData.name} />
-        <QuestionsMenu
-          answersArray={answersMock}
-          questionsArray={questionsMock}
-        />
-        <hr />
-        <CompleteSignup />
+        <QuestionsMenu answersArray={answersMock} questionsArray={questionsMock} />
       </PageLayout>
     );
   }
