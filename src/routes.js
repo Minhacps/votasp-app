@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import Header from './components/Header/Header';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
+import CompleteSignup from './pages/CompleteSignup/CompleteSignup';
 
 import Auth0 from './Auth0/Auth0';
 import Auth0Callback from './Auth0/Auth0.callback';
@@ -19,12 +20,9 @@ const Routes = () => (
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={props => renderAuthenticated(Home, props)}
-        />
+        <Route exact path="/" render={props => renderAuthenticated(Home, props)} />
         <Route exact path="/como-funciona" component={ComoFunciona} />
+        <Route exact path="/completar-cadastro" component={CompleteSignup} />
         <Route
           exact
           path="/login/callback"
