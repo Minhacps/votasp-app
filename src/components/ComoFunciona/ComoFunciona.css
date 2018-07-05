@@ -8,26 +8,27 @@
      padding:10px;
      background-color: #57455c;
  }
- 
+
  /*
   *   PROJETO
   */
- 
+
  #projeto {
      background-color: var(--amareloClaro);
      padding: 60px 0;
      text-align: center;
-     color: var(--roxo);    
+     color: var(--roxo);
  }
- 
+
  .como-funciona .passo1::before { content: '1'; }
  .como-funciona .passo2::before { content: '2'; }
  .como-funciona .passo3::before { content: '3'; }
  .como-funciona .passo4::before { content: '4'; }
  .como-funciona .passos::before {
      display: inline-block;
-     color: var(--amareloClaro);
+     color: #fff;
      background-color: var(--roxo);
+     padding-left: 9px;
      width: 30px;
      height: 30px;
      line-height: 30px;
@@ -35,24 +36,39 @@
      font-size: 20px;
      transform: translateY(-12px);
      position: absolute;
-     left: calc(65px - 15px);
+     left: calc(60px - 15px);
  }
- 
+
  .como-funciona { margin: 20px 0; }
  .como-funciona .passos img { max-width: 60%; }
  .como-funciona .passos {
      background-color: var(--amarelo);
-     width: 130px;
-     height: 130px;
+     width: 120px;
+     height: 120px;
      margin: 20px auto 14px;
      border-radius: 50%;
      display: flex;
      justify-content: center;
      position: relative;
  }
- 
- .como-funciona p {
-     font-size: 15px;
-     line-height: 18px;
- }
- 
+
+.como-funciona p {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: bold;
+  color: var(--roxo);
+  text-align: center;
+}
+
+.como-funciona .titulo {
+  padding-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.como-funciona .descricao { padding: 0 40px 30px; }
+.como-funciona .descricao h4 {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}

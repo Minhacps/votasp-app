@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 
 import store from './redux/store';
 import Header from './components/Header/Header';
+import ComoFunciona from './components/ComoFunciona/ComoFunciona';
+
 import Auth0 from './Auth0/Auth0';
 import Auth0Callback from './Auth0/Auth0.callback';
 import renderAuthenticated from './Auth0/renderAuthenticated';
@@ -26,13 +28,13 @@ const Routes = () => (
             path="/"
             render={props => renderAuthenticated(Home, props)}
           />
+          <Route exact path="/como-funciona" component={ComoFunciona} />
           <Route
             exact
             path="/login/callback"
             render={props => <Auth0Callback auth={auth} {...props} />}
           />
           <Route exact path='/questionario' render={(props) => renderAuthenticated(Questionario, props)} />
-          <Route exact path='/callback' render={(props) => <Auth0Callback auth={auth} {...props} />} />
         </Switch>
       </Router>
     </Provider>
