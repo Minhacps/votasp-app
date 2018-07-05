@@ -8,7 +8,8 @@
     "start": "NODE_ENV=dev parcel index.html",
     "build": "parcel build index.html",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:watch:coverage": "jest --watch --coverage"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./enzyme-setup.js",
