@@ -5,10 +5,7 @@ import Loader from '../components/Loader/Loader';
 import PageLayout from '../components/PageLayout/PageLayout';
 import WelcomeMessage from '../components/WelcomeMessage/WelcomeMessage';
 import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
-import {
-  answersMock,
-  questionsMock
-} from '../components/QuestionsMenu/QuestionsMenuMock';
+import { answersMock, questionsMock } from '../components/QuestionsMenu/QuestionsMenuMock';
 
 class Home extends PureComponent {
   render() {

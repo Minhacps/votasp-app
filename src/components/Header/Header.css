@@ -1,6 +1,5 @@
 .header {
-  background-color: var(--roxoClaro);
-  background-color: #7e798c;
+  background-color: var(--roxo);
   display: flex;
   padding: 15px;
   align-items: center;

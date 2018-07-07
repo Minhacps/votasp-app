@@ -5,6 +5,7 @@ WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
 COPY package-lock.json /usr/src/app/
+COPY .babelrc /usr/src/app/
 RUN npm install --only=prod
 
 COPY src /usr/src/app/src

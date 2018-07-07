@@ -7,11 +7,18 @@ const initialState = {
 
 const auth0Reducer = (state = initialState, action) => {
   switch (action.type) {
-    case STORE_USER_DATA:
+    case STORE_USER_DATA: {
+      const rawMetaData = 'https://votasp.org.br/user_metadata';
+      const metaData = { ...action.payload[rawMetaData] };
+      const userData = { ...action.payload };
+      delete userData[rawMetaData];
+
       return {
-        userData: action.payload,
+        userData,
+        metaData,
         isLoading: false
       };
+    }
     default:
       return state;
   }
