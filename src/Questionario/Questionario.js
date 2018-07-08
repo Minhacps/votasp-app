@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import store from '../redux/store';
 import Pergunta from '../components/Pergunta/Pergunta';
+import PageLayout from '../components/PageLayout/PageLayout';
 import { storePerguntas } from '../redux/modules/perguntas';
 import { getQuestions } from '../services/questions';
 
@@ -13,9 +14,9 @@ export class RawQuestionario extends Component {
     super(props);
 
     this.state = {
-      currentQuestion: 0,
+      currentQuestion: 0
     };
-  };
+  }
 
   componentDidMount() {
     getQuestions()
@@ -35,35 +36,41 @@ export class RawQuestionario extends Component {
     }
 
     this.setState({
-      currentQuestion: currentQuestion + 1,
+      currentQuestion: currentQuestion + 1
     });
 
     // TODO: Chamar api respondendo como INDIFERENTE
-  }
+  };
 
   goToRanking = () => {
     // TODO: Navegar para pagina de ranking
-  }
+  };
 
   render() {
     const { currentQuestion } = this.state;
     const { perguntas } = this.props;
 
     return (
-      <div className="questionario__container">
-        {perguntas.length && <Pergunta pergunta={perguntas[currentQuestion]} />}
+      <PageLayout>
+        <div className="questionario__container">
+          {perguntas.length && <Pergunta pergunta={perguntas[currentQuestion]} />}
 
-        <div className="questionario__actions-container">
-          <button onClick={this.pularQuestao} className="btn btn-light">Pular</button>
-          <button onClick={this.goToRanking} disabled className="btn btn-light">Calcular afinidade</button>
+          <div className="questionario__actions-container">
+            <button onClick={this.pularQuestao} className="btn btn-light">
+              Pular
+            </button>
+            <button onClick={this.goToRanking} disabled className="btn btn-light">
+              Calcular afinidade
+            </button>
+          </div>
         </div>
-      </div>
+      </PageLayout>
     );
   }
 }
 
 const mapStateToProps = ({ perguntas }) => ({
-  perguntas,
+  perguntas
 });
 
 export default connect(mapStateToProps)(RawQuestionario);
