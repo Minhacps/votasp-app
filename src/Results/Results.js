@@ -48,7 +48,6 @@ class Results extends Component {
           <select id='question-list' className='question-list'>
             <option value="">Questões</option>
           </select>
-          <i className='fa fa-times' />
         </div>
         <div className='description'>
           <h1 className='uppercase'>Ranking</h1>

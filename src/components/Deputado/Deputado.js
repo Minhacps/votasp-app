@@ -24,8 +24,8 @@ const Deputado = ({ nome, numero, partido, afinidade,
     </div>
   </div>
   <div className='buttons'>
-    <CircleButton content='+' onClick={onClickShare} />
-    <CircleButton content='+' onClick={onClickPlus} />
+    <CircleButton content={<i className='fa fa-plus' />} onClick={onClickShare} />
+    <CircleButton content={<i className='fa fa-share-alt' />} onClick={onClickPlus} />
   </div>
 </div>
 
