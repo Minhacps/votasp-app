@@ -1,16 +1,29 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 
-class Home extends Component {
-  render () {
+import Loader from '../components/Loader/Loader';
+import PageLayout from '../components/PageLayout/PageLayout';
+import WelcomeMessage from '../components/WelcomeMessage/WelcomeMessage';
+import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
+import { answersMock, questionsMock } from '../components/QuestionsMenu/QuestionsMenuMock';
+
+class Home extends PureComponent {
+  render() {
+    if (this.props.auth0.isLoading) {
+      return <Loader />;
+    }
+
     return (
-      <div className='container'>
-        <React.Fragment>
-          <h4>Hello world!</h4>
-          <button onClick={() => this.props.auth.logout()}>Logout</button>
-        </React.Fragment>
-      </div>
+      <PageLayout>
+        <WelcomeMessage userName={this.props.auth0.userData.name} />
+        <QuestionsMenu answersArray={answersMock} questionsArray={questionsMock} />
+      </PageLayout>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = ({ auth0 }) => ({
+  auth0
+});
+
+export default connect(mapStateToProps)(Home);

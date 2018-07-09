@@ -1,3 +1,9 @@
 {
-  "presets": ["env", "react"]
+  "presets": ["env", "react"],
+  "env": {
+    "test": {
+      "presets": ["env", "react"]
+    }
+  },
+  "plugins": ["transform-object-rest-spread", "transform-class-properties"]
 }
