@@ -7,8 +7,6 @@
 }
 
 .button-group {
-  --borderRadius: 5px;
-
   display: flex;
   padding: 0px 30px;
 
@@ -18,6 +16,8 @@
     padding: 10px;
     background-color: var(--cinzaClaro);
     color: var(--cinza);
+    font-size: var(--fontSize2);
+    border: 1px solid var(--cinza);
 
     &.active {
       background-color: var(--cinza);

@@ -3,6 +3,12 @@ import Deputado from '../components/Deputado/Deputado';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 import './Results.scss';
 
+const results = [{
+  nome: 'jfida',
+  partido: 'jfidsafjidsa',
+  afinidade: 5
+}];
+
 class Results extends Component {
   onClickShare(deputado) {
     console.log(deputado);
@@ -13,7 +19,7 @@ class Results extends Component {
   }
 
   renderBotaoVerMais() {
-    const { temMaisRegistros = false } = this.props;
+    const { temMaisRegistros } = this.props;
 
     if(temMaisRegistros) {
       return (
@@ -25,11 +31,13 @@ class Results extends Component {
   }
 
   renderCandidatos() {
-    const { candidatos = [] } = this.props;
+    const { candidatos } = this.props;
 
-    return candidatos.map((c, index) => <Deputado key={index} {...c}
-      onClickPlus={this.onClickPlus.bind(this, c)}
-      onClickShare={this.onClickShare.bind(this, c)}/>);
+    return results.map((candidato, index) => (
+      <Deputado key={index} {...candidato}
+        onClickPlus={() => this.onClickPlus(this, candidato)}
+        onClickShare={() => this.onClickShare(this, candidato)}/>
+    ));
   }
 
   render() {
@@ -69,5 +77,10 @@ class Results extends Component {
     )
   }
 }
+
+Results.defaultProps = {
+  candidatos: [],
+  temMaisRegistros: true
+};
 
 export default Results;
