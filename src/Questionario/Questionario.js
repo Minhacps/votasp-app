@@ -10,13 +10,10 @@ import { getQuestions } from '../services/questions';
 import './Questionario.css';
 
 export class RawQuestionario extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      currentQuestion: 0
-    };
-  }
+  state = {
+    currentQuestion: 0
+  };
 
   componentDidMount() {
     getQuestions()
