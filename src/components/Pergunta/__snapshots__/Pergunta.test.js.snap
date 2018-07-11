@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pergunta /> should match snapshot 1`] = `
+<div
+  className="pergunta__container"
+>
+  <p
+    className="pergunta__title"
+  >
+    <span
+      className="pergunta__number"
+    >
+      1
+      . 
+    </span>
+    Legalização do aborto para todos os casos.
+  </p>
+  <div
+    className="pergunta__lista-respostas"
+  >
+    <RespostaRadioButton
+      id="discordo_plenamente"
+      key="discordo_plenamente"
+      label="Discordo plenamente"
+      value="discordo_plenamente"
+    />
+    <RespostaRadioButton
+      id="discordo"
+      key="discordo"
+      label="Discordo"
+      value="discordo"
+    />
+    <RespostaRadioButton
+      id="concordo"
+      key="concordo"
+      label="Concordo"
+      value="concordo"
+    />
+    <RespostaRadioButton
+      id="concordo_plenamente"
+      key="concordo_plenamente"
+      label="Concordo plenamente"
+      value="concordo_plenamente"
+    />
+  </div>
+</div>
+`;

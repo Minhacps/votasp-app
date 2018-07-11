@@ -23,9 +23,9 @@ exports[`<WelcomeMessage /> should accept valid regionTag 1`] = `
       </strong>
     </p>
     <Link
-      className="btn btn-primary"
+      className="btn btn-primary btn--big"
       replace={false}
-      to="/perguntas"
+      to="/questionario"
     >
       Começar
     </Link>
@@ -56,9 +56,9 @@ exports[`<WelcomeMessage /> should render component without props 1`] = `
       </strong>
     </p>
     <Link
-      className="btn btn-primary"
+      className="btn btn-primary btn--big"
       replace={false}
-      to="/perguntas"
+      to="/questionario"
     >
       Começar
     </Link>
@@ -89,9 +89,9 @@ exports[`<WelcomeMessage /> should use sp if invalid regionTag 1`] = `
       </strong>
     </p>
     <Link
-      className="btn btn-primary"
+      className="btn btn-primary btn--big"
       replace={false}
-      to="/perguntas"
+      to="/questionario"
     >
       Começar
     </Link>

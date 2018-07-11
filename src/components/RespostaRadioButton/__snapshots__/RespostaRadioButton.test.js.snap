@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RespostaRadioButton /> should match snapshot 1`] = `
+<div
+  className="resposta-radio-btn__container"
+>
+  <input
+    checked={false}
+    className="resposta-radio-btn__input"
+    id="1"
+    name="resposta-radio-btn"
+    type="radio"
+    value="bar"
+  />
+  <span
+    className="resposta-radio-btn__icon"
+  />
+  <label
+    className="resposta-radio-btn__label"
+    htmlFor="1"
+  >
+    foo
+  </label>
+</div>
+`;

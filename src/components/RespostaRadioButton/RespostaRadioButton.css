@@ -1,0 +1,43 @@
+.resposta-radio-btn__container {
+  position: relative;
+}
+
+.resposta-radio-btn__label {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 10px 8px 10px 28px;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  color: #333;
+}
+
+.resposta-radio-btn__icon {
+  position: absolute;
+  left: 10px;
+  content: '';
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 8px;
+}
+
+.resposta-radio-btn__input {
+  position: absolute;
+  opacity: 0;
+}
+
+.resposta-radio-btn__input:checked ~ .resposta-radio-btn__icon {
+  background: var(--roxo);
+  border-color: var(--roxo);
+}
+
+.resposta-radio-btn__input:checked ~ .resposta-radio-btn__label {
+  border-color: var(--roxo);
+}

@@ -1,0 +1,17 @@
+.pergunta__title {
+  margin: 0 0 20px 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.pergunta__number {
+  font-weight: bold;
+}
+
+.pergunta__lista-respostas .resposta-radio-btn__container {
+  margin-bottom: 1em;
+}
+
+.pergunta__lista-respostas .resposta-radio-btn__container:last-child {
+  margin-bottom: 0;
+}

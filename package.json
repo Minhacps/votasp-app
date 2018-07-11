@@ -8,7 +8,8 @@
     "start": "NODE_ENV=dev parcel index.html",
     "build": "parcel build index.html",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:watch:coverage": "jest --watch --coverage"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./enzyme-setup.js",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "auth0-js": "^9.6.1",
+    "axios": "^0.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",

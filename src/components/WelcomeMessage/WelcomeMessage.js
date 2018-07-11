@@ -24,7 +24,7 @@ const WelcomeMessage = ({ regionTag, userName }) => {
           <strong>É muito simples e prático!</strong>
         </p>
 
-        <Link to={`/perguntas`} className="btn btn-primary">
+        <Link to={`/questionario`} className="btn btn-primary btn--big">
           Começar
         </Link>
       </div>

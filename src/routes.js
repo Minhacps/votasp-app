@@ -11,6 +11,7 @@ import Auth0 from './Auth0/Auth0';
 import Auth0Callback from './Auth0/Auth0.callback';
 import renderAuthenticated from './Auth0/renderAuthenticated';
 import Home from './Home/Home';
+import Questionario from './Questionario/Questionario';
 import history from './history';
 
 const auth = new Auth0();
@@ -23,6 +24,11 @@ const Routes = () => (
         <Route exact path="/" render={props => renderAuthenticated(Home, props)} />
         <Route exact path="/como-funciona" component={ComoFunciona} />
         <Route exact path="/completar-cadastro" component={CompleteSignup} />
+        <Route
+          exact
+          path="/questionario"
+          render={props => renderAuthenticated(Questionario, props)}
+        />
         <Route
           exact
           path="/login/callback"
