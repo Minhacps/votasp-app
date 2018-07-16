@@ -18,18 +18,6 @@ class Results extends Component {
     console.log(deputado);
   }
 
-  renderBotaoVerMais() {
-    const { temMaisRegistros } = this.props;
-
-    if(temMaisRegistros) {
-      return (
-        <div className='barra-ver-mais'>
-          <button className='ver-mais'>Ver mais</button>
-        </div>
-      );
-    }
-  }
-
   renderCandidatos() {
     const { candidatos } = this.props;
 
@@ -41,6 +29,7 @@ class Results extends Component {
   }
 
   render() {
+    const { temMaisRegistros } = this.props;
     const values = [
       { value: 70, color: '#feb557' },
       { value: 50, color: '#fbdaab' }
@@ -71,7 +60,11 @@ class Results extends Component {
             { this.renderCandidatos() }
           </div>
 
-          { this.renderBotaoVerMais() }
+          { temMaisRegistros && (
+            <div className='barra-ver-mais'>
+              <button className='ver-mais'>Ver mais</button>
+            </div>
+          )}
         </div>
       </div>
     )
