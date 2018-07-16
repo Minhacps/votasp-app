@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Deputado from '../components/Deputado/Deputado';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
+import ProgressBarSteps from '../constants/progress-bar-steps.js';
 import './Results.scss';
 
 const results = [{
@@ -30,16 +31,12 @@ class Results extends Component {
 
   render() {
     const { temMaisRegistros } = this.props;
-    const values = [
-      { value: 70, color: '#feb557' },
-      { value: 50, color: '#fbdaab' }
-    ];
 
     return(
       <div className='container results'>
         <div className='progress-bar'>
           <h1 className='progress-bar-title'>Progresso das respostas</h1>
-          <ProgressBar values={values} />
+          <ProgressBar values={ProgressBarSteps} />
         </div>
         <div>
           <select id='question-list' className='question-list'>
