@@ -7,6 +7,7 @@
   --cinza: #949493;
   --cinzaClaro: #ecedef;
   --pretoClaro: #4b504d;
+  --buttonBorderRadius: 5px;
 }
 
 :focus {
