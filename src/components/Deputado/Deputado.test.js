@@ -14,14 +14,15 @@ const deputado = {
 
 const props = {
   onClickPlus: jest.fn(),
-  onClickShare: jest.fn()
+  onClickShare: jest.fn(),
+  ...deputado
 };
 
 describe('<Deputado />', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow((
-      <Deputado {...deputado} {...props} />
+      <Deputado {...props} />
     ));
   })
 
