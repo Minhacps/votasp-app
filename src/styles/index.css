@@ -8,6 +8,11 @@
   --cinzaClaro: #ecedef;
   --pretoClaro: #4b504d;
   --buttonBorderRadius: 5px;
+
+  --fontSize1: 10px;
+  --fontSize2: 12px;
+  --fontSize3: 14px;
+  --fontSize4: 16px;
 }
 
 :focus {
