@@ -1,10 +1,12 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+import currentEnv from './env';
+
 const firebaseSetup = () => {
   const config = {
-    apiKey: 'AIzaSyBVclKJQrkvdVhj0gL4E5idZ1t0BBhbaXs',
-    authDomain: 'vota-sp-dev.firebaseapp.com'
+    apiKey: currentEnv.firebase.apiKey,
+    authDomain: currentEnv.firebase.authDomain,
   };
 
   if (!firebase.apps.length) {

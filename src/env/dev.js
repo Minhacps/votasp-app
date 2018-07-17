@@ -6,5 +6,9 @@ export default {
     callbackUrl: 'http://localhost:1234/login/callback',
     responseType: 'token id_token',
     scope: 'openid'
+  },
+  firebase: {
+    apiKey: 'AIzaSyBVclKJQrkvdVhj0gL4E5idZ1t0BBhbaXs',
+    authDomain: 'vota-sp-dev.firebaseapp.com'
   }
 };
