@@ -4,8 +4,6 @@ import toJson from 'enzyme-to-json';
 
 import { RawQuestionario } from './Questionario';
 
-jest.mock('../services/questions');
-
 const defaultProps = {
   perguntas: [
     {
@@ -15,9 +13,9 @@ const defaultProps = {
     {
       id: 2,
       question: 'Adoção de crianças por casais do mesmo sexo.'
-    },
-  ],
-}
+    }
+  ]
+};
 
 describe('<Questionario />', () => {
   beforeEach(() => {
