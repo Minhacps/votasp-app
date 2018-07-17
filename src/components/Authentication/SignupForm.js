@@ -46,7 +46,11 @@ class SignupForm extends PureComponent {
         <div className="form-group">
           <label htmlFor="cidade">Cidade</label>
           <select name="cidade" id="cidade">
-            {cities.map(city => <option value={city}>{city}</option>)}
+            {cities.map(city => (
+              <option value={city} key={city}>
+                {city}
+              </option>
+            ))}
           </select>
         </div>
 
