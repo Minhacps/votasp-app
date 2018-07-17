@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
 
-import ComoFunciona from './components/ComoFunciona/ComoFunciona';
-
 import Home from './Home/Home';
 import Questionario from './Questionario/Questionario';
+import ComoFunciona from './components/ComoFunciona/ComoFunciona';
+import CompleteSignup from './components/CompleteSignup/CompleteSignup';
+
 import history from './history';
 
 const Routes = () => (
