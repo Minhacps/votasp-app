@@ -32,15 +32,17 @@ class Authentication extends PureComponent {
   };
 
   render() {
-    if (this.state.lookingForUser) {
+    const { lookingForUser, isUserAuthenticated, shouldShowLoginPage } = this.state;
+
+    if (lookingForUser) {
       return <Loader />;
     }
 
-    if (!this.state.isUserAuthenticated) {
+    if (!isUserAuthenticated) {
       return (
         <React.Fragment>
-          {this.state.shouldShowLoginPage && <SigninForm showLoginPage={this.showLoginPage} />}
-          {!this.state.shouldShowLoginPage && <SignupForm showLoginPage={this.showLoginPage} />}
+          {shouldShowLoginPage && <SigninForm showLoginPage={this.showLoginPage} />}
+          {!shouldShowLoginPage && <SignupForm showLoginPage={this.showLoginPage} />}
         </React.Fragment>
       );
     }
