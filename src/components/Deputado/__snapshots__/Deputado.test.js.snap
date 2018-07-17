@@ -48,11 +48,19 @@ exports[`<Deputado /> should match snapshot 1`] = `
     className="buttons"
   >
     <Component
-      content="+"
+      content={
+        <i
+          className="fa fa-plus"
+        />
+      }
       onClick={[MockFunction]}
     />
     <Component
-      content="+"
+      content={
+        <i
+          className="fa fa-share-alt"
+        />
+      }
       onClick={[MockFunction]}
     />
   </div>
