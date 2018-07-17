@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { getQuestions } from '../services/questions';
 
 import { RawQuestionario } from './Questionario';
 
@@ -48,11 +47,5 @@ describe('<Questionario />', () => {
     questionario.instance().pularQuestao();
 
     expect(questionario.state('currentQuestion')).toBe(1);
-  });
-
-  it('should call questions service to get all the questions', () => {
-    const questionario = shallow(<RawQuestionario {...defaultProps} />);
-    questionario.update();
-    expect(getQuestions).toHaveBeenCalledTimes(1);
   });
 });
