@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Auth0 from '../../Auth0/Auth0';
+import { VOTER, CANDIDATE } from '../../constants/userProfile';
 
 import './CompleteSignupForm.css';
 
 class CompleteSignupForm extends Component {
   state = {
-    userProfile: 'candidate'
+    userProfile: CANDIDATE
   };
 
   handleUserProfileChange = event => {
@@ -38,8 +39,8 @@ class CompleteSignupForm extends Component {
                   type="radio"
                   id="userProfileVoter"
                   name="userProfile"
-                  value="voter"
-                  checked={this.state.userProfile === 'voter'}
+                  value={VOTER}
+                  checked={this.state.userProfile === VOTER}
                   onChange={this.handleUserProfileChange}
                 />
                 <label htmlFor="userProfileVoter">Vou votar</label>
@@ -49,15 +50,15 @@ class CompleteSignupForm extends Component {
                   type="radio"
                   id="userProfileCandidate"
                   name="userProfile"
-                  value="candidate"
-                  checked={this.state.userProfile === 'candidate'}
+                  value={CANDIDATE}
+                  checked={this.state.userProfile === CANDIDATE}
                   onChange={this.handleUserProfileChange}
                 />
                 <label htmlFor="userProfileCandidate">Vou me candidatar</label>
               </div>
             </div>
 
-            {this.state.userProfile === 'candidate' && (
+            {this.state.userProfile === CANDIDATE && (
               <React.Fragment>
                 <div className="field-wrapper">
                   <label htmlFor="candidateType">Deputada(o)</label>
