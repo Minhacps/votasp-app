@@ -5,7 +5,7 @@ import store from '../redux/store';
 import Pergunta from '../components/Pergunta/Pergunta';
 import PageLayout from '../components/PageLayout/PageLayout';
 import { storePerguntas } from '../redux/modules/perguntas';
-import { getQuestions } from '../services/questions';
+import questoes from './questoes'
 
 import './Questionario.css';
 
@@ -16,12 +16,7 @@ export class RawQuestionario extends Component {
   };
 
   componentDidMount() {
-    getQuestions()
-      .then(response => {
-        const perguntas = response.data;
-        store.dispatch(storePerguntas(perguntas));
-      })
-      .catch(error => console.log(error));
+    store.dispatch(storePerguntas(questoes));
   }
 
   pularQuestao = () => {
