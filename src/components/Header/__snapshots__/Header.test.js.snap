@@ -32,6 +32,15 @@ exports[`<Header /> should match snapshot 1`] = `
             Como funciona
           </Link>
         </li>
+        <li
+          className="navigation-menu__item"
+        >
+          <button
+            onClick={[Function]}
+          >
+            Sair
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
