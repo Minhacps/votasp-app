@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import store from './redux/store';
 import Authentication from './components/Authentication/Authentication';
@@ -9,11 +10,13 @@ class App extends PureComponent {
   render() {
     return (
       <Provider store={store}>
-        <Authentication>
-          {({ isUserAuthenticated }) => (
-            <React.Fragment>{isUserAuthenticated && <Routes />}</React.Fragment>
-          )}
-        </Authentication>
+        <Router>
+          <Switch>
+            <Authentication>
+              {({ isUserAuthenticated }) => isUserAuthenticated && <Routes />}}
+            </Authentication>
+          </Switch>
+        </Router>
       </Provider>
     );
   }
