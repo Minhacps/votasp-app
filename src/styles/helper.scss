@@ -1,0 +1,32 @@
+.uppercase {
+  text-transform: uppercase;
+}
+
+.button-group {
+  display: flex;
+  padding: 0px 30px;
+
+  .button {
+    color: white;
+    flex-grow: 1;
+    padding: 10px;
+    background-color: var(--cinzaClaro);
+    color: var(--cinza);
+    font-size: var(--fontSize2);
+    border: 1px solid var(--cinza);
+
+    &.active {
+      background-color: var(--cinza);
+      color: var(--cinzaClaro);
+    }
+
+    &:first-child {
+      border-radius: var(--buttonBorderRadius) 0 0 var(--buttonBorderRadius);
+    }
+
+    &:last-child {
+      border-radius: 0 var(--buttonBorderRadius) var(--buttonBorderRadius) 0;
+      border-left: 0px;
+    }
+  }
+}

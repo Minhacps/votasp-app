@@ -1,0 +1,47 @@
+.deputado-list-item {
+  display: flex;
+  border-bottom: 1px solid black;
+  padding: 0px 0px;
+
+  & > div {
+    padding: 10px;
+  }
+
+  .photo img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+  }
+
+  .info {
+    flex-grow: 1;
+
+    .candidat-name {
+      font-weight: bold;
+    }
+
+    .candidat-number {
+      margin-left: 10px;
+    }
+
+    .match-percent {
+      border-radius: 40px;
+      background-color: var(--roxoClaro);
+      color: #fff;
+      padding: 1px 20px;
+      display: inline-block;
+      font-size: var(--fontSize3);
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    button {
+      background-color: var(--cinzaClaro);
+      color: var(--cinza);
+    }
+  }
+}
