@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 
+import PageLayout from '../PageLayout/PageLayout';
 import CompleteSignupForm from './CompleteSignupForm';
 
 class CompleteSignup extends PureComponent {
@@ -19,7 +20,11 @@ class CompleteSignup extends PureComponent {
   };
 
   render() {
-    return <CompleteSignupForm onSubmit={this.handleSubmit} />;
+    return (
+      <PageLayout>
+        <CompleteSignupForm onSubmit={this.handleSubmit} />
+      </PageLayout>
+    )
   }
 }
 
