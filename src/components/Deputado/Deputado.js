@@ -7,7 +7,7 @@ const noop = () => {};
 const Deputado = ({ nome, numero, partido, afinidade, onClickShare, onClickPlus }) => (
   <div className='deputado-list-item'>
     <div className='photo'>
-      <img src="http://via.placeholder.com/150x150?text=Foto" alt="" />
+      <img src="http://via.placeholder.com/150x150?text=Foto" alt={`Foto do candidato ${nome}`} />
     </div>
     <div className='info'>
       <div>
