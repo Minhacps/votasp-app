@@ -10,14 +10,15 @@
   width: 130px;
 }
 
-.navigation-menu__list {
-  list-style: none;
+.navigation-menu {
   display: flex;
-  margin: 0;
-  padding: 0;
 }
 
 .navigation-menu__link {
+  background: none;
+  border: none;
+  padding: 0 5px;
+  cursor: pointer;
   text-decoration: none;
   color: #fff;
   display: block;
@@ -31,6 +32,7 @@
 .navigation-menu__link::before {
   position: absolute;
   bottom: -2px;
+  left: 0;
   height: 2px;
   width: 100%;
   content: '';
