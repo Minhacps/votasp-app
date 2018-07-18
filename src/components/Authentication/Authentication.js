@@ -26,11 +26,15 @@ class Authentication extends PureComponent {
 
       this.setState({ isUserAuthenticated: true });
 
-      firebase.firestore().collection('users').doc(user.uid).get()
-      .then(snapshot => snapshot.data())
-      .then(userData => {
-        this.setState({ userData });
-      });
+      firebase
+        .firestore()
+        .collection('users')
+        .doc(user.uid)
+        .get()
+        .then(snapshot => snapshot.data())
+        .then(userData => {
+          this.setState({ userData });
+        });
     });
   };
 
@@ -58,7 +62,7 @@ class Authentication extends PureComponent {
     }
 
     if (isUserAuthenticated && !incompleteProfile) {
-      return <CompleteSignup />
+      return <CompleteSignup />;
     }
 
     return this.props.children({ ...this.state });

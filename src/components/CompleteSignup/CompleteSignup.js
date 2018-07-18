@@ -24,7 +24,7 @@ class CompleteSignup extends PureComponent {
       <PageLayout>
         <CompleteSignupForm onSubmit={this.handleSubmit} />
       </PageLayout>
-    )
+    );
   }
 }
 

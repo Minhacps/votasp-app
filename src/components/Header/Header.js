@@ -25,9 +25,7 @@ const Header = () => (
             </Link>
           </li>
           <li className="navigation-menu__item">
-            <button onClick={() => firebase.auth().signOut()}>
-              Sair
-            </button>
+            <button onClick={() => firebase.auth().signOut()}>Sair</button>
           </li>
         </ul>
       </nav>

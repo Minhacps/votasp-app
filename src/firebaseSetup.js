@@ -8,7 +8,7 @@ const firebaseSetup = () => {
   const config = {
     apiKey: currentEnv.firebase.apiKey,
     authDomain: currentEnv.firebase.authDomain,
-    projectId: currentEnv.firebase.projectId,
+    projectId: currentEnv.firebase.projectId
   };
 
   if (!firebase.apps.length) {

@@ -11,17 +11,21 @@ class SignupForm extends PureComponent {
       email: event.target.email.value,
       password: event.target.password.value,
       name: event.target.name.value,
-      city: event.target.city.value,
+      city: event.target.city.value
     };
 
     firebase
       .auth()
       .createUserWithEmailAndPassword(values.email, values.password)
-      .then((response) => {
-        firebase.firestore().collection('users').doc(response.user.uid).set({
-          name: values.name,
-          city: values.city,
-        });
+      .then(response => {
+        firebase
+          .firestore()
+          .collection('users')
+          .doc(response.user.uid)
+          .set({
+            name: values.name,
+            city: values.city
+          });
       })
       .catch(console.error);
   };
