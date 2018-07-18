@@ -18,16 +18,12 @@ const Header = () => (
       </Link>
 
       <nav className="navigation-menu">
-        <ul className="navigation-menu__list">
-          <li className="navigation-menu__item">
-            <Link to="/como-funciona" className="navigation-menu__link">
-              Como funciona
-            </Link>
-          </li>
-          <li className="navigation-menu__item">
-            <button onClick={() => firebase.auth().signOut()}>Sair</button>
-          </li>
-        </ul>
+        <Link to="/como-funciona" className="navigation-menu__link">
+          Como funciona
+        </Link>
+        <button className="navigation-menu__link" onClick={() => firebase.auth().signOut()}>
+          Sair
+        </button>
       </nav>
     </header>
   </React.Fragment>
