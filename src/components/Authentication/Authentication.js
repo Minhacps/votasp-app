@@ -46,7 +46,7 @@ class Authentication extends PureComponent {
 
   render() {
     const { lookingForUser, isUserAuthenticated, shouldShowLoginPage, userData } = this.state;
-    const incompleteProfile = userData && (userData.role === VOTER || userData.role === CANDIDATE);
+    const isIncompleteProfile = userData && (userData.role === VOTER || userData.role === CANDIDATE);
 
     if (lookingForUser) {
       return <Loader />;
@@ -61,7 +61,7 @@ class Authentication extends PureComponent {
       );
     }
 
-    if (isUserAuthenticated && !incompleteProfile) {
+    if (isUserAuthenticated && !isIncompleteProfile) {
       return <CompleteSignup />;
     }
 
