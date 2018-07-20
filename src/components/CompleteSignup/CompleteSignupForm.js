@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import Auth0 from '../../Auth0/Auth0';
-import { VOTER, CANDIDATE } from '../../constants/userProfile';
+import { VOTER, CANDIDATE } from '../../constants/userRoles';
 
 import './CompleteSignupForm.css';
 
@@ -20,6 +18,9 @@ class CompleteSignupForm extends Component {
   };
 
   render() {
+    // TODO atualizar atributo userProfile para role
+    // TODO atualizar atributo candidateType para level
+
     return (
       <React.Fragment>
         <div className="complete-signup__background" />

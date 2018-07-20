@@ -7,13 +7,27 @@ class SignupForm extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
 
-    const email = event.target.email.value;
-    const password = event.target.password.value;
+    const values = {
+      email: event.target.email.value,
+      password: event.target.password.value,
+      name: event.target.name.value,
+      city: event.target.city.value
+    };
 
     firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .catch(console.log);
+      .createUserWithEmailAndPassword(values.email, values.password)
+      .then(response => {
+        firebase
+          .firestore()
+          .collection('users')
+          .doc(response.user.uid)
+          .set({
+            name: values.name,
+            city: values.city
+          });
+      })
+      .catch(console.error);
   };
 
   render() {
@@ -44,8 +58,8 @@ class SignupForm extends PureComponent {
         </div>
 
         <div className="form-group">
-          <label htmlFor="cidade">Cidade</label>
-          <select name="cidade" id="cidade">
+          <label htmlFor="city">Cidade</label>
+          <select name="city" id="city">
             {cities.map(city => (
               <option value={city} key={city}>
                 {city}

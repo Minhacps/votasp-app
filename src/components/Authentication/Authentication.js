@@ -3,6 +3,8 @@ import firebase from 'firebase/app';
 
 import SigninForm from './SigninForm';
 import SignupForm from './SignupForm';
+import { VOTER, CANDIDATE } from '../../constants/userRoles';
+import CompleteSignup from '../CompleteSignup/CompleteSignup';
 
 import Loader from '../Loader/Loader';
 
@@ -18,10 +20,21 @@ class Authentication extends PureComponent {
       this.setState({ lookingForUser: false });
 
       if (!user) {
+        this.setState({ isUserAuthenticated: false });
         return;
       }
 
       this.setState({ isUserAuthenticated: true });
+
+      firebase
+        .firestore()
+        .collection('users')
+        .doc(user.uid)
+        .get()
+        .then(snapshot => snapshot.data())
+        .then(userData => {
+          this.setState({ userData });
+        });
     });
   };
 
@@ -32,7 +45,8 @@ class Authentication extends PureComponent {
   };
 
   render() {
-    const { lookingForUser, isUserAuthenticated, shouldShowLoginPage } = this.state;
+    const { lookingForUser, isUserAuthenticated, shouldShowLoginPage, userData } = this.state;
+    const isIncompleteProfile = userData && (userData.role === VOTER || userData.role === CANDIDATE);
 
     if (lookingForUser) {
       return <Loader />;
@@ -45,6 +59,10 @@ class Authentication extends PureComponent {
           {!shouldShowLoginPage && <SignupForm showLoginPage={this.showLoginPage} />}
         </React.Fragment>
       );
+    }
+
+    if (isUserAuthenticated && !isIncompleteProfile) {
+      return <CompleteSignup />;
     }
 
     return this.props.children({ ...this.state });

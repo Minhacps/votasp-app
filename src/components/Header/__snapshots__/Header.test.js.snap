@@ -18,21 +18,19 @@ exports[`<Header /> should match snapshot 1`] = `
     <nav
       className="navigation-menu"
     >
-      <ul
-        className="navigation-menu__list"
+      <Link
+        className="navigation-menu__link"
+        replace={false}
+        to="/como-funciona"
       >
-        <li
-          className="navigation-menu__item"
-        >
-          <Link
-            className="navigation-menu__link"
-            replace={false}
-            to="/como-funciona"
-          >
-            Como funciona
-          </Link>
-        </li>
-      </ul>
+        Como funciona
+      </Link>
+      <button
+        className="navigation-menu__link"
+        onClick={[Function]}
+      >
+        Sair
+      </button>
     </nav>
   </header>
 </React.Fragment>
