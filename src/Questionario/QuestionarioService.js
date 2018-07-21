@@ -8,3 +8,12 @@ export const saveAnswer = (answer) => {
     .doc(userId)
     .set(answer, { merge: true });
 }
+
+export const watchAnswers = () => {
+  const userId = firebase.auth().currentUser.uid;
+  return firebase
+    .firestore()
+    .collection('answers')
+    .doc(userId);
+}
+
