@@ -11,17 +11,22 @@ class CompleteSignup extends PureComponent {
     event.preventDefault();
 
     const userData = this.formatUserData(event.target);
-    const userId = firebase.auth().currentUser.uid;
+    const currentUser = firebase.auth().currentUser;
+
     firebase
       .firestore()
       .collection('users')
-      .doc(userId)
-      .update(userData);
+      .doc(currentUser.uid)
+      .update({ ...userData, email: currentUser.email });
   };
 
   formatUserData = fields => {
+    const { city, name } = this.props.userData;
+
     const userMetadata = {
-      role: fields.role.value
+      role: fields.role.value,
+      city: city || fields.city.value,
+      name: name || fields.name.value
     };
 
     if (userMetadata.role === VOTER) {
@@ -32,8 +37,7 @@ class CompleteSignup extends PureComponent {
       level: fields.level.value,
       cnpj: fields.cnpj.value,
       number: fields.number.value,
-      politicalParty: fields.politicalParty.value,
-      picture: fields.picture.value
+      politicalParty: fields.politicalParty.value
     };
 
     return {
@@ -45,7 +49,7 @@ class CompleteSignup extends PureComponent {
   render() {
     return (
       <PageLayout>
-        <CompleteSignupForm onSubmit={this.handleSubmit} />
+        <CompleteSignupForm onSubmit={this.handleSubmit} userData={this.props.userData} />
       </PageLayout>
     );
   }
