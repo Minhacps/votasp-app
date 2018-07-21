@@ -57,27 +57,25 @@ class CompleteSignupForm extends Component {
               </div>
             </div>
 
-            {this.props.userData &&
-              !this.props.userData.city && (
-                <div className="field-wrapper">
-                  <label htmlFor="city">Cidade</label>
-                  <select id="city" name="city" className="input">
-                    {cities.map(city => (
-                      <option value={city} key={city}>
-                        {city}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
+            {(!this.props.userData || !this.props.userData.city) && (
+              <div className="field-wrapper">
+                <label htmlFor="city">Cidade</label>
+                <select id="city" name="city" className="input">
+                  {cities.map(city => (
+                    <option value={city} key={city}>
+                      {city}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
-            {this.props.userData &&
-              !this.props.userData.name && (
-                <div className="field-wrapper">
-                  <label htmlFor="name">Nome</label>
-                  <input type="text" id="name" name="name" className="input" required />
-                </div>
-              )}
+            {(!this.props.userData || !this.props.userData.name) && (
+              <div className="field-wrapper">
+                <label htmlFor="name">Nome</label>
+                <input type="text" id="name" name="name" className="input" required />
+              </div>
+            )}
 
             {this.state.role === CANDIDATE && (
               <React.Fragment>

@@ -17,11 +17,11 @@ class CompleteSignup extends PureComponent {
       .firestore()
       .collection('users')
       .doc(currentUser.uid)
-      .update({ ...userData, email: currentUser.email });
+      .set({ ...userData, email: currentUser.email });
   };
 
   formatUserData = fields => {
-    const { city, name } = this.props.userData;
+    const { city, name } = this.props.userData || {};
 
     const userMetadata = {
       role: fields.role.value,
