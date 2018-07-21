@@ -68,3 +68,8 @@
   color: #5c666f;
   border-color: #5c666f;
 }
+
+.authentication__separator {
+  text-align: center;
+  margin: 15px 0;
+}
