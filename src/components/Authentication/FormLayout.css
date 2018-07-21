@@ -1,0 +1,70 @@
+.authentication__form-layout {
+  width: 100vw;
+  height: 100vh;
+}
+
+.authentication__form-layout .complete-signup__background {
+  top: 0;
+}
+
+.authentication__form-layout form {
+  margin: 0;
+}
+
+.authentication__form-wrapper {
+  padding-top: 64px;
+  max-width: 280px;
+  margin: auto;
+  z-index: 10;
+  position: relative;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.authentication__form-header {
+  background-color: var(--roxo);
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.authentication__form-content {
+  padding: 0 20px;
+}
+
+.authentication__submit-button {
+  background-color: var(--roxo);
+  width: 100%;
+  border: none;
+  padding: 15px;
+  color: #fff;
+  font-weight: 400;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.authentication__tab-buttons {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.authentication__tab-button {
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(92, 102, 111, 0.6);
+  color: rgba(92, 102, 111, 0.6);
+  padding: 10px;
+}
+
+.authentication__tab-button--active {
+  color: #5c666f;
+  border-color: #5c666f;
+}
