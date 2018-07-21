@@ -1,7 +1,7 @@
 .questionario__container {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 63px);
+  height: calc(100% - 135px);
   padding: 20px;
 }
 
