@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import store from '../redux/store';
 import Pergunta from '../components/Pergunta/Pergunta';
 import PageLayout from '../components/PageLayout/PageLayout';
+import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
 import { storePerguntas } from '../redux/modules/perguntas';
 import { storeQuestionario } from '../redux/modules/questionario';
 import { RESPOSTAS } from '../constants/respostas';
