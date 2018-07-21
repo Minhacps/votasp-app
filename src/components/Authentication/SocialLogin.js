@@ -18,6 +18,7 @@ const buttonStyle = {
 export default class SocialLogin extends Component {
   loginWithFacebook = () => {
     const provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('email');
 
     this.signInWithPopup(provider);
   };
