@@ -10,7 +10,7 @@ import questoes from './questoes'
 import store from '../redux/store';
 import { INDIFERENTE } from '../constants/respostas';
 import { RESPOSTAS } from '../constants/respostas';
-import { saveAnswer } from './QuestionarioService';
+import { saveAnswer, watchAnswers } from './QuestionarioService';
 import { storePerguntas } from '../redux/modules/perguntas';
 import { storeQuestionario } from '../redux/modules/questionario';
 
@@ -20,10 +20,19 @@ export class RawQuestionario extends Component {
 
   state = {
     isAnswering: false,
+    userAnswers: {},
   };
 
   componentDidMount() {
     store.dispatch(storePerguntas(questoes));
+
+    watchAnswers()
+      .onSnapshot(snapshot => {
+        const userAnswers = snapshot.data();
+        this.setState({
+          userAnswers,
+        });
+      });
   }
 
   pularQuestao = () => {
@@ -68,14 +77,14 @@ export class RawQuestionario extends Component {
   };
 
   render() {
-    const { isAnswering } = this.state;
+    const { isAnswering, userAnswers } = this.state;
     const { perguntas, questionario } = this.props;
     const { currentQuestion } = questionario;
 
     return (
       <PageLayout>
         <QuestionsMenu
-          answersArray={RESPOSTAS}
+          userAnswers={userAnswers}
           questionsArray={questoes}
           currentQuestion={currentQuestion}
         />

@@ -29,8 +29,16 @@ class QuestionsMenu extends Component {
   }
 
   renderListOfQuestions() {
-    const QuestionItem = (id, isAnsweredQuestion, isCurrentQuestion) => (
-      <li
+    const { userAnswers } = this.props;
+
+    const QuestionItem = (id, isCurrentQuestion) => {
+      const isAnsweredQuestion = Object
+        .keys(userAnswers)
+        .some(answer => {
+          return answer == id;
+        });
+
+      return (<li
         className={classnames(
           'question-item',
           { 'current-question': isCurrentQuestion },
@@ -45,14 +53,13 @@ class QuestionsMenu extends Component {
         >
           {id}
         </button>
-      </li>
-    );
+      </li>)
+    }
 
     const questionsTable = this.props.questionsArray.map((question) => {
-      const isAnsweredQuestion = some(this.props.answersArray, { questionId: question.id });
       const isCurrentQuestion = this.props.currentQuestion + 1 === question.id;
 
-      return QuestionItem(question.id, isAnsweredQuestion, isCurrentQuestion);
+      return QuestionItem(question.id, isCurrentQuestion);
     })
 
     return questionsTable;
@@ -71,7 +78,7 @@ class QuestionsMenu extends Component {
         >
           Questões
           <svg className="arrow" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
-            <path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/>
+            <path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" />
           </svg>
         </button>
         {this.state.isOpen &&
@@ -89,7 +96,7 @@ class QuestionsMenu extends Component {
 }
 
 QuestionsMenu.propTypes = {
-  answersArray: PropTypes.array,
+  userAnswers: PropTypes.object,
   questionsArray: PropTypes.array,
   currentQuestion: PropTypes.number,
 }
