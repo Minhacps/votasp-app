@@ -4,18 +4,20 @@ import { connect } from 'react-redux';
 
 import PageLayout from '../components/PageLayout/PageLayout';
 import Pergunta from '../components/Pergunta/Pergunta';
-import { saveAnswer } from './QuestionarioService';
+import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
 import questoes from './questoes'
 import store from '../redux/store';
 import { INDIFERENTE } from '../constants/respostas';
+import { RESPOSTAS } from '../constants/respostas';
+import { saveAnswer } from './QuestionarioService';
 import { storePerguntas } from '../redux/modules/perguntas';
+import { storeQuestionario } from '../redux/modules/questionario';
 
 import './Questionario.css';
 
 export class RawQuestionario extends Component {
 
   state = {
-    currentQuestion: 0,
     isAnswering: false,
   };
 
@@ -40,8 +42,8 @@ export class RawQuestionario extends Component {
   };
 
   saveAnswer = (answerValue) => {
-    const { currentQuestion } = this.state;
-    const questionId = currentQuestion + 1;
+    const { questionario } = this.props;
+    const questionId = questionario.currentQuestion + 1;
     const answer = {
       [questionId]: answerValue,
     };
@@ -54,25 +56,36 @@ export class RawQuestionario extends Component {
   }
 
   proximaQuestao = () => {
-    const { currentQuestion } = this.state;
-    const { perguntas } = this.props;
+    const { perguntas, questionario } = this.props;
 
-    if (currentQuestion === perguntas.length - 1) {
+    if (questionario.currentQuestion === perguntas.length - 1) {
       return;
     }
+    store.dispatch(storeQuestionario({
+      currentQuestion: questionario.currentQuestion + 1
+    }));
 
     this.setState({
-      currentQuestion: currentQuestion + 1,
       isAnswering: false,
     });
-  }
+  };
+
+  goToRanking = () => {
+    // TODO: Navegar para pagina de ranking
+  };
 
   render() {
-    const { currentQuestion, isAnswering } = this.state;
-    const { perguntas } = this.props;
+    const { isAnswering } = this.state;
+    const { perguntas, questionario } = this.props;
+    const { currentQuestion } = questionario;
 
     return (
       <PageLayout>
+        <QuestionsMenu
+          answersArray={RESPOSTAS}
+          questionsArray={questoes}
+          currentQuestion={currentQuestion}
+        />
         <div className={classnames(
           'questionario__container',
           { 'questionario__container--loading': isAnswering }
@@ -107,8 +120,9 @@ export class RawQuestionario extends Component {
   }
 }
 
-const mapStateToProps = ({ perguntas }) => ({
-  perguntas
+const mapStateToProps = ({ perguntas, questionario }) => ({
+  perguntas,
+  questionario,
 });
 
 export default connect(mapStateToProps)(RawQuestionario);

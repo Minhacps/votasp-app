@@ -6,6 +6,11 @@
   will-change: max-height;
 }
 
+.question-item-button {
+  background: none;
+  border: none;
+}
+
 .questions-menu.active {
   max-height: 300px;
 }
@@ -63,7 +68,7 @@
   position: relative;
 }
 
-.current-question a {
+.current-question button {
   background-color: #7e798c;
   color: #ffffff;
   border-radius: 50%;
