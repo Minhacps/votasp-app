@@ -21,15 +21,17 @@ class SignupForm extends PureComponent {
     firebase
       .auth()
       .createUserWithEmailAndPassword(values.email, values.password)
-      .then(response => {
-        firebase
+      .then(async ({ user }) => {
+        await firebase
           .firestore()
           .collection('users')
-          .doc(response.user.uid)
+          .doc(user.uid)
           .set({
             name: values.name,
+            email: values.email,
             city: values.city
           });
+        await user.updateProfile({ displayName: values.name });
       })
       .catch(console.error);
   };
@@ -38,7 +40,7 @@ class SignupForm extends PureComponent {
     return (
       <FormLayout showLoginPage={this.props.showLoginPage} activeTab="signup">
         <form onSubmit={this.handleSubmit}>
-          <div className="form-content">
+          <div className="authentication__form-content">
             <div className="field-wrapper">
               <label htmlFor="name">Nome</label>
               <input type="text" className="input" name="name" id="name" />
