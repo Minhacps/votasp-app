@@ -5,31 +5,27 @@ import store from '../redux/store';
 import Pergunta from '../components/Pergunta/Pergunta';
 import PageLayout from '../components/PageLayout/PageLayout';
 import { storePerguntas } from '../redux/modules/perguntas';
+import { storeQuestionario } from '../redux/modules/questionario';
+import { RESPOSTAS } from '../constants/respostas';
 import questoes from './questoes'
 
 import './Questionario.css';
 
 export class RawQuestionario extends Component {
-
-  state = {
-    currentQuestion: 0
-  };
-
   componentDidMount() {
     store.dispatch(storePerguntas(questoes));
   }
 
   pularQuestao = () => {
-    const { currentQuestion } = this.state;
-    const { perguntas } = this.props;
+    const { perguntas, questionario } = this.props;
 
-    if (currentQuestion === perguntas.length - 1) {
+    if (questionario.currentQuestion === perguntas.length - 1) {
       return;
     }
 
-    this.setState({
-      currentQuestion: currentQuestion + 1
-    });
+    store.dispatch(storeQuestionario({
+      currentQuestion: questionario.currentQuestion + 1
+    }));
 
     // TODO: Chamar api respondendo como INDIFERENTE
   };
@@ -39,13 +35,13 @@ export class RawQuestionario extends Component {
   };
 
   render() {
-    const { currentQuestion } = this.state;
-    const { perguntas } = this.props;
+    const { perguntas, questionario } = this.props;
 
     return (
       <PageLayout>
+        <QuestionsMenu answersArray={RESPOSTAS} questionsArray={questoes} />
         <div className="questionario__container">
-          {perguntas.length && <Pergunta pergunta={perguntas[currentQuestion]} />}
+          {perguntas.length && <Pergunta pergunta={perguntas[questionario.currentQuestion]} />}
 
           <div className="questionario__actions-container">
             <button onClick={this.pularQuestao} className="btn btn-light">
@@ -61,8 +57,9 @@ export class RawQuestionario extends Component {
   }
 }
 
-const mapStateToProps = ({ perguntas }) => ({
-  perguntas
+const mapStateToProps = ({ perguntas, questionario }) => ({
+  perguntas,
+  questionario,
 });
 
 export default connect(mapStateToProps)(RawQuestionario);
