@@ -6,5 +6,6 @@ import questionario from './modules/questionario';
 
 export default combineReducers({
   auth0,
+  perguntas,
   questionario,
 });

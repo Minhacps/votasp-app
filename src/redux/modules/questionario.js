@@ -1,6 +1,8 @@
 const STORE_QUESTIONARIO = 'votaSp/questionario/STORE_QUESTIONARIO';
 
-const initialState = [];
+const initialState = {
+  currentQuestion: 0
+};
 
 const questionarioReducer = (state = initialState, action) => {
   switch (action.type) {
