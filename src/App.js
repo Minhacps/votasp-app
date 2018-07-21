@@ -13,7 +13,7 @@ class App extends PureComponent {
         <Router>
           <Switch>
             <Authentication>
-              {({ isUserAuthenticated }) => isUserAuthenticated && <Routes />}}
+              {({ isUserAuthenticated }) => isUserAuthenticated && <Routes />}
             </Authentication>
           </Switch>
         </Router>
