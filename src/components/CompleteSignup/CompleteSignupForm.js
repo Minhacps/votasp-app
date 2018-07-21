@@ -118,6 +118,11 @@ class CompleteSignupForm extends Component {
                     <option value="SD">SD - SOLIDARIEDADE</option>
                   </select>
                 </div>
+
+                <div className="field-wrapper">
+                  <label htmlFor="picture">Foto</label>
+                  <input type="text" id="picture" name="picture" className="input" />
+                </div>
               </React.Fragment>
             )}
 

@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   background-image: url(https://raw.githubusercontent.com/Minhacps/votasp-app/master/design/app-mobile-page-fundo.jpg);
+  background-size: contain;
   position: absolute;
   top: 64px;
   left: 0;
