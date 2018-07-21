@@ -81,6 +81,8 @@ export class RawQuestionario extends Component {
     const { perguntas, questionario } = this.props;
     const { currentQuestion } = questionario;
 
+    const userAnswer = userAnswers ? userAnswers[currentQuestion + 1] : undefined;
+
     return (
       <PageLayout>
         <QuestionsMenu
@@ -97,6 +99,7 @@ export class RawQuestionario extends Component {
               pergunta={perguntas[currentQuestion]}
               responderQuestao={this.responderQuestao}
               isAnswering={isAnswering}
+              userAnswer={userAnswer}
             />
           }
 

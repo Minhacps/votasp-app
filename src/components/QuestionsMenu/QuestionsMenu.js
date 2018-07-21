@@ -33,11 +33,11 @@ class QuestionsMenu extends Component {
     const { userAnswers } = this.props;
 
     const QuestionItem = (id, isCurrentQuestion) => {
-      const isAnsweredQuestion = Object
+      const isAnsweredQuestion = userAnswers ? Object
         .keys(userAnswers)
         .some(answer => {
           return answer == id;
-        });
+        }) : false;
 
       return (<li
         className={classnames(

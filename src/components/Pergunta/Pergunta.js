@@ -4,7 +4,7 @@ import RespostaRadioButton from '../RespostaRadioButton/RespostaRadioButton';
 
 import './Pergunta.css';
 
-const Pergunta = ({ pergunta, responderQuestao, isAnswering }) => {
+const Pergunta = ({ pergunta, responderQuestao, isAnswering, userAnswer }) => {
   return (
     <div className="pergunta__container">
       <p className="pergunta__title">
@@ -21,6 +21,7 @@ const Pergunta = ({ pergunta, responderQuestao, isAnswering }) => {
             htmlFor={`${pergunta.id}_${index}`}
             onClick={responderQuestao}
             disabled={isAnswering}
+            checked={userAnswer == resposta.value}
           />
         ))}
       </div>
