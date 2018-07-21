@@ -17,23 +17,18 @@ class Authentication extends PureComponent {
 
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({ lookingForUser: false });
-
       if (!user) {
-        this.setState({ isUserAuthenticated: false });
+        this.setState({ isUserAuthenticated: false, lookingForUser: false });
         return;
       }
-
-      this.setState({ isUserAuthenticated: true });
 
       firebase
         .firestore()
         .collection('users')
         .doc(user.uid)
-        .get()
-        .then(snapshot => snapshot.data())
-        .then(userData => {
-          this.setState({ userData });
+        .onSnapshot(snapshot => {
+          const userData = snapshot.data();
+          this.setState({ userData, isUserAuthenticated: true, lookingForUser: false });
         });
     });
   };
@@ -46,7 +41,8 @@ class Authentication extends PureComponent {
 
   render() {
     const { lookingForUser, isUserAuthenticated, shouldShowLoginPage, userData } = this.state;
-    const isIncompleteProfile = userData && (userData.role === VOTER || userData.role === CANDIDATE);
+    const isIncompleteProfile =
+      userData && (userData.role === VOTER || userData.role === CANDIDATE);
 
     if (lookingForUser) {
       return <Loader />;
