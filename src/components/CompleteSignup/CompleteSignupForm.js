@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import Auth0 from '../../Auth0/Auth0';
-import { VOTER, CANDIDATE } from '../../constants/userProfile';
+import { VOTER, CANDIDATE } from '../../constants/userRoles';
 
 import './CompleteSignupForm.css';
 
 class CompleteSignupForm extends Component {
   state = {
-    userProfile: CANDIDATE
+    role: CANDIDATE
   };
 
-  handleUserProfileChange = event => {
+  handleUserRoleChange = event => {
     const { value } = event.target;
 
     this.setState({
-      userProfile: value
+      role: value
     });
   };
 
@@ -37,57 +35,45 @@ class CompleteSignupForm extends Component {
               <div className="user-profile-field">
                 <input
                   type="radio"
-                  id="userProfileVoter"
-                  name="userProfile"
+                  id="roleVoter"
+                  name="role"
                   value={VOTER}
-                  checked={this.state.userProfile === VOTER}
-                  onChange={this.handleUserProfileChange}
+                  checked={this.state.role === VOTER}
+                  onChange={this.handleUserRoleChange}
                 />
-                <label htmlFor="userProfileVoter">Vou votar</label>
+                <label htmlFor="roleVoter">Vou votar</label>
               </div>
               <div className="user-profile-field">
                 <input
                   type="radio"
-                  id="userProfileCandidate"
-                  name="userProfile"
+                  id="roleCandidate"
+                  name="role"
                   value={CANDIDATE}
-                  checked={this.state.userProfile === CANDIDATE}
-                  onChange={this.handleUserProfileChange}
+                  checked={this.state.role === CANDIDATE}
+                  onChange={this.handleUserRoleChange}
                 />
-                <label htmlFor="userProfileCandidate">Vou me candidatar</label>
+                <label htmlFor="roleCandidate">Vou me candidatar</label>
               </div>
             </div>
 
-            {this.state.userProfile === CANDIDATE && (
+            {this.state.role === CANDIDATE && (
               <React.Fragment>
                 <div className="field-wrapper">
-                  <label htmlFor="candidateType">Deputada(o)</label>
-                  <select id="candidateType" name="candidateType" className="input">
+                  <label htmlFor="level">Deputada(o)</label>
+                  <select id="level" name="level" className="input">
                     <option value="federal">Federal</option>
                     <option value="estadual">Estadual</option>
                   </select>
                 </div>
 
                 <div className="field-wrapper">
-                  <label htmlFor="candidateCnpj">CNPJ</label>
-                  <input
-                    type="text"
-                    id="candidateCnpj"
-                    name="candidateCnpj"
-                    className="input"
-                    required
-                  />
+                  <label htmlFor="cnpj">CNPJ</label>
+                  <input type="text" id="cnpj" name="cnpj" className="input" required />
                 </div>
 
                 <div className="field-wrapper">
-                  <label htmlFor="candidateNumber">Número</label>
-                  <input
-                    type="text"
-                    id="candidateNumber"
-                    name="candidateNumber"
-                    className="input"
-                    required
-                  />
+                  <label htmlFor="number">Número</label>
+                  <input type="text" id="number" name="number" className="input" required />
                 </div>
 
                 <div className="field-wrapper">
@@ -131,6 +117,11 @@ class CompleteSignupForm extends Component {
                     <option value="REDE">REDE - REDE SUSTENTABILIDADE</option>
                     <option value="SD">SD - SOLIDARIEDADE</option>
                   </select>
+                </div>
+
+                <div className="field-wrapper">
+                  <label htmlFor="picture">Foto</label>
+                  <input type="text" id="picture" name="picture" className="input" />
                 </div>
               </React.Fragment>
             )}

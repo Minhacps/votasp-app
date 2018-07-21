@@ -5,6 +5,10 @@
   padding: 20px;
 }
 
+.questionario__container--loading {
+  opacity: 0.4;
+}
+
 .questionario__actions-container {
   display: flex;
   justify-content: space-around;

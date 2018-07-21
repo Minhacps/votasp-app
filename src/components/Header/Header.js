@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import firebase from 'firebase/app';
 
 import './Header.css';
 
 import logoUrl from '../../img/logo-votasp.svg';
-import menuIcon from '../../img/icone-menu.svg';
 
 const Header = () => (
   <React.Fragment>
@@ -18,13 +18,12 @@ const Header = () => (
       </Link>
 
       <nav className="navigation-menu">
-        <ul className="navigation-menu__list">
-          <li className="navigation-menu__item">
-            <Link to="/como-funciona" className="navigation-menu__link">
-              Como funciona
-            </Link>
-          </li>
-        </ul>
+        <Link to="/como-funciona" className="navigation-menu__link">
+          Como funciona
+        </Link>
+        <button className="navigation-menu__link" onClick={() => firebase.auth().signOut()}>
+          Sair
+        </button>
       </nav>
     </header>
   </React.Fragment>

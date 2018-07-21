@@ -1,35 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Questionario /> should match snapshot 1`] = `
-<Connect(RawPageLayout)>
+<PageLayout>
   <div
     className="questionario__container"
   >
     <Pergunta
+      isAnswering={false}
       pergunta={
         Object {
           "id": 1,
           "question": "Legalização do aborto para todos os casos.",
         }
       }
+      responderQuestao={[Function]}
     />
     <div
       className="questionario__actions-container"
     >
       <button
         className="btn btn-light"
+        disabled={false}
         onClick={[Function]}
       >
         Pular
       </button>
       <button
         className="btn btn-light"
-        disabled={true}
+        disabled={false}
         onClick={[Function]}
       >
         Calcular afinidade
       </button>
     </div>
   </div>
-</Connect(RawPageLayout)>
+</PageLayout>
 `;

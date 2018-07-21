@@ -19,28 +19,32 @@ exports[`<Pergunta /> should match snapshot 1`] = `
     className="pergunta__lista-respostas"
   >
     <RespostaRadioButton
-      id="discordo_plenamente"
-      key="discordo_plenamente"
+      htmlFor="1_0"
+      id={1}
+      key="-2"
       label="Discordo plenamente"
-      value="discordo_plenamente"
+      value={-2}
     />
     <RespostaRadioButton
-      id="discordo"
-      key="discordo"
+      htmlFor="1_1"
+      id={1}
+      key="-1"
       label="Discordo"
-      value="discordo"
+      value={-1}
     />
     <RespostaRadioButton
-      id="concordo"
-      key="concordo"
+      htmlFor="1_2"
+      id={1}
+      key="1"
       label="Concordo"
-      value="concordo"
+      value={1}
     />
     <RespostaRadioButton
-      id="concordo_plenamente"
-      key="concordo_plenamente"
+      htmlFor="1_3"
+      id={1}
+      key="2"
       label="Concordo plenamente"
-      value="concordo_plenamente"
+      value={2}
     />
   </div>
 </div>
