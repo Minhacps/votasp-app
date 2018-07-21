@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import store from '../../redux/store';
+import { storeQuestionario } from '../../redux/modules/questionario';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import some from 'lodash/some';
-import { answersMock, questionsMock } from './QuestionsMenuMock';
 
 import './QuestionsMenu.css';
 
@@ -21,6 +22,12 @@ class QuestionsMenu extends Component {
     this.setState({ isOpen: !this.state.isOpen });
   }
 
+  changeCurrentQuestion = (id) => {
+    store.dispatch(storeQuestionario({
+      currentQuestion: id - 1,
+    }));
+  }
+
   renderListOfQuestions() {
     const QuestionItem = (id, isAnsweredQuestion, isCurrentQuestion) => (
       <li
@@ -31,13 +38,19 @@ class QuestionsMenu extends Component {
         )}
         key={id}
       >
-        <a href="#">{id}</a>
+        <button
+          type="button"
+          className="question-item-button"
+          onClick={() => this.changeCurrentQuestion(id)}
+        >
+          {id}
+        </button>
       </li>
     );
 
     const questionsTable = this.props.questionsArray.map((question) => {
       const isAnsweredQuestion = some(this.props.answersArray, { questionId: question.id });
-      const isCurrentQuestion = this.props.currentQuestion === question.id;
+      const isCurrentQuestion = this.props.currentQuestion + 1 === question.id;
 
       return QuestionItem(question.id, isAnsweredQuestion, isCurrentQuestion);
     })

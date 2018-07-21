@@ -40,7 +40,11 @@ export class RawQuestionario extends Component {
 
     return (
       <PageLayout>
-        <QuestionsMenu answersArray={RESPOSTAS} questionsArray={questoes} />
+        <QuestionsMenu
+          answersArray={RESPOSTAS}
+          questionsArray={questoes}
+          currentQuestion={questionario.currentQuestion}
+        />
         <div className="questionario__container">
           {perguntas.length && <Pergunta pergunta={perguntas[questionario.currentQuestion]} />}
 
