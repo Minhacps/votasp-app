@@ -1,8 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 
+import QuestionarioService from './QuestionarioService';
 import { RawQuestionario } from './Questionario';
+
+jest.mock('./QuestionarioService');
 
 const defaultProps = {
   perguntas: [
@@ -28,10 +31,10 @@ describe('<Questionario />', () => {
     expect(toJson(questionario)).toMatchSnapshot();
   });
 
-  it('should increment currentQuestion state', () => {
+  it('should increment currentQuestion state', async () => {
     const questionario = shallow(<RawQuestionario {...defaultProps} />);
 
-    questionario.instance().pularQuestao();
+    await questionario.instance().pularQuestao();
     questionario.update();
 
     expect(questionario.state('currentQuestion')).toBe(1);

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import classnames from 'classnames';
+import { connect } from 'react-redux';
 
-import store from '../redux/store';
-import Pergunta from '../components/Pergunta/Pergunta';
 import PageLayout from '../components/PageLayout/PageLayout';
-import { storePerguntas } from '../redux/modules/perguntas';
-import { INDIFERENTE } from '../constants/respostas';
+import Pergunta from '../components/Pergunta/Pergunta';
+import { saveAnswer } from './QuestionarioService';
 import questoes from './questoes'
-import firebase from 'firebase/app';
+import store from '../redux/store';
+import { INDIFERENTE } from '../constants/respostas';
+import { storePerguntas } from '../redux/modules/perguntas';
 
 import './Questionario.css';
 
@@ -24,7 +24,7 @@ export class RawQuestionario extends Component {
   }
 
   pularQuestao = () => {
-    this.saveAnswer(INDIFERENTE).then(() => {
+    return this.saveAnswer(INDIFERENTE).then(() => {
       this.proximaQuestao();
     });
   };
@@ -40,7 +40,6 @@ export class RawQuestionario extends Component {
   };
 
   saveAnswer = (answerValue) => {
-    const userId = firebase.auth().currentUser.uid;
     const { currentQuestion } = this.state;
     const questionId = currentQuestion + 1;
     const answer = {
@@ -51,11 +50,7 @@ export class RawQuestionario extends Component {
       isAnswering: true,
     });
 
-    return firebase
-      .firestore()
-      .collection('answers')
-      .doc(userId)
-      .set(answer, { merge: true });
+    return saveAnswer(answer);
   }
 
   proximaQuestao = () => {
