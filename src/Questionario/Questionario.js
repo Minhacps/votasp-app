@@ -24,7 +24,7 @@ export class RawQuestionario extends Component {
   }
 
   pularQuestao = () => {
-    return this.saveAnswer(INDIFERENTE).then(() => {
+    return this.saveAnswer(INDIFERENTE.value).then(() => {
       this.proximaQuestao();
     });
   };

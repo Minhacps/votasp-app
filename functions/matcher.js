@@ -15,7 +15,10 @@ exports.getMatchScore = (voterAnswers, candidateAnswers) => {
 
         return score + voterToCandidateScoringTable[voterAnswer][candidateAnswer];
     }, 0);
-    return normalize(score, voterAnsweredQuestionsIds.length);
+    return {
+        absolute: score,
+        normalized: normalize(score, voterAnswers.length)
+    };
 }
 
 const normalize = (score, questionsAnsweredByVoter) => {
