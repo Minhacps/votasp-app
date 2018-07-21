@@ -3,6 +3,10 @@ import firebase from 'firebase/app';
 
 import cities from './cities';
 
+import logoUrl from '../../img/logo-votasp.svg';
+
+import FormLayout from './FormLayout';
+
 class SignupForm extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
@@ -32,44 +36,39 @@ class SignupForm extends PureComponent {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <button type="button" onClick={() => this.props.showLoginPage(true)}>
-            Entrar
-          </button>
-          <button type="button" onClick={() => this.props.showLoginPage(false)}>
-            Cadastrar
-          </button>
-        </div>
+      <FormLayout showLoginPage={this.props.showLoginPage} activeTab="signup">
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-content">
+            <div className="field-wrapper">
+              <label htmlFor="name">Nome</label>
+              <input type="text" className="input" name="name" id="name" />
+            </div>
 
-        <div className="form-group">
-          <label htmlFor="name">Nome</label>
-          <input type="text" name="name" id="name" />
-        </div>
+            <div className="field-wrapper">
+              <label htmlFor="email">E-mail</label>
+              <input type="text" className="input" name="email" id="email" />
+            </div>
 
-        <div className="form-group">
-          <label htmlFor="email">E-mail</label>
-          <input type="text" name="email" id="email" />
-        </div>
+            <div className="field-wrapper">
+              <label htmlFor="password">Senha</label>
+              <input type="password" className="input" name="password" id="password" />
+            </div>
 
-        <div className="form-group">
-          <label htmlFor="password">Senha</label>
-          <input type="password" name="password" id="password" />
-        </div>
+            <div className="field-wrapper">
+              <label htmlFor="city">Cidade</label>
+              <select className="input" name="city" id="city">
+                {cities.map(city => (
+                  <option value={city} key={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="city">Cidade</label>
-          <select name="city" id="city">
-            {cities.map(city => (
-              <option value={city} key={city}>
-                {city}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <button>Cadastrar</button>
-      </form>
+          <button className="authentication__submit-button">Cadastrar</button>
+        </form>
+      </FormLayout>
     );
   }
 }

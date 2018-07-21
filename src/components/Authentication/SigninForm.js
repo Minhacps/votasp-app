@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import firebase from 'firebase/app';
 
+import FormLayout from './FormLayout';
+
 class SigninForm extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
@@ -16,28 +18,22 @@ class SigninForm extends PureComponent {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <button type="button" onClick={() => this.props.showLoginPage(true)}>
-            Entrar
-          </button>
-          <button type="button" onClick={() => this.props.showLoginPage(false)}>
-            Cadastrar
-          </button>
-        </div>
+      <FormLayout showLoginPage={this.props.showLoginPage} activeTab="signin">
+        <form onSubmit={this.handleSubmit}>
+          <div className="authentication__form-content">
+            <div className="field-wrapper">
+              <label htmlFor="email">E-mail</label>
+              <input type="text" className="input" name="email" id="email" required />
+            </div>
 
-        <div className="form-group">
-          <label htmlFor="email">E-mail</label>
-          <input type="text" name="email" id="email" />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="password">Senha</label>
-          <input type="password" name="password" id="password" />
-        </div>
-
-        <button>Entrar</button>
-      </form>
+            <div className="field-wrapper">
+              <label htmlFor="password">Senha</label>
+              <input type="password" className="input" name="password" id="password" required />
+            </div>
+          </div>
+          <button className="authentication__submit-button">Entrar</button>
+        </form>
+      </FormLayout>
     );
   }
 }
