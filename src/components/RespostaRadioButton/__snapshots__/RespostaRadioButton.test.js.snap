@@ -7,8 +7,7 @@ exports[`<RespostaRadioButton /> should match snapshot 1`] = `
   <input
     checked={false}
     className="resposta-radio-btn__input"
-    id="1"
-    name="resposta-radio-btn"
+    name="resposta-radio-btn__1"
     type="radio"
     value="bar"
   />
@@ -17,7 +16,6 @@ exports[`<RespostaRadioButton /> should match snapshot 1`] = `
   />
   <label
     className="resposta-radio-btn__label"
-    htmlFor="1"
   >
     foo
   </label>

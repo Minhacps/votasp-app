@@ -4,7 +4,7 @@ import RespostaRadioButton from '../RespostaRadioButton/RespostaRadioButton';
 
 import './Pergunta.css';
 
-const Pergunta = ({ pergunta }) => {
+const Pergunta = ({ pergunta, responderQuestao, isAnswering }) => {
   return (
     <div className="pergunta__container">
       <p className="pergunta__title">
@@ -12,12 +12,15 @@ const Pergunta = ({ pergunta }) => {
         {pergunta.question}
       </p>
       <div className="pergunta__lista-respostas">
-        {RESPOSTAS.map(resposta => (
+        {RESPOSTAS.map((resposta, index) => (
           <RespostaRadioButton
             key={resposta.value}
-            id={resposta.value}
+            id={pergunta.id}
             value={resposta.value}
             label={resposta.title}
+            htmlFor={`${pergunta.id}_${index}`}
+            onClick={responderQuestao}
+            disabled={isAnswering}
           />
         ))}
       </div>
