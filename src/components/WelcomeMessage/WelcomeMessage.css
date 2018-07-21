@@ -1,14 +1,13 @@
 .welcome-text {
   color: #333;
   text-align: center;
+}
+.welcome-text h2{
+  font-size: 30px;
+}
 
-  h2 {
-    font-size: 30px;
-  }
-
-  p {
-    line-height: 25px;
-    font-size: 16px;
-    margin-bottom: 50px;
-  }
+.welcome-text p {
+  font-size: 16px;
+  line-height: 25px;
+  margin-bottom: 50px;
 }
