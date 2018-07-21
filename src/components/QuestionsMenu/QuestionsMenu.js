@@ -26,6 +26,7 @@ class QuestionsMenu extends Component {
     store.dispatch(storeQuestionario({
       currentQuestion: id - 1,
     }));
+    this.toggleQuestionsBoard();
   }
 
   renderListOfQuestions() {
