@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import PageLayout from '../components/PageLayout/PageLayout';
@@ -29,10 +30,6 @@ export class RawQuestionario extends Component {
     return this.saveAnswer(INDIFERENTE).then(() => {
       this.proximaQuestao();
     });
-  };
-
-  goToRanking = () => {
-    // TODO: Navegar para pagina de ranking
   };
 
   responderQuestao = (event) => {
@@ -70,10 +67,6 @@ export class RawQuestionario extends Component {
     });
   };
 
-  goToRanking = () => {
-    // TODO: Navegar para pagina de ranking
-  };
-
   render() {
     const { isAnswering } = this.state;
     const { perguntas, questionario } = this.props;
@@ -106,13 +99,13 @@ export class RawQuestionario extends Component {
             >
               Pular
             </button>
-            <button
-              onClick={this.goToRanking}
+            <Link
+              to="/ranking"
               className="btn btn-light"
               disabled={isAnswering}
             >
               Calcular afinidade
-            </button>
+            </Link>
           </div>
         </div>
       </PageLayout>
