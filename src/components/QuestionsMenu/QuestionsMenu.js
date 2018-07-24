@@ -33,17 +33,14 @@ class QuestionsMenu extends Component {
     const { userAnswers } = this.props;
 
     const QuestionItem = (id, isCurrentQuestion) => {
-      const isAnsweredQuestion = userAnswers ? Object
-        .keys(userAnswers)
-        .some(answer => {
-          return answer == id;
-        }) : false;
+      const isAnsweredQuestion = userAnswers
+        .filter(answer => answer.id == id);
 
       return (<li
         className={classnames(
           'question-item',
           { 'current-question': isCurrentQuestion },
-          { 'question-answered': isAnsweredQuestion },
+          { 'question-answered': isAnsweredQuestion.length },
         )}
         key={id}
       >
@@ -97,7 +94,7 @@ class QuestionsMenu extends Component {
 }
 
 QuestionsMenu.propTypes = {
-  userAnswers: PropTypes.object,
+  userAnswers: PropTypes.array,
   questionsArray: PropTypes.array,
   currentQuestion: PropTypes.number,
 }

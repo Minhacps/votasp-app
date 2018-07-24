@@ -60,7 +60,8 @@ body {
   min-width: 90px;
 }
 
-.btn-light:disabled {
+.btn-light:disabled,
+.btn-light[disabled] {
   background: #d1d2d4;
   border-color: #d1d2d4;
   color: #fff;
@@ -68,4 +69,8 @@ body {
 
 .btn--big {
   padding: 8px 25px;
+}
+
+a[disabled] {
+  pointer-events: none;
 }
