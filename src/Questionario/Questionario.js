@@ -70,8 +70,10 @@ export class RawQuestionario extends Component {
     const { perguntas, questionario } = this.props;
 
     if (questionario.currentQuestion === perguntas.length - 1) {
+      this.props.history.push('/calculando-ranking');
       return;
     }
+
     store.dispatch(storeQuestionario({
       currentQuestion: questionario.currentQuestion + 1
     }));
