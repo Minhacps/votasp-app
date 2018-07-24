@@ -58,7 +58,7 @@ class Authentication extends PureComponent {
     }
 
     if (isUserAuthenticated && !isIncompleteProfile) {
-      return <CompleteSignup />;
+      return <CompleteSignup userData={userData} />;
     }
 
     return this.props.children({ ...this.state });

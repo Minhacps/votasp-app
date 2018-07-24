@@ -17,40 +17,6 @@ jobs:
           name: Run tests
           command: npm test
 
-  deploy:
-    working_directory: ~/deploy
-    docker:
-      - image: protocool/rancher-circleci
-    steps:
-      - checkout
-
-      - setup_remote_docker
-
-      - run:
-          name: Build image
-          command: |
-            docker build -t votasp/app:$CIRCLE_BUILD_NUM -t votasp/app:latest .
-
-      - run:
-          name: Deploy to docker hub
-          command: |
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker push votasp/app:$CIRCLE_BUILD_NUM
-            docker push votasp/app:latest
-
-      - run:
-          name: Deploy to rancher
-          command: |
-            sed -i "s/\$version/$CIRCLE_BUILD_NUM/g" docker-compose.yml
-
-            rancher-compose \
-              --url http://rancher.votasp.org.br \
-              --access-key $RANCHER_ACCESS_KEY \
-              --secret-key $RANCHER_SECRET_KEY \
-              -p Front-end \
-              --file docker-compose.yml \
-              up -u -p -c -d
-
 workflows:
   version: 2
   test_and_deploy:

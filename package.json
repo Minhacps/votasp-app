@@ -11,6 +11,8 @@
     "test:watch": "jest --watch",
     "test:watch:coverage": "jest --watch --coverage",
     "postinstall": "cd functions && npm install"
+    "firebase": "firebase",
+    "firebase:deploy": "npm run build && firebase deploy --only hosting"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./enzyme-setup.js",
@@ -34,12 +36,18 @@
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "react-social-login-buttons": "^2.1.0",
     "redux": "^4.0.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-runtime": "^6.26.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
-    "jest": "^23.4.0"
+    "firebase-tools": "^3.19.3",
+    "jest": "^23.4.0",
+    "node-sass": "^4.9.2"
   }
 }

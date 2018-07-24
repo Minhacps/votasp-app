@@ -1,36 +1,44 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import PageLayout from '../components/PageLayout/PageLayout';
 import Pergunta from '../components/Pergunta/Pergunta';
-import { saveAnswer } from './QuestionarioService';
+import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
 import questoes from './questoes'
 import store from '../redux/store';
 import { INDIFERENTE } from '../constants/respostas';
+import { RESPOSTAS } from '../constants/respostas';
+import { saveAnswer, watchAnswers } from './QuestionarioService';
 import { storePerguntas } from '../redux/modules/perguntas';
+import { storeQuestionario } from '../redux/modules/questionario';
 
 import './Questionario.css';
 
 export class RawQuestionario extends Component {
 
   state = {
-    currentQuestion: 0,
     isAnswering: false,
+    userAnswers: {},
   };
 
   componentDidMount() {
     store.dispatch(storePerguntas(questoes));
+
+    watchAnswers()
+      .onSnapshot(snapshot => {
+        const userAnswers = snapshot.data();
+        this.setState({
+          userAnswers,
+        });
+      });
   }
 
   pularQuestao = () => {
     return this.saveAnswer(INDIFERENTE.value).then(() => {
       this.proximaQuestao();
     });
-  };
-
-  goToRanking = () => {
-    // TODO: Navegar para pagina de ranking
   };
 
   responderQuestao = (event) => {
@@ -40,8 +48,8 @@ export class RawQuestionario extends Component {
   };
 
   saveAnswer = (answerValue) => {
-    const { currentQuestion } = this.state;
-    const questionId = currentQuestion + 1;
+    const { questionario } = this.props;
+    const questionId = questionario.currentQuestion + 1;
     const answer = {
       [questionId]: answerValue,
     };
@@ -54,25 +62,34 @@ export class RawQuestionario extends Component {
   }
 
   proximaQuestao = () => {
-    const { currentQuestion } = this.state;
-    const { perguntas } = this.props;
+    const { perguntas, questionario } = this.props;
 
-    if (currentQuestion === perguntas.length - 1) {
+    if (questionario.currentQuestion === perguntas.length - 1) {
       return;
     }
+    store.dispatch(storeQuestionario({
+      currentQuestion: questionario.currentQuestion + 1
+    }));
 
     this.setState({
-      currentQuestion: currentQuestion + 1,
       isAnswering: false,
     });
-  }
+  };
 
   render() {
-    const { currentQuestion, isAnswering } = this.state;
-    const { perguntas } = this.props;
+    const { isAnswering, userAnswers } = this.state;
+    const { perguntas, questionario } = this.props;
+    const { currentQuestion } = questionario;
+
+    const userAnswer = userAnswers ? userAnswers[currentQuestion + 1] : undefined;
 
     return (
       <PageLayout>
+        <QuestionsMenu
+          userAnswers={userAnswers}
+          questionsArray={questoes}
+          currentQuestion={currentQuestion}
+        />
         <div className={classnames(
           'questionario__container',
           { 'questionario__container--loading': isAnswering }
@@ -82,6 +99,7 @@ export class RawQuestionario extends Component {
               pergunta={perguntas[currentQuestion]}
               responderQuestao={this.responderQuestao}
               isAnswering={isAnswering}
+              userAnswer={userAnswer}
             />
           }
 
@@ -93,13 +111,13 @@ export class RawQuestionario extends Component {
             >
               Pular
             </button>
-            <button
-              onClick={this.goToRanking}
+            <Link
+              to="/ranking"
               className="btn btn-light"
               disabled={isAnswering}
             >
               Calcular afinidade
-            </button>
+            </Link>
           </div>
         </div>
       </PageLayout>
@@ -107,8 +125,9 @@ export class RawQuestionario extends Component {
   }
 }
 
-const mapStateToProps = ({ perguntas }) => ({
-  perguntas
+const mapStateToProps = ({ perguntas, questionario }) => ({
+  perguntas,
+  questionario,
 });
 
 export default connect(mapStateToProps)(RawQuestionario);

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
 import { VOTER, CANDIDATE } from '../../constants/userRoles';
+import cities from '../Authentication/cities';
 
 import './CompleteSignupForm.css';
 
 class CompleteSignupForm extends Component {
   state = {
-    role: CANDIDATE
+    role: VOTER
   };
 
   handleUserRoleChange = event => {
@@ -55,6 +56,26 @@ class CompleteSignupForm extends Component {
                 <label htmlFor="roleCandidate">Vou me candidatar</label>
               </div>
             </div>
+
+            {(!this.props.userData || !this.props.userData.city) && (
+              <div className="field-wrapper">
+                <label htmlFor="city">Cidade</label>
+                <select id="city" name="city" className="input">
+                  {cities.map(city => (
+                    <option value={city} key={city}>
+                      {city}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            {(!this.props.userData || !this.props.userData.name) && (
+              <div className="field-wrapper">
+                <label htmlFor="name">Nome</label>
+                <input type="text" id="name" name="name" className="input" required />
+              </div>
+            )}
 
             {this.state.role === CANDIDATE && (
               <React.Fragment>
@@ -117,11 +138,6 @@ class CompleteSignupForm extends Component {
                     <option value="REDE">REDE - REDE SUSTENTABILIDADE</option>
                     <option value="SD">SD - SOLIDARIEDADE</option>
                   </select>
-                </div>
-
-                <div className="field-wrapper">
-                  <label htmlFor="picture">Foto</label>
-                  <input type="text" id="picture" name="picture" className="input" />
                 </div>
               </React.Fragment>
             )}

@@ -12,7 +12,7 @@ const RespostaRadioButton = ({ label, value, id, onClick, checked, htmlFor, disa
         className="resposta-radio-btn__input"
         value={value}
         onClick={onClick}
-        checked={false}
+        checked={checked}
         disabled={disabled}
       />
       <span className="resposta-radio-btn__icon" />

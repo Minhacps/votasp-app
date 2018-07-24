@@ -1,0 +1,22 @@
+.progress-bar-container {
+  width: 100%;
+
+  .view-port {
+    background-color: #CCCCCC;
+
+    .step-point {
+      fill: white;
+      stroke: white;
+
+      &.active {
+        fill: var(--amarelo)
+      }
+    }
+
+    .step-point-label {
+      font-size: 3;
+      text-anchor: middle;
+      fill: var(--pretoClaro);
+    }
+  }
+}

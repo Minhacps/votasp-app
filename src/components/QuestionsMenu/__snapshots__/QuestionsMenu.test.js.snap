@@ -55,401 +55,481 @@ exports[`QuestionsMenu should match a snapshot when menu is open 1`] = `
         className="question-item question-answered"
         key="1"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           1
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="2"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           2
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="3"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           3
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="4"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           4
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="5"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           5
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="6"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           6
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="7"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           7
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="8"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           8
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="9"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           9
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="10"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           10
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="11"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           11
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="12"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           12
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="13"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           13
-        </a>
+        </button>
       </li>
       <li
         className="question-item question-answered"
         key="14"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           14
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="15"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           15
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="16"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           16
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="17"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           17
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="18"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           18
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="19"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           19
-        </a>
+        </button>
       </li>
       <li
         className="question-item question-answered"
         key="20"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           20
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="21"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           21
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="22"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           22
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="23"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           23
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="24"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           24
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="25"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           25
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="26"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           26
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="27"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           27
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="28"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           28
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="29"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           29
-        </a>
-      </li>
-      <li
-        className="question-item current-question"
-        key="30"
-      >
-        <a
-          href="#"
-        >
-          30
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
+        key="30"
+      >
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
+        >
+          30
+        </button>
+      </li>
+      <li
+        className="question-item current-question"
         key="31"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           31
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="32"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           32
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="33"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           33
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="34"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           34
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="35"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           35
-        </a>
+        </button>
       </li>
       <li
         className="question-item question-answered"
         key="36"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           36
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="37"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           37
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="38"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           38
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="39"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           39
-        </a>
+        </button>
       </li>
       <li
         className="question-item"
         key="40"
       >
-        <a
-          href="#"
+        <button
+          className="question-item-button"
+          onClick={[Function]}
+          type="button"
         >
           40
-        </a>
+        </button>
       </li>
       <li
         className="current-question"
