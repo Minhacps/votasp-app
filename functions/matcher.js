@@ -17,7 +17,7 @@ exports.getMatchScore = (voterAnswers, candidateAnswers) => {
     }, 0);
     return {
         absolute: score,
-        normalized: normalize(score, voterAnswers.length)
+        normalized: normalize(score, voterAnsweredQuestionsIds.length)
     };
 }
 
@@ -25,5 +25,5 @@ const normalize = (score, questionsAnsweredByVoter) => {
     const max = voterToCandidateScoringTable.CP.CP * questionsAnsweredByVoter;
     const min = voterToCandidateScoringTable.CP.DP * questionsAnsweredByVoter;
 
-    return Math.round(((score - min) / (max-min)) * 10000);
+    return Math.round(((score - min) / (max - min)) * 10000);
 };
