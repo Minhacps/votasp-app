@@ -9,7 +9,6 @@ import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
 import questoes from './questoes'
 import store from '../redux/store';
 import { INDIFERENTE } from '../constants/respostas';
-import { RESPOSTAS } from '../constants/respostas';
 import { saveAnswer, watchAnswers } from './QuestionarioService';
 import { storePerguntas } from '../redux/modules/perguntas';
 import { storeQuestionario } from '../redux/modules/questionario';
@@ -20,19 +19,25 @@ export class RawQuestionario extends Component {
 
   state = {
     isAnswering: false,
-    userAnswers: {},
+    userAnswers: [],
   };
 
   componentDidMount() {
     store.dispatch(storePerguntas(questoes));
+    watchAnswers().onSnapshot(this.saveAnswers);
+  }
 
-    watchAnswers()
-      .onSnapshot(snapshot => {
-        const userAnswers = snapshot.data();
-        this.setState({
-          userAnswers,
-        });
-      });
+  saveAnswers = (snapshot) => {
+    const data = snapshot.data();
+    const userAnswers = Object.keys(data)
+      .map(answerKey => ({
+        id: answerKey,
+        answer: data[answerKey]
+      }));
+
+    this.setState({
+      userAnswers,
+    });
   }
 
   pularQuestao = () => {
@@ -80,8 +85,7 @@ export class RawQuestionario extends Component {
     const { isAnswering, userAnswers } = this.state;
     const { perguntas, questionario } = this.props;
     const { currentQuestion } = questionario;
-
-    const userAnswer = userAnswers ? userAnswers[currentQuestion + 1] : undefined;
+    const [currentAnswer] = userAnswers.filter(answer => answer.id == currentQuestion + 1);
 
     return (
       <PageLayout>
@@ -99,7 +103,7 @@ export class RawQuestionario extends Component {
               pergunta={perguntas[currentQuestion]}
               responderQuestao={this.responderQuestao}
               isAnswering={isAnswering}
-              userAnswer={userAnswer}
+              userAnswer={currentAnswer ? currentAnswer.answer : undefined}
             />
           }
 
@@ -112,9 +116,9 @@ export class RawQuestionario extends Component {
               Pular
             </button>
             <Link
-              to="/ranking"
+              to="/calculando-ranking"
               className="btn btn-light"
-              disabled={isAnswering}
+              disabled={isAnswering || userAnswers.length < 20}
             >
               Calcular afinidade
             </Link>
