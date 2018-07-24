@@ -10,6 +10,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:watch:coverage": "jest --watch --coverage",
+    "postinstall": "cd functions && npm install",
     "firebase": "firebase",
     "firebase:deploy": "npm run build && firebase deploy --only hosting"
   },

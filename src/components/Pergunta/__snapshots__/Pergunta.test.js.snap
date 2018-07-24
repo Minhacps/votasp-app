@@ -21,30 +21,30 @@ exports[`<Pergunta /> should match snapshot 1`] = `
     <RespostaRadioButton
       htmlFor="1_0"
       id={1}
-      key="-2"
+      key="DP"
       label="Discordo plenamente"
-      value={-2}
+      value="DP"
     />
     <RespostaRadioButton
       htmlFor="1_1"
       id={1}
-      key="-1"
+      key="D"
       label="Discordo"
-      value={-1}
+      value="D"
     />
     <RespostaRadioButton
       htmlFor="1_2"
       id={1}
-      key="1"
+      key="C"
       label="Concordo"
-      value={1}
+      value="C"
     />
     <RespostaRadioButton
       htmlFor="1_3"
       id={1}
-      key="2"
+      key="CP"
       label="Concordo plenamente"
-      value={2}
+      value="CP"
     />
   </div>
 </div>

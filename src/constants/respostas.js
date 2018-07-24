@@ -1,23 +1,26 @@
 export const DISCORDO_PLENAMENTE = {
   title: 'Discordo plenamente',
-  value: -2,
+  value: 'DP',
 };
 
 export const DISCORDO = {
   title: 'Discordo',
-  value: -1,
+  value: 'D',
 };
 
-export const INDIFERENTE = 0;
+export const INDIFERENTE = {
+  title: 'Indiferente',
+  value: 'I',
+};
 
 export const CONCORDO_PLENAMENTE = {
   title: 'Concordo plenamente',
-  value: 2,
+  value: 'CP',
 };
 
 export const CONCORDO = {
   title: 'Concordo',
-  value: 1,
+  value: 'C',
 };
 
 export const RESPOSTAS = [DISCORDO_PLENAMENTE, DISCORDO, CONCORDO, CONCORDO_PLENAMENTE];

@@ -15,12 +15,15 @@ exports.getMatchScore = (voterAnswers, candidateAnswers) => {
 
         return score + voterToCandidateScoringTable[voterAnswer][candidateAnswer];
     }, 0);
-    return normalize(score, voterAnsweredQuestionsIds.length);
+    return {
+        absolute: score,
+        normalized: normalize(score, voterAnsweredQuestionsIds.length)
+    };
 }
 
 const normalize = (score, questionsAnsweredByVoter) => {
     const max = voterToCandidateScoringTable.CP.CP * questionsAnsweredByVoter;
     const min = voterToCandidateScoringTable.CP.DP * questionsAnsweredByVoter;
 
-    return Math.round(((score - min) / (max-min)) * 10000);
+    return Math.round(((score - min) / (max - min)) * 10000);
 };
