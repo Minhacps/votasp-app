@@ -22,7 +22,6 @@ class MainMenu extends Component {
   }
 
   toggleMainMenu() {
-    console.log( this.state.isOpen )
     this.setState({ isOpen: !this.state.isOpen });
   }
 
