@@ -1,1 +1,1 @@
-export const saveAnswer = jest.fn(() => Promise.resolve());
+export const saveVoterAnswer = jest.fn(() => Promise.resolve());

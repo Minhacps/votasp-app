@@ -9,7 +9,7 @@ import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
 import questoes from './questoes'
 import store from '../redux/store';
 import { INDIFERENTE } from '../constants/respostas';
-import { saveAnswer, watchAnswers } from './QuestionarioService';
+import { saveAnswer, watchAnswers, getCurrentUser } from './QuestionarioService';
 import { storePerguntas } from '../redux/modules/perguntas';
 import { storeQuestionario } from '../redux/modules/questionario';
 
@@ -20,20 +20,33 @@ export class RawQuestionario extends Component {
   state = {
     isAnswering: false,
     userAnswers: [],
+    userCollection: undefined,
   };
 
   componentDidMount() {
     store.dispatch(storePerguntas(questoes));
-    watchAnswers().onSnapshot(this.saveAnswers);
+    getCurrentUser().then(this.saveUser);
   }
 
-  saveAnswers = (snapshot) => {
+  saveUser = (doc) => {
+    const user = doc.data();
+    const isCandidate = user.role === 'candidate';
+    const userCollection = isCandidate ? 'candidate_answers' : 'voter_answers';
+
+    watchAnswers(userCollection).onSnapshot(this.storeAnswers);
+
+    this.setState({
+      userCollection
+    });
+  }
+
+  storeAnswers = (snapshot) => {
     const data = snapshot.data();
-    const userAnswers = Object.keys(data)
+    const userAnswers = data ? Object.keys(data)
       .map(answerKey => ({
         id: answerKey,
         answer: data[answerKey]
-      }));
+      })) : [];
 
     this.setState({
       userAnswers,
@@ -53,6 +66,7 @@ export class RawQuestionario extends Component {
   };
 
   saveAnswer = (answerValue) => {
+    const { userCollection } = this.state;
     const { questionario } = this.props;
     const questionId = questionario.currentQuestion + 1;
     const answer = {
@@ -63,7 +77,7 @@ export class RawQuestionario extends Component {
       isAnswering: true,
     });
 
-    return saveAnswer(answer);
+    return saveAnswer(answer, userCollection);
   }
 
   proximaQuestao = () => {
