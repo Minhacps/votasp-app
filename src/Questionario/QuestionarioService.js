@@ -17,3 +17,11 @@ export const watchAnswers = (collection) => {
     .doc(userId);
 }
 
+export const getCurrentUser = () => {
+  const userId = firebase.auth().currentUser.uid;
+  return firebase
+    .firestore()
+    .collection('users')
+    .doc(userId)
+    .get();
+}
