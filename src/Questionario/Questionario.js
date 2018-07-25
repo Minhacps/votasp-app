@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import PageLayout from '../components/PageLayout/PageLayout';
 import Pergunta from '../components/Pergunta/Pergunta';
+import ProgressBar from '../components/ProgressBar/ProgressBar';
 import QuestionsMenu from '../components/QuestionsMenu/QuestionsMenu';
 import questoes from './questoes'
 import store from '../redux/store';
@@ -14,7 +15,6 @@ import { storePerguntas } from '../redux/modules/perguntas';
 import { storeQuestionario } from '../redux/modules/questionario';
 
 import './Questionario.css';
-import ProgressBar from '../components/ProgressBar/ProgressBar';
 
 export class RawQuestionario extends Component {
 
