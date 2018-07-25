@@ -14,6 +14,7 @@ import { storePerguntas } from '../redux/modules/perguntas';
 import { storeQuestionario } from '../redux/modules/questionario';
 
 import './Questionario.css';
+import ProgressBar from '../components/ProgressBar/ProgressBar';
 
 export class RawQuestionario extends Component {
 
@@ -102,9 +103,23 @@ export class RawQuestionario extends Component {
     const { perguntas, questionario } = this.props;
     const { currentQuestion } = questionario;
     const [currentAnswer] = userAnswers.filter(answer => answer.id == currentQuestion + 1);
+    const porcentagemDeProgresso = (perguntas.length / userAnswers.length) * 100;
+    const porcentagemMinima = porcentagemDeProgresso > 50 ? 50 : porcentagemDeProgresso;
+    const porcentagemAcimaDoMinimo = porcentagemMinima < 50 ? 0: porcentagemMinima;
+    const nivelDoProgresso = [
+      {
+        value: porcentagemMinima,
+        color: '#feb557',
+      },
+      {
+        value: porcentagemAcimaDoMinimo,
+        color: '#fbdaab',
+      }
+    ];
 
     return (
       <PageLayout>
+        <ProgressBar values={nivelDoProgresso}/>
         <QuestionsMenu
           userAnswers={userAnswers}
           questionsArray={questoes}
