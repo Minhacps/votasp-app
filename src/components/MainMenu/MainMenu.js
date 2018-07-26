@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+
+import firebase from 'firebase/app';
 import classnames from 'classnames';
 
 import './MainMenu.css';
