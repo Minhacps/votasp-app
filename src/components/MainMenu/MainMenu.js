@@ -35,7 +35,6 @@ class MainMenu extends Component {
       )}>
         <HamburgerMenu onClick={this.toggleMainMenu} />
         <ul className="navigation-menu">
-          <HamburgerMenu onClick={this.toggleMainMenu} />
           <li className="navigation-menu__list">
             <NavLink to="/meu-perfil" activeClassName="active" className="navigation-menu__link">
               Meu perfil
