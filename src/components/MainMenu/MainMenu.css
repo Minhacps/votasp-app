@@ -58,6 +58,7 @@ ul.navigation-menu {
   will-change: translateX;
   padding: 20px;
   opacity: 0;
+  padding-top: 65px;
 }
 
 .navigation-menu.opened .navigation-menu {
@@ -73,13 +74,35 @@ ul.navigation-menu {
   color: inherit;
 }
 
+.hamburger-menu {
+  transition: transform 0.3s;
+  position: relative;
+  z-index: 5;
+  border: none;
+  background-color: transparent;
+  border: none;
+}
+
+.listraHamburguer {
+  fill: #fff;
+  transition: fill .3s, transform .5s;
+  will-change: fill, transform;
+}
 
 .navigation-menu.opened .listraHamburguer {
   fill: #333;
 }
 
-.listraHamburguer {
-  fill: #fff;
+.navigation-menu.opened .listraHamburguer:nth-child(2) {
+  transform: rotateZ(-40deg) translate(-10px, -5px);
+}
+
+.navigation-menu.opened .listraHamburguer:first-child {
+  transform: rotateZ(40deg) translate(5px, 0);
+}
+
+.navigation-menu.opened .listraHamburguer:last-child {
+  transform: scaleX(0);
 }
 
 @media (min-width: 800px) {
@@ -87,7 +110,7 @@ ul.navigation-menu {
     padding: 0;
   }
 
-  .navigation-menu__toggle {
+  .hamburger-menu {
     display: none;
   }
 
