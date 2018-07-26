@@ -44,14 +44,6 @@
   background-color: var(--amarelo);
 }
 
-.navigation-menu__toggle {
-  display: block;
-}
-
-.navigation-menu__toggle:hover::before {
-  background-color: transparent;
-}
-
 ul.navigation-menu {
   flex-direction: column;
   position: absolute;
@@ -71,11 +63,6 @@ ul.navigation-menu {
 .navigation-menu.opened .navigation-menu {
   opacity: 1;
   transform: translateX( 250px );
-}
-
-.navigation-menu.opened .navigation-menu .navigation-menu__toggle {
-  text-align: left;
-  margin-bottom: 30px;
 }
 
 .navigation-menu.opened .navigation-menu__link {
