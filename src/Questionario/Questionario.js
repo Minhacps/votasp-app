@@ -98,24 +98,42 @@ export class RawQuestionario extends Component {
     });
   };
 
+  nivelDoProgresso = () => {
+    const { userAnswers } = this.state;
+    const { perguntas } = this.props;
+
+    if (userAnswers.length === 0) {
+      return [
+        {
+          value: 0,
+        }
+      ]
+    }
+  
+    const porcentagemDeProgresso = (userAnswers.length / perguntas.length) * 100 ;
+    const porcentagemMinima = porcentagemDeProgresso > 50 ? 50 : porcentagemDeProgresso;
+    const porcentagemAcimaDoMinimo = porcentagemMinima < 50 ? 0 : porcentagemMinima;
+
+    const nivelDoProgresso = [
+      {
+        value: porcentagemMinima,
+        color: '#fbdaab',
+      },
+      {
+        value: porcentagemAcimaDoMinimo,
+        color: '#feb557',
+      }
+    ];
+
+    return nivelDoProgresso;
+  }
+
   render() {
     const { isAnswering, userAnswers } = this.state;
     const { perguntas, questionario } = this.props;
     const { currentQuestion } = questionario;
     const [currentAnswer] = userAnswers.filter(answer => answer.id == currentQuestion + 1);
-    const porcentagemDeProgresso = (perguntas.length / userAnswers.length) * 100;
-    const porcentagemMinima = porcentagemDeProgresso > 50 ? 50 : porcentagemDeProgresso;
-    const porcentagemAcimaDoMinimo = porcentagemMinima < 50 ? 0: porcentagemMinima;
-    const nivelDoProgresso = [
-      {
-        value: porcentagemMinima,
-        color: '#feb557',
-      },
-      {
-        value: porcentagemAcimaDoMinimo,
-        color: '#fbdaab',
-      }
-    ];
+    const nivelDoProgresso = this.nivelDoProgresso();
 
     return (
       <PageLayout>
