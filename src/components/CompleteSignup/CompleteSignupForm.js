@@ -139,6 +139,11 @@ class CompleteSignupForm extends Component {
                     <option value="SD">SD - SOLIDARIEDADE</option>
                   </select>
                 </div>
+
+                <div className="field-wrapper">
+                  <label htmlFor="description">Descrição <small>(opcional)</small></label>
+                  <textarea name="description" id="description" maxLength={500} className="input"></textarea>
+                </div>
               </React.Fragment>
             )}
 
