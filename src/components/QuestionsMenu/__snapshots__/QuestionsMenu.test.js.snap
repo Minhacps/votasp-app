@@ -52,7 +52,7 @@ exports[`QuestionsMenu should match a snapshot when menu is open 1`] = `
   >
     <ol>
       <li
-        className="question-item question-answered"
+        className="question-item"
         key="1"
       >
         <button
@@ -208,7 +208,7 @@ exports[`QuestionsMenu should match a snapshot when menu is open 1`] = `
         </button>
       </li>
       <li
-        className="question-item question-answered"
+        className="question-item"
         key="14"
       >
         <button
@@ -280,7 +280,7 @@ exports[`QuestionsMenu should match a snapshot when menu is open 1`] = `
         </button>
       </li>
       <li
-        className="question-item question-answered"
+        className="question-item"
         key="20"
       >
         <button
@@ -472,7 +472,7 @@ exports[`QuestionsMenu should match a snapshot when menu is open 1`] = `
         </button>
       </li>
       <li
-        className="question-item question-answered"
+        className="question-item"
         key="36"
       >
         <button
