@@ -109,10 +109,10 @@ export class RawQuestionario extends Component {
         }
       ]
     }
-  
+
     const porcentagemDeProgresso = (userAnswers.length / perguntas.length) * 100 ;
     const porcentagemMinima = porcentagemDeProgresso > 50 ? 50 : porcentagemDeProgresso;
-    const porcentagemAcimaDoMinimo = porcentagemMinima < 50 ? 0 : porcentagemMinima;
+    const porcentagemAcimaDoMinimo = porcentagemMinima < 50 ? 0 : porcentagemDeProgresso;
 
     const nivelDoProgresso = [
       {
