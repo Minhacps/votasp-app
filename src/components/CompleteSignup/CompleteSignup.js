@@ -38,7 +38,8 @@ class CompleteSignup extends PureComponent {
       cnpj: fields.cnpj.value,
       number: fields.number.value,
       politicalParty: fields.politicalParty.value,
-      description: fields.description.value
+      description: fields.description.value,
+      homologated: false
     };
 
     return {
