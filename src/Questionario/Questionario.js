@@ -24,8 +24,25 @@ export class RawQuestionario extends Component {
   };
 
   componentDidMount() {
+    const { question } = this.props.match.params;
+
+    store.dispatch(storeQuestionario({
+      currentQuestion: parseInt(question - 1),
+    }));
+
     store.dispatch(storePerguntas(questoes));
     getCurrentUser().then(this.saveUser);
+  }
+
+  componentDidUpdate(prevProps) {
+    const lastQuestion = prevProps.match.params.question;
+    const { question } = this.props.match.params;
+
+    if (question !== lastQuestion) {
+      store.dispatch(storeQuestionario({
+        currentQuestion: parseInt(question - 1),
+      }));
+    }
   }
 
   saveUser = (doc) => {
@@ -92,6 +109,8 @@ export class RawQuestionario extends Component {
       currentQuestion: questionario.currentQuestion + 1
     }));
 
+    this.props.history.push(`/questionario/${questionario.currentQuestion + 2}`);
+
     this.setState({
       isAnswering: false,
     });
@@ -99,7 +118,7 @@ export class RawQuestionario extends Component {
 
   render() {
     const { isAnswering, userAnswers } = this.state;
-    const { perguntas, questionario } = this.props;
+    const { perguntas, questionario, history } = this.props;
     const { currentQuestion } = questionario;
     const [currentAnswer] = userAnswers.filter(answer => answer.id == currentQuestion + 1);
 
@@ -109,6 +128,7 @@ export class RawQuestionario extends Component {
           userAnswers={userAnswers}
           questionsArray={questoes}
           currentQuestion={currentQuestion}
+          history={history}
         />
         <div className={classnames(
           'questionario__container',
