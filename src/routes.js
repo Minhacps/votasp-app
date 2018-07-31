@@ -11,7 +11,7 @@ const Routes = () => (
   <React.Fragment>
     <Route exact path="/" component={Home} />
     <Route exact path="/como-funciona" component={ComoFunciona} />
-    <Route exact path="/questionario" component={Questionario} />
+    <Route path="/questionario/:question" component={Questionario} />
     <Route exact path="/calculando-ranking" component={ResultsWarning} />
     <Route exact path="/ranking" component={Results} />
   </React.Fragment>
