@@ -3,7 +3,6 @@ import store from '../../redux/store';
 import { storeQuestionario } from '../../redux/modules/questionario';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import some from 'lodash/some';
 
 import './QuestionsMenu.css';
 
@@ -26,6 +25,8 @@ class QuestionsMenu extends Component {
     store.dispatch(storeQuestionario({
       currentQuestion: id - 1,
     }));
+
+    this.props.history.push(`/questionario/${id}`);
     this.toggleQuestionsBoard();
   }
 
@@ -97,6 +98,7 @@ QuestionsMenu.propTypes = {
   userAnswers: PropTypes.array,
   questionsArray: PropTypes.array,
   currentQuestion: PropTypes.number,
+  history: PropTypes.object,
 }
 
 export default QuestionsMenu;
