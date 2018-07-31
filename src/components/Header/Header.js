@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import firebase from 'firebase/app';
+
+import MainMenu from '../MainMenu/MainMenu';
 
 import './Header.css';
 
@@ -17,14 +18,7 @@ const Header = () => (
         />
       </Link>
 
-      <nav className="navigation-menu">
-        <Link to="/como-funciona" className="navigation-menu__link">
-          Como funciona
-        </Link>
-        <button className="navigation-menu__link" onClick={() => firebase.auth().signOut()}>
-          Sair
-        </button>
-      </nav>
+      <MainMenu />
     </header>
   </React.Fragment>
 );
