@@ -31,28 +31,18 @@ class MainMenu extends Component {
         <HamburgerMenu onClick={this.toggleMainMenu} />
         <ul className="navigation-menu">
           <li className="navigation-menu__list">
-            <NavLink to="/meu-perfil" activeClassName="active" className="navigation-menu__link">
-              Meu perfil
-            </NavLink>
-          </li>
-          <li className="navigation-menu__list">
             <NavLink to="/como-funciona" activeClassName="active" className="navigation-menu__link">
               Como funciona
             </NavLink>
           </li>
           <li className="navigation-menu__list">
-            <NavLink to="/questoes" activeClassName="active" className="navigation-menu__link">
+            <NavLink to="/questionario/1" activeClassName="active" className="navigation-menu__link">
               Questões
             </NavLink>
           </li>
           <li className="navigation-menu__list">
-            <NavLink to="/ranking" activeClassName="active" className="navigation-menu__link">
+            <NavLink to="/calculando-ranking" activeClassName="active" className="navigation-menu__link">
               Ver meu ranking
-            </NavLink>
-          </li>
-          <li className="navigation-menu__list">
-            <NavLink to="/realizacao" activeClassName="active" className="navigation-menu__link">
-              Realização
             </NavLink>
           </li>
           <li className="navigation-menu__list">
