@@ -21,6 +21,7 @@ export class RawQuestionario extends Component {
     isAnswering: false,
     userAnswers: [],
     userCollection: undefined,
+    isCandidate: false,
   };
 
   componentDidMount() {
@@ -36,7 +37,8 @@ export class RawQuestionario extends Component {
     watchAnswers(userCollection).onSnapshot(this.storeAnswers);
 
     this.setState({
-      userCollection
+      userCollection,
+      isCandidate,
     });
   }
 
@@ -54,6 +56,9 @@ export class RawQuestionario extends Component {
   }
 
   pularQuestao = () => {
+    const { isCandidate } = this.state;
+    if (isCandidate) return;
+
     return this.saveAnswer(INDIFERENTE.value).then(() => {
       this.proximaQuestao();
     });
@@ -98,7 +103,7 @@ export class RawQuestionario extends Component {
   };
 
   render() {
-    const { isAnswering, userAnswers } = this.state;
+    const { isAnswering, userAnswers, isCandidate } = this.state;
     const { perguntas, questionario } = this.props;
     const { currentQuestion } = questionario;
     const [currentAnswer] = userAnswers.filter(answer => answer.id == currentQuestion + 1);
@@ -114,6 +119,11 @@ export class RawQuestionario extends Component {
           'questionario__container',
           { 'questionario__container--loading': isAnswering }
         )}>
+          {isCandidate &&
+            <p className="questionario__aviso-candidato">
+              Você como candidato(a) precisa responder as 40 perguntas para se tornar apto(a) ao match.
+          </p>
+          }
           {perguntas.length &&
             <Pergunta
               pergunta={perguntas[currentQuestion]}
@@ -124,13 +134,16 @@ export class RawQuestionario extends Component {
           }
 
           <div className="questionario__actions-container">
-            <button
-              onClick={this.pularQuestao}
-              className="btn btn-light"
-              disabled={isAnswering}
-            >
-              Pular
-            </button>
+            {!isCandidate &&
+              <button
+                onClick={this.pularQuestao}
+                className="btn btn-light"
+                disabled={isAnswering}
+              >
+                Pular
+              </button>
+            }
+
             <Link
               to="/calculando-ranking"
               className="btn btn-light"
