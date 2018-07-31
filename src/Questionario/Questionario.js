@@ -119,6 +119,11 @@ export class RawQuestionario extends Component {
           'questionario__container',
           { 'questionario__container--loading': isAnswering }
         )}>
+          {isCandidate &&
+            <p className="questionario__aviso-candidato">
+              Você como candidato(a) precisa responder as 40 perguntas para se tornar apto(a) ao match.
+          </p>
+          }
           {perguntas.length &&
             <Pergunta
               pergunta={perguntas[currentQuestion]}
