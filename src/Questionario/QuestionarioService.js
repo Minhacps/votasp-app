@@ -7,15 +7,32 @@ export const saveAnswer = (answer, collection) => {
     .collection(collection)
     .doc(userId)
     .set(answer, { merge: true });
-}
+};
 
-export const watchAnswers = (collection) => {
+export const saveJustification = justification => {
+  const userId = firebase.auth().currentUser.uid;
+  return firebase
+    .firestore()
+    .collection('candidate_justifications')
+    .doc(userId)
+    .set(justification, { merge: true });
+};
+
+export const watchAnswers = collection => {
   const userId = firebase.auth().currentUser.uid;
   return firebase
     .firestore()
     .collection(collection)
     .doc(userId);
-}
+};
+
+export const watchAnswerJustification = () => {
+  const userId = firebase.auth().currentUser.uid;
+  return firebase
+    .firestore()
+    .collection('candidate_justifications')
+    .doc(userId);
+};
 
 export const getCurrentUser = () => {
   const userId = firebase.auth().currentUser.uid;
@@ -24,4 +41,4 @@ export const getCurrentUser = () => {
     .collection('users')
     .doc(userId)
     .get();
-}
+};
