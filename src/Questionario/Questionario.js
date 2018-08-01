@@ -75,11 +75,9 @@ export class RawQuestionario extends Component {
 
     const questionJustification = get(storedJustification, 'justification') || '';
 
-    if (storedJustification && currentJustification !== questionJustification) {
-      this.setState({
-        currentJustification: questionJustification
-      });
-    }
+    this.setState({
+      currentJustification: questionJustification
+    });
   };
 
   saveUser = doc => {
