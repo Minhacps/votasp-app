@@ -1,25 +1,57 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import firebase from 'firebase/app';
 
 import FormLayout from './FormLayout';
 import SocialLogin from './SocialLogin';
 
-class SigninForm extends PureComponent {
+class SigninForm extends Component {
+  state = {
+    errorMessage: null
+  };
+
   handleSubmit = event => {
     event.preventDefault();
 
     const email = event.target.email.value;
     const password = event.target.password.value;
+    this.setState({ errorMessage: null });
 
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .catch(console.log);
+      .catch(this.handleAuthenticationFailure);
+  };
+
+  handleAuthenticationFailure = error => {
+    switch (error.code) {
+      case 'auth/invalid-email': {
+        return this.setState({ errorMessage: 'O formato do e-mail informado é inválido.' });
+      }
+
+      case 'auth/user-disabled': {
+        return this.setState({ errorMessage: 'Usuário desabilitado.' });
+      }
+
+      case 'auth/user-not-found':
+      case 'auth/wrong-password': {
+        return this.setState({
+          errorMessage: 'Credenciais inválidas, e-mail ou senha estão incorretos.'
+        });
+      }
+
+      default: {
+        return this.setState({ errorMessage: 'Ocorreu um erro inesperado.' });
+      }
+    }
   };
 
   render() {
     return (
-      <FormLayout showLoginPage={this.props.showLoginPage} activeTab="signin">
+      <FormLayout
+        showLoginPage={this.props.showLoginPage}
+        activeTab="signin"
+        errorMessage={this.state.errorMessage}
+      >
         <form onSubmit={this.handleSubmit}>
           <div className="authentication__form-content">
             <SocialLogin />
