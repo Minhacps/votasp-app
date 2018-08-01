@@ -1,22 +1,34 @@
-.progress-bar-container {
-  width: 100%;
+.progress-bar {
+  
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    background-color: #CCC;
+  }
 
-  .view-port {
-    background-color: #CCCCCC;
+  &__background {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 4px;
+  }
 
-    .step-point {
-      fill: white;
-      stroke: white;
+  
+  &__progress {
+    overflow: hidden;
+    height: 8px;
+  }
 
-      &.active {
-        fill: var(--amarelo)
-      }
-    }
+  &__progress-0 {
+    border-radius: 8px;
+  }
 
-    .step-point-label {
-      font-size: 3;
-      text-anchor: middle;
-      fill: var(--pretoClaro);
-    }
+  &__progress-1 {
+    border-radius: 0px 8px 8px 0;
   }
 }

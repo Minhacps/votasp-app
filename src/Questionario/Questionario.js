@@ -112,15 +112,15 @@ export class RawQuestionario extends Component {
 
     const porcentagemDeProgresso = (userAnswers.length / perguntas.length) * 100 ;
     const porcentagemMinima = porcentagemDeProgresso > 50 ? 50 : porcentagemDeProgresso;
-    const porcentagemAcimaDoMinimo = porcentagemMinima < 50 ? 0 : porcentagemDeProgresso;
+    const porcentagemAcimaDoMinimo = porcentagemMinima < 50 ? 0 : porcentagemDeProgresso - 50;
 
     const nivelDoProgresso = [
       {
-        value: porcentagemMinima,
+        value: `${porcentagemMinima}%`,
         color: '#fbdaab',
       },
       {
-        value: porcentagemAcimaDoMinimo,
+        value: `${porcentagemAcimaDoMinimo}%`,
         color: '#feb557',
       }
     ];
@@ -137,7 +137,10 @@ export class RawQuestionario extends Component {
 
     return (
       <PageLayout>
-        <ProgressBar values={nivelDoProgresso}/>
+        <ProgressBar
+          label="PROGRESSO DAS RESPOSTAS"
+          values={nivelDoProgresso}
+        />
         <QuestionsMenu
           userAnswers={userAnswers}
           questionsArray={questoes}
