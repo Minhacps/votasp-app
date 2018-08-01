@@ -1,5 +1,5 @@
 {
   "projects": {
-    "default": "vota-sp-dev"
+    "default": "vota-sp-prod"
   }
 }
