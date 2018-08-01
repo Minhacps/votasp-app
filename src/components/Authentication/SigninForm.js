@@ -14,7 +14,7 @@ class SigninForm extends Component {
 
     const email = event.target.email.value;
     const password = event.target.password.value;
-    this.setState({ errorMessage: null });
+    this.updateErrorMessage(null);
 
     firebase
       .auth()
@@ -25,24 +25,26 @@ class SigninForm extends Component {
   handleAuthenticationFailure = error => {
     switch (error.code) {
       case 'auth/invalid-email': {
-        return this.setState({ errorMessage: 'O formato do e-mail informado é inválido.' });
+        return this.updateErrorMessage('O formato do e-mail informado é inválido.');
       }
 
       case 'auth/user-disabled': {
-        return this.setState({ errorMessage: 'Usuário desabilitado.' });
+        return this.updateErrorMessage('Usuário desabilitado.');
       }
 
       case 'auth/user-not-found':
       case 'auth/wrong-password': {
-        return this.setState({
-          errorMessage: 'Credenciais inválidas, e-mail ou senha estão incorretos.'
-        });
+        return this.updateErrorMessage('Credenciais inválidas, e-mail ou senha estão incorretos.');
       }
 
       default: {
-        return this.setState({ errorMessage: 'Ocorreu um erro inesperado.' });
+        return this.updateErrorMessage('Ocorreu um erro inesperado.');
       }
     }
+  };
+
+  updateErrorMessage = errorMessage => {
+    this.setState({ errorMessage });
   };
 
   render() {
@@ -54,7 +56,7 @@ class SigninForm extends Component {
       >
         <form onSubmit={this.handleSubmit}>
           <div className="authentication__form-content">
-            <SocialLogin />
+            <SocialLogin updateErrorMessage={this.updateErrorMessage} />
 
             <p className="authentication__separator">ou</p>
 
