@@ -7,6 +7,9 @@ export default props => {
 
   return  (
     <div className='progress-bar__container'>
+      <span className="progress-bar__label">
+        {label}
+      </span>
       <div className="progress-bar__background">
         {values.map((value, index) => (
           <div
