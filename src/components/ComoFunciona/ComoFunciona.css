@@ -82,17 +82,38 @@
   margin: 20px;
 }
 
+.algoritmo .passosItem2 {
+  margin-left: 40px;
+}
+
+.algoritmo .passo2Itemb{
+  margin-left: 60px;
+}
+
+.algoritmo .tabelaRanking .bold{
+  font-weight: bold;
+}
+
+.algoritmo .tabelaRanking .number{
+  text-align: center;
+}
+
+hr {
+  background-color: var(--roxo);
+  width: 70%;
+  border: 2px;
+}
+
 .tabelaRanking{
   color: #57455c;
   border: solid 1px black;
   background-color: #feb557;
+  margin: auto;
 }
 
 .tabelaRanking td{
   border: solid 1px black;
   background-color: #feb557;
+  padding: 5px;
 }
 
-.tabelaRanking th{
-  font-weight: bold; 
-}
