@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 
-import logoUrl from '../../img/logo-votasp.svg';
+import logoUrl from '../../img/MeuVoto_03_AssinaturaMonocromática.png';
 
 import './FormLayout.css';
 

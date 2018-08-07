@@ -25,7 +25,7 @@
 }
 
 .authentication__form-header {
-  background-color: var(--roxo);
+  background-color: #0AD75F;
   padding: 15px;
   position: absolute;
   top: 0;
@@ -39,7 +39,7 @@
 }
 
 .authentication__submit-button {
-  background-color: var(--roxo);
+  background-color: #2D2D32;
   width: 100%;
   border: none;
   padding: 15px;
@@ -52,6 +52,7 @@
 .authentication__tab-buttons {
   display: flex;
   margin-bottom: 20px;
+  margin-top: 12px;
 }
 
 .authentication__tab-button {
