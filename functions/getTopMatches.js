@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const matcher = require('./matcher.js');
 
-const cacheTimeoutMs = 5 * 60 * 1000
+const cacheTimeoutMs = 5 * 60 * 1000;
 const alternatives = ["CP", "C", "D", "DP"];
 
 let lastFetch = -1;
@@ -46,7 +46,7 @@ const getMatchScores = (voterAnswers, allCandidatesData) => {
       }
     })
     .sort((a, b) => b.matchScore - a.matchScore);
-}
+};
 
 const getTopMatches = (voterAnswers, context) => {
     if (!context.auth) {
