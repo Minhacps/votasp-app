@@ -25,7 +25,7 @@ const ComoFunciona = () => {
             <h4 className="text-center">
               O projeto VotaSP nasceu com o objetivo de ajudar a população do
               estado de São Paulo a escolher os seus candidatos a deputado
-              Estadual e Federal com mais conciência com base no que defendem em
+              Estadual e Federal com mais co;nciência com base no que defendem em
               suas campanhas.
             </h4>
           </div>
@@ -85,7 +85,62 @@ const ComoFunciona = () => {
           </div>
         </div>
       </section>
-    </PageLayout>
+      <hr />
+      <section className="algoritmo">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <h2 className="upper text-center titulo">
+                Como é Feito o Cálculo do Ranking
+              </h2>
+            </div>
+            <div>
+              <div className="row">
+                <div className="col-12">
+                  <p className="bold">Coletamos as respostas do eleitor ou da eleitora. </p>
+                  <p>Para cada pergunta respondida seguimos os passos seguintes para cada candidato(a)</p>
+                  <p>Comparamos a resposta x do eleitor com a resposta x do candidato e pontuamos de acordo com a tabela abaixo:</p>
+                  <div>
+                    <table className="tabelaRanking">
+                      <thead>
+                        <tr>
+                          <td>Resposta do Eleitor(a)</td>
+                          <td>Resposta do Candidato(a)</td>
+                          <td>Pontuação do Candidato(a)</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Discordo Plenamente</td>
+                          <td>Discordo Plenamente</td>
+                          <td>4</td>
+                        </tr>
+                        <tr>
+                          <td>Discordo Plenamente</td>
+                          <td>Discordo</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <td>Discordo Plenamente</td>
+                          <td>Concordo</td>
+                          <td>-3</td>
+                        </tr>
+                        <tr>
+                          <td>Discordo Plenamente</td>
+                          <td>Concordo Plenamente</td>
+                          <td>-4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </PageLayout >
   );
 };
 

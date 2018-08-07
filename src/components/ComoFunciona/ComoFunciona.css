@@ -72,3 +72,27 @@
   color: #333;
   line-height: 1.5;
 }
+
+.algoritmo p {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: bold;
+  color: var(--roxo);
+  text-align: left;
+  margin: 20px;
+}
+
+.tabelaRanking{
+  color: #57455c;
+  border: solid 1px black;
+  background-color: #feb557;
+}
+
+.tabelaRanking td{
+  border: solid 1px black;
+  background-color: #feb557;
+}
+
+.tabelaRanking th{
+  font-weight: bold; 
+}
