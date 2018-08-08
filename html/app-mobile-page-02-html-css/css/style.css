@@ -3,6 +3,11 @@
     --roxoClaro: #7e798c;
     --amarelo: #feb557;
     --amareloClaro: #fbdaab;
+    --meu_voto_style_verde: #0AD75F;
+    --meu_voto_style_chumbo: #2D2D32;
+    --meu_voto_style_amarelo: #2D2D32;
+    --meu_voto_style_azul: #64CDFF;
+    --meu_voto_style_vermelho: #E65F5A;
 }
 
 body{
@@ -16,8 +21,7 @@ body{
  */
 
 .navbar {
-    background-color: var(--roxoClaro);
-    background-color: 7e798c;
+    background-color: var(--meu_voto_style_verde);
     padding: 15px 0;
 }
 
@@ -75,7 +79,7 @@ body{
  */
 
 .btn-primary{
-	background-color: var(--roxoClaro);
+	background-color: var(--meu_voto_style_verde);
     background-color: 7e798c;
     border: none;
     border-radius: 12px;
@@ -86,7 +90,7 @@ body{
     margin-top: 7px;
 }
 .btn-primary:hover{
-	background-color: var(--roxoClaro);
+	background-color: var(--meu_voto_style_verde);
     background-color: 7e798c;
     border: none;
     opacity: 0.9;
@@ -98,7 +102,7 @@ body{
  */
 
 footer{
-	background-color: var(--roxoClaro);
+	background-color: var(--meu_voto_style_verde);
     background-color: 7e798c;
     padding: 5px;
     position: absolute;

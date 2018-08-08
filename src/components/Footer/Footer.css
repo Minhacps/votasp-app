@@ -2,7 +2,7 @@
 .upper { text-transform: uppercase; }
 
 .footer{
-    background-color: #57455c;
+    background-color: var(--meu_voto_style_chumbo);
     position: relative;
     bottom: 0;
     width: 100%;
@@ -19,7 +19,7 @@
 .footer a:link{ text-decoration: none;}
 .footer a:hover{ color: #feb557; }
 .footer h4 {
-    color: var(--amarelo);
+    color: var(--meu_voto_style_chumbo);
     margin: 0 15px 0 0;
     font-size: 16px;
 }

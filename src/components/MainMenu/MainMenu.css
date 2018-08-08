@@ -41,7 +41,7 @@
 
 .navigation-menu__link.active::before,
 .navigation-menu__link:hover::before {
-  background-color: var(--amarelo);
+  background-color: var(--meu_voto_style_chumbo);
 }
 
 ul.navigation-menu {

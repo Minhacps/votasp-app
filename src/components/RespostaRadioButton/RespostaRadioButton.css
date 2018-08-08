@@ -34,10 +34,10 @@
 }
 
 .resposta-radio-btn__input:checked ~ .resposta-radio-btn__icon {
-  background: var(--roxo);
-  border-color: var(--roxo);
+  background: var(--meu_voto_style_verde);
+  border-color: var(--meu_voto_style_verde);
 }
 
 .resposta-radio-btn__input:checked ~ .resposta-radio-btn__label {
-  border-color: var(--roxo);
+  border-color: var(--meu_voto_style_verde);
 }

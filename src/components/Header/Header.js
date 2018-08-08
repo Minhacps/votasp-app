@@ -5,7 +5,7 @@ import MainMenu from '../MainMenu/MainMenu';
 
 import './Header.css';
 
-import logoUrl from '../../img/MeuVoto_03_AssinaturaMonocromática.png';
+import logoUrl from '../../img/MeuVoto_03_AssinaturaMonocromatica.png';
 
 const Header = () => (
   <React.Fragment>

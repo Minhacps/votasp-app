@@ -61,7 +61,7 @@
 
 .input:focus {
   outline: none;
-  border-color: var(--amarelo);
+  border-color: var(--meu_voto_style_chumbo);
 }
 
 .complete-signup__footer {

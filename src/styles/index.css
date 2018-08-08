@@ -8,15 +8,19 @@
   --cinzaClaro: #ecedef;
   --pretoClaro: #4b504d;
   --buttonBorderRadius: 5px;
-
   --fontSize1: 10px;
   --fontSize2: 12px;
   --fontSize3: 14px;
   --fontSize4: 16px;
+  --meu_voto_style_verde: #0AD75F;
+  --meu_voto_style_chumbo: #2D2D32;
+  --meu_voto_style_amarelo: #2D2D32;
+  --meu_voto_style_azul: #64CDFF;
+  --meu_voto_style_vermelho: #E65F5A;
 }
 
 :focus {
-  outline-color: var(--amarelo);
+  outline-color: var(--meu_voto_style_chumbo);
   outline-color: #feb557;
   outline-offset: 4px;
   outline-width: 4px;
@@ -50,13 +54,13 @@ body {
 
 .btn-primary {
   font-size: 16px;
-  background-color: var(--roxo);
+  background-color: var(--meu_voto_style_verde);
   color: #fff;
 }
 
 .btn-light {
   background: #fff;
-  border: 1px solid var(--roxo);
+  border: 1px solid var(--meu_voto_style_verde);
   min-width: 90px;
 }
 
