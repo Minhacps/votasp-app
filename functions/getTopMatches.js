@@ -1,7 +1,9 @@
 const functions = require('firebase-functions');
 const matcher = require('./matcher.js');
+const admin = require('firebase-admin');
+admin.initializeApp();
 
-const cacheTimeoutMs = 5 * 60 * 1000
+const cacheTimeoutMs = 15 * 60 * 1000
 const alternatives = ["CP", "C", "D", "DP"];
 
 let lastFetch = -1;
@@ -15,26 +17,20 @@ let candidateData = {
 
 const getCandidateAnswers = () => {
   if (candidateData.isUpToDate()) {
-    return candidateData.answers;
+    return new Promise(
+      (resolve, reject) => resolve(candidateData.answers)
+    );
   }
   candidateData.answers = fetchCandidateAnswers();
   lastFetch = new Date();
   return candidateData.answers;
 };
 
-// TODO: replace by fetch on firestore
 const fetchCandidateAnswers = () => {
+  const candidateAnswersCollection = admin.firestore().collection('candidate_answers');
   const numQuestions = 40;
-  const numCandidates = 4000;
-  return Array(numCandidates).fill(1).map( (v, i) => {
-    return {
-      id: 'candidate-'+i,
-      answers: Array(numQuestions).fill(1).reduce((answers, vv, j) => {
-        answers[j] = alternatives[Math.floor(Math.random() * alternatives.length)];
-        return answers;
-      }, {})
-    }
-  });
+
+  return candidateAnswersCollection.where('40', '>', '').get().then(querySnapshot => querySnapshot.docs)
 };
 
 const getMatchScores = (voterAnswers, allCandidatesData) => {
@@ -42,7 +38,7 @@ const getMatchScores = (voterAnswers, allCandidatesData) => {
     .map((candidateData) => {
       return {
         candidateId: candidateData.id,
-        matchScore: matcher.getMatchScore(voterAnswers, candidateData.answers).normalized
+        matchScore: matcher.getMatchScore(voterAnswers, candidateData.data()).normalized
       }
     })
     .sort((a, b) => b.matchScore - a.matchScore);
@@ -53,9 +49,9 @@ const getTopMatches = (voterAnswers, context) => {
       throw new functions.https.HttpsError('unauthenticated', 'You must be logged in to call this function.');
     }
 
-    const allCandidatesData = getCandidateAnswers();
-
-    return getMatchScores(voterAnswers, allCandidatesData).slice(0,100);
+    return getCandidateAnswers().then(allCandidatesData => {
+      return getMatchScores(voterAnswers, allCandidatesData).slice(0,100);
+    });
 };
 
 module.exports = getTopMatches;
