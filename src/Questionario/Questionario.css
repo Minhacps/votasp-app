@@ -1,7 +1,7 @@
 .questionario__container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 120px);
+  /*height: calc(100vh - 100px);*/
   padding: 20px;
 }
 
@@ -29,4 +29,25 @@
 
 .justification-field textarea {
   height: 94px;
+}
+
+.questions_box {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.questions_box .questions-menu {
+  margin-top: 30px !important;
+}
+
+@media screen and (max-width: 800px) {
+  .questions_box {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .questions_box {
+    width: 30%;
+  }
 }

@@ -226,73 +226,75 @@ export class RawQuestionario extends Component {
 
     return (
       <PageLayout>
-        <QuestionsMenu
-          userAnswers={userAnswers}
-          questionsArray={questoes}
-          currentQuestion={currentQuestion}
-          history={history}
-        />
-        <div
-          className={classnames('questionario__container', {
-            'questionario__container--loading': isAnswering
-          })}
-        >
-          {isCandidate && (
-            <p className="questionario__aviso-candidato">
-              Você como candidato(a) precisa responder as 40 perguntas para se tornar apto(a) ao
-              match.
-            </p>
-          )}
-
-          {perguntas.length && (
-            <Pergunta
-              pergunta={perguntas[currentQuestion]}
-              responderQuestao={this.responderQuestao}
-              isAnswering={isAnswering}
-              userAnswer={currentAnswer ? currentAnswer.answer : undefined}
-            />
-          )}
-
-          {isCandidate && (
-            <div className="justification-field field-wrapper">
-              <label htmlFor="justification">
-                Justificativa <small>(opcional)</small>
-              </label>
-              <textarea
-                value={currentJustification}
-                onChange={this.updateJustification}
-                className="input"
-                name="justification"
-                id="justification"
-                maxLength={500}
-              />
-            </div>
-          )}
-
-          <div className="questionario__actions-container">
-            {!isCandidate && (
-              <button onClick={this.pularQuestao} className="btn btn-light" disabled={isAnswering}>
-                Pular
-              </button>
+        <div className={'questions_box'}>
+          <QuestionsMenu
+            userAnswers={userAnswers}
+            questionsArray={questoes}
+            currentQuestion={currentQuestion}
+            history={history}
+          />
+          <div
+            className={classnames('questionario__container', {
+              'questionario__container--loading': isAnswering
+            })}
+          >
+            {isCandidate && (
+              <p className="questionario__aviso-candidato">
+                Você como candidato(a) precisa responder as 40 perguntas para se tornar apto(a) ao
+                match.
+              </p>
             )}
 
-            <Link
-              to="/calculando-ranking"
-              className="btn btn-light"
-              disabled={isAnswering || userAnswers.length < 20}
-            >
-              Calcular afinidade
-            </Link>
+            {perguntas.length && (
+              <Pergunta
+                pergunta={perguntas[currentQuestion]}
+                responderQuestao={this.responderQuestao}
+                isAnswering={isAnswering}
+                userAnswer={currentAnswer ? currentAnswer.answer : undefined}
+              />
+            )}
 
             {isCandidate && (
-              <button
-                onClick={() => this.saveCandidateAnswer(currentAnswer)}
-                className="btn btn-primary"
-                disabled={isAnswering}
-              >
-                Responder
-              </button>
+              <div className="justification-field field-wrapper">
+                <label htmlFor="justification">
+                  Justificativa <small>(opcional)</small>
+                </label>
+                <textarea
+                  value={currentJustification}
+                  onChange={this.updateJustification}
+                  className="input"
+                  name="justification"
+                  id="justification"
+                  maxLength={500}
+                />
+              </div>
             )}
+
+            <div className="questionario__actions-container">
+              {!isCandidate && (
+                <button onClick={this.pularQuestao} className="btn btn-light" disabled={isAnswering}>
+                  Pular
+                </button>
+              )}
+
+              <Link
+                to="/calculando-ranking"
+                className="btn btn-light"
+                disabled={isAnswering || userAnswers.length < 20}
+              >
+                Calcular afinidade
+              </Link>
+
+              {isCandidate && (
+                <button
+                  onClick={() => this.saveCandidateAnswer(currentAnswer)}
+                  className="btn btn-primary"
+                  disabled={isAnswering}
+                >
+                  Responder
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </PageLayout>

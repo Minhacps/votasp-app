@@ -5,8 +5,7 @@
   padding: 15px 20px;
   transition: max-height 0.3s ease-in-out;
   will-change: max-height;
-  width: 50%;
-  margin: 0 auto;
+  border-radius: 20px;
 }
 
 .question-item-button {
@@ -37,11 +36,6 @@
   margin: 15px auto 0;
 }
 
-@media screen and (max-width: 600px) {
-  .questions-menu {
-    width: 100%;
-  }
-}
 
 .arrow {
   margin-left: 10px;
