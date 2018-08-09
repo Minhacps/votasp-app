@@ -5,7 +5,7 @@ import logoUrl from '../../img/logo-votasp.svg';
 
 import './FormLayout.css';
 
-const FormLayout = ({ children, showLoginPage, activeTab }) => {
+const FormLayout = ({ children, showLoginPage, activeTab, errorMessage }) => {
   const tabButtonClasses = tab =>
     classnames('authentication__tab-button', {
       'authentication__tab-button--active': activeTab === tab
@@ -33,6 +33,15 @@ const FormLayout = ({ children, showLoginPage, activeTab }) => {
             Cadastrar
           </button>
         </div>
+
+        {errorMessage && (
+          <div className="authentication__alert">
+            <div className="alert alert-danger" role="alert">
+              {errorMessage}
+            </div>
+          </div>
+        )}
+
         {children}
       </div>
     </section>

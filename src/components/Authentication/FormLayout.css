@@ -73,3 +73,8 @@
   text-align: center;
   margin: 15px 0;
 }
+
+.authentication__alert {
+  padding: 0 20px;
+  font-size: 14px;
+}

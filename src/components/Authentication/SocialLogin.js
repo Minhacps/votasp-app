@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import firebase from 'firebase/app';
 
 import FacebookLoginButton from 'react-social-login-buttons/lib/buttons/FacebookLoginButton';
@@ -15,7 +15,7 @@ const buttonStyle = {
   height: 40
 };
 
-export default class SocialLogin extends Component {
+export default class SocialLogin extends PureComponent {
   loginWithFacebook = () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('email');
@@ -59,28 +59,28 @@ export default class SocialLogin extends Component {
 
   handleSocialLoginError = error => {
     switch (error.code) {
-      // Account exists with different credentials. For now we just throw an error.
       case 'auth/account-exists-with-different-credential':
-        return console.error(
+        return this.props.updateErrorMessage(
           'Esta conta já foi conectada usando outra rede social. Tente novamente usando outro método de login.'
         );
 
-      // Popup blocked or closed
       case 'auth/popup-blocked':
       case 'auth/popup-closed-by-user':
-        return console.error('O popup de autorização foi bloqueado ou fechado, tente novamente.');
+        return this.props.updateErrorMessage(
+          'O popup de autorização foi bloqueado ou fechado, tente novamente.'
+        );
 
-      // Fail silently
       case 'auth/cancelled-popup-request':
         return;
 
-      // Unexpected
       case 'auth/unauthorized-domain':
       case 'auth/operation-not-supported-in-this-environment':
       case 'auth/operation-not-allowed':
       case 'auth/auth-domain-config-required':
-      default:
-        throw error;
+      default: {
+        console.error(error);
+        return this.props.updateErrorMessage('Ocorreu um erro inesperado');
+      }
     }
   };
 
