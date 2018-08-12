@@ -46,6 +46,11 @@ class MainMenu extends Component {
             </NavLink>
           </li>
           <li className="navigation-menu__list">
+            <NavLink to="/atualizar-informacoes" activeClassName="active" className="navigation-menu__link">
+              Atualizar informações
+            </NavLink>
+          </li>
+          <li className="navigation-menu__list">
             <button className="navigation-menu__link" onClick={() => firebase.auth().signOut()}>
               Sair
             </button>
