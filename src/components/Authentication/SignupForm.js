@@ -3,8 +3,6 @@ import firebase from 'firebase/app';
 
 import cities from './cities';
 
-import logoUrl from '../../img/logo-votasp.svg';
-
 import FormLayout from './FormLayout';
 
 class SignupForm extends PureComponent {
