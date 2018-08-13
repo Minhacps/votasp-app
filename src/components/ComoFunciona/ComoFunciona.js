@@ -86,7 +86,7 @@ const ComoFunciona = () => {
         </div>
       </section>
       <hr />
-      <section className="algoritmo">
+      <section className="algoritmo"> 
         <div className="container">
           <div className="row">
             <div className="col-12">
