@@ -26,7 +26,7 @@ class CompleteSignupForm extends Component {
           <header className="complete-signup__header">
             <h2>Olá!</h2>
             <p>
-              Ficamos muito feliz pelo seu interesse no Vota SP. Precisamos apenas de mais alguns
+              Ficamos muito feliz pelo seu interesse no Meu Voto. Precisamos apenas de mais alguns
               dados para finalizar seu cadastro.
             </p>
           </header>

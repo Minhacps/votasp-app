@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import './WelcomeMessage.css';
 
 const regions = {
-  sp: { name: 'São Paulo', projectName: 'VotaSP' }
+  sp: { name: 'São Paulo', projectName: 'VotaSP' },
+  rs: { name: 'Rio Grande Do Sul', projectName: 'Meu Voto' },
 };
 
 const WelcomeMessage = ({ regionTag, userName }) => {
-  const region = regions[regionTag] || regions['sp'];
+  const region = regions[regionTag] || regions['rs'];
 
   return (
     <section>
