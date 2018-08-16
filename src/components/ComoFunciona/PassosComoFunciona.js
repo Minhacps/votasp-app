@@ -1,8 +1,5 @@
 import React from 'react';
 
-import './ComoFunciona.css';
-import './bootstrap.min.css';
-
 import icone1 from '../../img/icone-01.svg';
 import icone2 from '../../img/icone-02.svg';
 import icone3 from '../../img/icone-03.svg';
