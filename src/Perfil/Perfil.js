@@ -5,6 +5,7 @@ import PageLayout from '../components/PageLayout/PageLayout';
 import cities from '../components/Authentication/cities';
 
 import './Perfil.css';
+import { CANDIDATE } from '../constants/userRoles';
 
 class Perfil extends Component {
   constructor(props) {
@@ -25,6 +26,12 @@ class Perfil extends Component {
         .doc(user.uid)
         .onSnapshot(snapshot => {
           const userData = snapshot.data();
+
+          if (userData.role !== CANDIDATE) {
+            this.props.history.push(`/questionario/1`);
+            return;
+          }
+
           this.setState({ userData })
         });
     });
