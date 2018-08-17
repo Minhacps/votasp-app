@@ -10,22 +10,27 @@ import ResultsWarning from './ResultsWarning/ResultsWarning';
 import Questionario from './Questionario/Questionario';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
 
-const RenderAuthenticated = Coponent => (
-  <Authentication>{({ isUserAuthenticated }) => isUserAuthenticated && <Home />}</Authentication>
+const RenderAuthenticated = (Component, props) => (
+  <Authentication>
+    {({ isUserAuthenticated }) => isUserAuthenticated && <Component {...props} />}
+  </Authentication>
 );
 
 const Routes = () => (
   <React.Fragment>
     <Route exact path="/" component={LandingPage} />
     <Route exact path="/como-funciona" component={ComoFunciona} />
-    <Route exact path="/app" render={() => RenderAuthenticated(Home)} />
-    <Route path="/app/questionario/:question" render={() => RenderAuthenticated(Questionario)} />
+    <Route exact path="/app" render={props => RenderAuthenticated(Home, props)} />
+    <Route
+      path="/app/questionario/:question"
+      render={props => RenderAuthenticated(Questionario, props)}
+    />
     <Route
       exact
       path="/app/calculando-ranking"
-      render={() => RenderAuthenticated(ResultsWarning)}
+      render={props => RenderAuthenticated(ResultsWarning, props)}
     />
-    <Route exact path="/app/ranking" render={() => RenderAuthenticated(Results)} />
+    <Route exact path="/app/ranking" render={props => RenderAuthenticated(Results, props)} />
   </React.Fragment>
 );
 
