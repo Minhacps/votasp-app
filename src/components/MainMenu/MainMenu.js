@@ -12,7 +12,7 @@ class MainMenu extends Component {
     super(props);
 
     this.state = {
-      isOpen: false,
+      isOpen: false
     };
 
     this.toggleMainMenu = this.toggleMainMenu.bind(this);
@@ -24,35 +24,56 @@ class MainMenu extends Component {
 
   render() {
     return (
-      <nav className={classnames(
-        'navigation-menu',
-        { 'opened': this.state.isOpen },
-      )}>
+      <nav className={classnames('navigation-menu', { opened: this.state.isOpen })}>
         <HamburgerMenu onClick={this.toggleMainMenu} />
         <ul className="navigation-menu">
-          <li className="navigation-menu__list">
-            <NavLink to="/como-funciona" activeClassName="active" className="navigation-menu__link">
-              Como funciona
-            </NavLink>
-          </li>
-          <li className="navigation-menu__list">
-            <NavLink to="/questionario/1" activeClassName="active" className="navigation-menu__link">
-              Questões
-            </NavLink>
-          </li>
-          <li className="navigation-menu__list">
-            <NavLink to="/calculando-ranking" activeClassName="active" className="navigation-menu__link">
-              Ver meu ranking
-            </NavLink>
-          </li>
-          <li className="navigation-menu__list">
-            <button className="navigation-menu__link" onClick={() => firebase.auth().signOut()}>
-              Sair
-            </button>
-          </li>
+          {!firebase.auth().currentUser && (
+            <li className="navigation-menu__list">
+              <NavLink to="/app" className="navigation-menu__link">
+                Quero participar!
+              </NavLink>
+            </li>
+          )}
+
+          {firebase.auth().currentUser && (
+            <React.Fragment>
+              <li className="navigation-menu__list">
+                <NavLink
+                  to="/app/questionario/1"
+                  activeClassName="active"
+                  className="navigation-menu__link"
+                >
+                  Questões
+                </NavLink>
+              </li>
+              <li className="navigation-menu__list">
+                <NavLink
+                  to="/como-funciona"
+                  activeClassName="active"
+                  className="navigation-menu__link"
+                >
+                  Como funciona
+                </NavLink>
+              </li>
+              <li className="navigation-menu__list">
+                <NavLink
+                  to="/app/calculando-ranking"
+                  activeClassName="active"
+                  className="navigation-menu__link"
+                >
+                  Ver meu ranking
+                </NavLink>
+              </li>
+              <li className="navigation-menu__list">
+                <button className="navigation-menu__link" onClick={() => firebase.auth().signOut()}>
+                  Sair
+                </button>
+              </li>
+            </React.Fragment>
+          )}
         </ul>
       </nav>
-    )
+    );
   }
 }
 
