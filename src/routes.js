@@ -6,6 +6,7 @@ import Results from './Results/Results';
 import ResultsWarning from './ResultsWarning/ResultsWarning';
 import Questionario from './Questionario/Questionario';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
+import Perfil from './Perfil/Perfil';
 
 const Routes = () => (
   <React.Fragment>
@@ -14,6 +15,7 @@ const Routes = () => (
     <Route path="/questionario/:question" component={Questionario} />
     <Route exact path="/calculando-ranking" component={ResultsWarning} />
     <Route exact path="/ranking" component={Results} />
+    <Route exact path="/atualizar-informacoes" component={Perfil} />
   </React.Fragment>
 );
 
