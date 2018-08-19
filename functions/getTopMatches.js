@@ -4,7 +4,6 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 
 const cacheTimeoutMs = 15 * 60 * 1000
-const alternatives = ["CP", "C", "D", "DP"];
 
 let lastFetch = -1;
 
@@ -35,10 +34,15 @@ const fetchCandidateAnswers = () => {
 
 const getMatchScores = (voterAnswers, allCandidatesData) => {
   return allCandidatesData
-    .map((candidateData) => {
+    .filter((candidateData) => {
+      amountOfAnswers = Object.keys(candidateData.data()).length
+      return amountOfAnswers === 40
+    }).map((candidateData) => {
+      const score = matcher.getMatchScore(voterAnswers, candidateData.data()).normalized;
+
       return {
         candidateId: candidateData.id,
-        matchScore: matcher.getMatchScore(voterAnswers, candidateData.data()).normalized
+        matchScore: score
       }
     })
     .sort((a, b) => b.matchScore - a.matchScore);
