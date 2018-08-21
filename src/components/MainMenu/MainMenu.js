@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import firebase from 'firebase/app';
 import classnames from 'classnames';
@@ -21,6 +21,11 @@ class MainMenu extends Component {
   toggleMainMenu() {
     this.setState({ isOpen: !this.state.isOpen });
   }
+
+  handleLogout = () => {
+    this.props.history.push('/app');
+    firebase.auth().signOut();
+  };
 
   render() {
     return (
@@ -65,7 +70,7 @@ class MainMenu extends Component {
                 </NavLink>
               </li>
               <li className="navigation-menu__list">
-                <button className="navigation-menu__link" onClick={() => firebase.auth().signOut()}>
+                <button className="navigation-menu__link" onClick={this.handleLogout}>
                   Sair
                 </button>
               </li>
@@ -77,4 +82,4 @@ class MainMenu extends Component {
   }
 }
 
-export default MainMenu;
+export default withRouter(MainMenu);
