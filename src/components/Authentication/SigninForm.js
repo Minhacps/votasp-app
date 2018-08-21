@@ -4,8 +4,19 @@ import firebase from 'firebase/app';
 import FormLayout from './FormLayout';
 import SocialLogin from './SocialLogin';
 
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+
 class SigninForm extends PureComponent {
+
+  constructor(props){
+    super(props);
+    this.state = {statusLogin: 'parado'}
+  }
+
   handleSubmit = event => {
+    this.setState({statusLogin: 'realizando'});
     event.preventDefault();
 
     const email = event.target.email.value;
@@ -14,7 +25,11 @@ class SigninForm extends PureComponent {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .catch(console.log);
+      .then(() => this.setState({statusLogin: 'parado'}))
+      .catch((e) => {
+        this.setState({erro: true, statusLogin: 'parado'});
+        event.preventDefault();
+      });
   };
 
   render() {
@@ -36,7 +51,9 @@ class SigninForm extends PureComponent {
               <input type="password" className="input" name="password" id="password" required />
             </div>
           </div>
-          <button className="authentication__submit-button">Entrar</button>
+          <button className="authentication__submit-button">
+            {this.state.statusLogin === 'parado' ? 'Entrar' : <FontAwesomeIcon icon={faSpinner} pulse/> }
+          </button>
         </form>
       </FormLayout>
     );
