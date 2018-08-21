@@ -1,0 +1,7 @@
+.Ranking{
+    color: black;
+}
+
+.Ranking button:active{
+    background-color: red;
+}
