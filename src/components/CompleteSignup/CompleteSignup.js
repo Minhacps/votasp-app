@@ -4,7 +4,7 @@ import firebase from 'firebase/app';
 import PageLayout from '../PageLayout/PageLayout';
 import CompleteSignupForm from './CompleteSignupForm';
 
-import { VOTER, CANDIDATE } from '../../constants/userRoles';
+import { VOTER } from '../../constants/userRoles';
 
 class CompleteSignup extends PureComponent {
   handleSubmit = event => {

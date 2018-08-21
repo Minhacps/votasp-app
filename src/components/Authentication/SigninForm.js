@@ -4,15 +4,15 @@ import firebase from 'firebase/app';
 import FormLayout from './FormLayout';
 import SocialLogin from './SocialLogin';
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+
 
 class SigninForm extends PureComponent {
 
   constructor(props){
     super(props);
-    this.state = {statusLogin: 'parado'}
+    this.state = {statusLogin: 'parado', errorMessage: null};
   }
 
   handleSubmit = event => {
@@ -21,6 +21,7 @@ class SigninForm extends PureComponent {
 
     const email = event.target.email.value;
     const password = event.target.password.value;
+    this.updateErrorMessage(null);
 
     firebase
       .auth()
@@ -29,15 +30,45 @@ class SigninForm extends PureComponent {
       .catch((e) => {
         this.setState({erro: true, statusLogin: 'parado'});
         event.preventDefault();
+        this.handleAuthenticationFailure(e);
       });
+  };
+
+  handleAuthenticationFailure = error => {
+    switch (error.code) {
+      case 'auth/invalid-email': {
+        return this.updateErrorMessage('O formato do e-mail informado é inválido.');
+      }
+
+      case 'auth/user-disabled': {
+        return this.updateErrorMessage('Usuário desabilitado.');
+      }
+
+      case 'auth/user-not-found':
+      case 'auth/wrong-password': {
+        return this.updateErrorMessage('Credenciais inválidas, e-mail ou senha estão incorretos.');
+      }
+
+      default: {
+        return this.updateErrorMessage('Ocorreu um erro inesperado.');
+      }
+    }
+  };
+
+  updateErrorMessage = errorMessage => {
+    this.setState({ errorMessage });
   };
 
   render() {
     return (
-      <FormLayout showLoginPage={this.props.showLoginPage} activeTab="signin">
+      <FormLayout
+        showLoginPage={this.props.showLoginPage}
+        activeTab="signin"
+        errorMessage={this.state.errorMessage}
+      >
         <form onSubmit={this.handleSubmit}>
           <div className="authentication__form-content">
-            <SocialLogin />
+            <SocialLogin updateErrorMessage={this.updateErrorMessage} />
 
             <p className="authentication__separator">ou</p>
 

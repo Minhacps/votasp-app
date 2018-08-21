@@ -1,13 +1,15 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import firebase from 'firebase/app';
 
 import cities from './cities';
 
-import logoUrl from '../../img/logo-votasp.svg';
-
 import FormLayout from './FormLayout';
 
-class SignupForm extends PureComponent {
+class SignupForm extends Component {
+  state = {
+    errorMessage: null
+  };
+
   handleSubmit = event => {
     event.preventDefault();
 
@@ -17,6 +19,7 @@ class SignupForm extends PureComponent {
       name: event.target.name.value,
       city: event.target.city.value
     };
+    this.updateErrorMessage(null);
 
     firebase
       .auth()
@@ -33,12 +36,40 @@ class SignupForm extends PureComponent {
           });
         await user.updateProfile({ displayName: values.name });
       })
-      .catch(console.error);
+      .catch(this.handleSignupFailure);
+  };
+
+  handleSignupFailure = error => {
+    switch (error.code) {
+      case 'auth/email-already-in-use': {
+        return this.updateErrorMessage('Este e-mail já está em uso.');
+      }
+
+      case 'auth/invalid-email': {
+        return this.updateErrorMessage('O formato do e-mail informado é inválido.');
+      }
+
+      case 'auth/weak-password': {
+        return this.updateErrorMessage('Sua senha deve ter no mínimo 6 caracteres.');
+      }
+
+      default: {
+        return this.updateErrorMessage('Ocorreu um erro inesperado.');
+      }
+    }
+  };
+
+  updateErrorMessage = errorMessage => {
+    this.setState({ errorMessage });
   };
 
   render() {
     return (
-      <FormLayout showLoginPage={this.props.showLoginPage} activeTab="signup">
+      <FormLayout
+        showLoginPage={this.props.showLoginPage}
+        activeTab="signup"
+        errorMessage={this.state.errorMessage}
+      >
         <form onSubmit={this.handleSubmit}>
           <div className="authentication__form-content">
             <div className="field-wrapper">

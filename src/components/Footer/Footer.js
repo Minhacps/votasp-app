@@ -7,7 +7,7 @@ import logoMinhaCampinas from '../../img/logo-minhacampinas.png';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="contato email tel cont">
+      <div className="contato email tel">
         <h4 className="bold upper">Fale Conosco</h4>
           <a href="mailto:contato@minhacampinas.org.br">contato@minhacampinas.org.br</a><br />
           <a href="tel:01925152252">(19) 2515-2252</a>
@@ -15,7 +15,7 @@ const Footer = () => {
 
       <div className="ajude">
         <h4 className="bold upper">Ajude o projeto</h4>
-        <a href="https://www.eufaco.minhacampinas.org.br/" target="_blank" rel="noopener noreferrer" className="btn-custom btn-prim text-center">Contribua!</a>
+        <a href="https://www.eufaco.minhacampinas.org.br/" target="_blank" rel="noopener noreferrer" className="contribua">Contribua!</a>
       </div>
       
       <div className="realizacao">
