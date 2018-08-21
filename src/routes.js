@@ -9,6 +9,7 @@ import Results from './Results/Results';
 import ResultsWarning from './ResultsWarning/ResultsWarning';
 import Questionario from './Questionario/Questionario';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
+import Perfil from './Perfil/Perfil';
 
 const RenderAuthenticated = (Component, props) => (
   <Authentication>
@@ -31,6 +32,11 @@ const Routes = () => (
       render={props => RenderAuthenticated(ResultsWarning, props)}
     />
     <Route exact path="/app/ranking" render={props => RenderAuthenticated(Results, props)} />
+    <Route
+      exact
+      path="/app/atualizar-informacoes"
+      render={props => RenderAuthenticated(Perfil, props)}
+    />
   </React.Fragment>
 );
 

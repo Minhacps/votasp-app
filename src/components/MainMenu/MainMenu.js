@@ -4,6 +4,8 @@ import { NavLink, withRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
 import classnames from 'classnames';
 
+import { VOTER, CANDIDATE } from '../../constants/userRoles';
+import { getCurrentUser } from '../../Questionario/QuestionarioService';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 import './MainMenu.css';
 
@@ -12,11 +14,27 @@ class MainMenu extends Component {
     super(props);
 
     this.state = {
-      isOpen: false
+      isOpen: false,
+      isCandidate: false
     };
 
     this.toggleMainMenu = this.toggleMainMenu.bind(this);
   }
+
+  componentDidMount = () => {
+    getCurrentUser()
+      .then(doc => {
+        const user = doc.data();
+        this.setState({
+          isCandidate: user.role === CANDIDATE
+        });
+      })
+      .catch(() => {
+        this.setState({
+          isCandidate: false
+        });
+      });
+  };
 
   toggleMainMenu() {
     this.setState({ isOpen: !this.state.isOpen });
@@ -28,6 +46,8 @@ class MainMenu extends Component {
   };
 
   render() {
+    const { isCandidate } = this.state;
+
     return (
       <nav className={classnames('navigation-menu', { opened: this.state.isOpen })}>
         <HamburgerMenu onClick={this.toggleMainMenu} />
@@ -69,6 +89,17 @@ class MainMenu extends Component {
                   Ver meu ranking
                 </NavLink>
               </li>
+              {isCandidate && (
+                <li className="navigation-menu__list">
+                  <NavLink
+                    to="/app/atualizar-informacoes"
+                    activeClassName="active"
+                    className="navigation-menu__link"
+                  >
+                    Atualizar informações
+                  </NavLink>
+                </li>
+              )}
               <li className="navigation-menu__list">
                 <button className="navigation-menu__link" onClick={this.handleLogout}>
                   Sair

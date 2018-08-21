@@ -98,9 +98,9 @@ export class RawQuestionario extends Component {
     const data = snapshot.data();
     const userAnswers = data
       ? Object.keys(data).map(answerKey => ({
-          id: answerKey,
-          answer: data[answerKey]
-        }))
+        id: answerKey,
+        answer: data[answerKey]
+      }))
       : [];
 
     this.setState({
@@ -109,15 +109,12 @@ export class RawQuestionario extends Component {
   };
 
   storeJustification = snapshot => {
-    const { question } = this.props.match.params;
-    const { currentQuestion } = this.props.questionario;
-
     const data = snapshot.data();
     const candidateJustifications = data
       ? Object.keys(data).map(answerKey => ({
-          id: answerKey,
-          justification: data[answerKey]
-        }))
+        id: answerKey,
+        justification: data[answerKey]
+      }))
       : [];
 
     this.setState(
@@ -217,7 +214,6 @@ export class RawQuestionario extends Component {
       userAnswers,
       isCandidate,
       currentJustification,
-      candidateJustifications
     } = this.state;
     const { perguntas, questionario, history } = this.props;
 
