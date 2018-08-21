@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import store from './redux/store';
-import Authentication from './components/Authentication/Authentication';
 import Routes from './routes';
 
 class App extends PureComponent {
@@ -12,9 +11,7 @@ class App extends PureComponent {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Authentication>
-              {({ isUserAuthenticated }) => isUserAuthenticated && <Routes />}
-            </Authentication>
+            <Routes />
           </Switch>
         </Router>
       </Provider>

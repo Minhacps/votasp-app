@@ -35,7 +35,12 @@ export const watchAnswerJustification = () => {
 };
 
 export const getCurrentUser = () => {
-  const userId = firebase.auth().currentUser.uid;
+  const userId = firebase.auth().currentUser && firebase.auth().currentUser.uid;
+
+  if (!userId) {
+    return Promise.reject('Unknown user');
+  }
+
   return firebase
     .firestore()
     .collection('users')

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import firebase from 'firebase/app';
 import classnames from 'classnames';
@@ -15,66 +15,102 @@ class MainMenu extends Component {
 
     this.state = {
       isOpen: false,
-      isCandidate: false,
+      isCandidate: false
     };
 
     this.toggleMainMenu = this.toggleMainMenu.bind(this);
   }
 
   componentDidMount = () => {
-    getCurrentUser().then(doc => {
-      const user = doc.data();
-      this.setState({
-        isCandidate: (user.role === CANDIDATE)
+    getCurrentUser()
+      .then(doc => {
+        const user = doc.data();
+        this.setState({
+          isCandidate: user.role === CANDIDATE
+        });
+      })
+      .catch(() => {
+        this.setState({
+          isCandidate: false
+        });
       });
-    });
   };
 
   toggleMainMenu() {
     this.setState({ isOpen: !this.state.isOpen });
   }
 
+  handleLogout = () => {
+    this.props.history.push('/app');
+    firebase.auth().signOut();
+  };
+
   render() {
     const { isCandidate } = this.state;
 
     return (
-      <nav className={classnames(
-        'navigation-menu',
-        { 'opened': this.state.isOpen },
-      )}>
+      <nav className={classnames('navigation-menu', { opened: this.state.isOpen })}>
         <HamburgerMenu onClick={this.toggleMainMenu} />
         <ul className="navigation-menu">
-          <li className="navigation-menu__list">
-            <NavLink to="/como-funciona" activeClassName="active" className="navigation-menu__link">
-              Como funciona
-            </NavLink>
-          </li>
-          <li className="navigation-menu__list">
-            <NavLink to="/questionario/1" activeClassName="active" className="navigation-menu__link">
-              Questões
-            </NavLink>
-          </li>
-          <li className="navigation-menu__list">
-            <NavLink to="/calculando-ranking" activeClassName="active" className="navigation-menu__link">
-              Ver meu ranking
-            </NavLink>
-          </li>
-          {isCandidate &&
+          {!firebase.auth().currentUser && (
             <li className="navigation-menu__list">
-              <NavLink to="/atualizar-informacoes" activeClassName="active" className="navigation-menu__link">
-                Atualizar informações
+              <NavLink to="/app" className="navigation-menu__link">
+                Quero participar!
               </NavLink>
             </li>
-          }
-          <li className="navigation-menu__list">
-            <button className="navigation-menu__link" onClick={() => firebase.auth().signOut()}>
-              Sair
-            </button>
-          </li>
+          )}
+
+          {firebase.auth().currentUser && (
+            <React.Fragment>
+              <li className="navigation-menu__list">
+                <NavLink
+                  to="/app/questionario/1"
+                  activeClassName="active"
+                  className="navigation-menu__link"
+                >
+                  Questões
+                </NavLink>
+              </li>
+              <li className="navigation-menu__list">
+                <NavLink
+                  to="/como-funciona"
+                  activeClassName="active"
+                  className="navigation-menu__link"
+                >
+                  Como funciona
+                </NavLink>
+              </li>
+              <li className="navigation-menu__list">
+                <NavLink
+                  to="/app/calculando-ranking"
+                  activeClassName="active"
+                  className="navigation-menu__link"
+                >
+                  Ver meu ranking
+                </NavLink>
+              </li>
+              {isCandidate && (
+                <li className="navigation-menu__list">
+                  <NavLink
+                    to="/app/atualizar-informacoes"
+                    activeClassName="active"
+                    className="navigation-menu__link"
+                  >
+                    Atualizar informações
+                  </NavLink>
+                </li>
+              )}
+              <li className="navigation-menu__list">
+                <button className="navigation-menu__link" onClick={this.handleLogout}>
+                  Sair
+                </button>
+              </li>
+            </React.Fragment>
+          )}
         </ul>
       </nav>
-    )
+    );
   }
 }
 
-export default MainMenu;
+export default withRouter(MainMenu);

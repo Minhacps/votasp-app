@@ -171,7 +171,7 @@ export class RawQuestionario extends Component {
     const { perguntas, questionario } = this.props;
 
     if (questionario.currentQuestion === perguntas.length - 1) {
-      this.props.history.push('/calculando-ranking');
+      this.props.history.push('/app/calculando-ranking');
       return;
     }
 
@@ -181,7 +181,7 @@ export class RawQuestionario extends Component {
       })
     );
 
-    this.props.history.push(`/questionario/${questionario.currentQuestion + 2}`);
+    this.props.history.push(`/app/questionario/${questionario.currentQuestion + 2}`);
 
     this.setState({
       isAnswering: false
@@ -273,7 +273,7 @@ export class RawQuestionario extends Component {
             )}
 
             <Link
-              to="/calculando-ranking"
+              to="/app/calculando-ranking"
               className="btn btn-light"
               disabled={isAnswering || userAnswers.length < 20}
             >
