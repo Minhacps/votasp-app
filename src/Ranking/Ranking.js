@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import firebase from 'firebase';
 
 import Deputado from '../components/Deputado/Deputado';
@@ -15,7 +16,7 @@ class Ranking extends Component {
   state = {
     candidates: [],
     loading: true,
-    candidateViewType: 'federal',
+    view: 'federal',
   };
 
   componentDidMount() {
@@ -61,14 +62,14 @@ class Ranking extends Component {
     })
   };
 
-  switchView = (level) => {
+  switchView = (view) => {
     this.setState({
-      candidateViewType: level,
+      view,
     })
   }
 
   render() {
-    const { candidates, loading, candidateViewType } = this.state;
+    const { candidates, loading, view } = this.state;
 
     if (loading) {
       return <Loader />;
@@ -81,11 +82,43 @@ class Ranking extends Component {
             <h1 className='uppercase'>Ranking</h1>
             <p>Veja os candidatos e candidatas que pensam mais parecido com você.</p>
           </div>
+
+          <div className="candidate__view-switcher">
+            <button
+              onClick={() => this.switchView('federal')}
+              className={classNames({
+                'bt-view--selected': view === 'federal'
+              })}
+            >
+              Federal
+            </button>
+            <button
+              onClick={() => this.switchView('estadual')}
+              className={classNames({
+                'bt-view--selected': view === 'estadual'
+              })}
+            >
+              Estadual
+            </button>
+          </div>
+
           <div className='content'>
             <div className='deputados'>
-              {candidates.map((candidate) => (
-                <Deputado key={candidate.candidateId} {...candidate} />
-              ))}
+              {(view === 'federal') &&
+                candidates
+                  .filter(candidate => candidate.level === 'federal')
+                  .map((candidate) => (
+                    <Deputado key={candidate.candidateId} {...candidate} />
+                  ))
+              }
+
+              {(view === 'estadual') &&
+                candidates
+                  .filter(candidate => candidate.level === 'estadual')
+                  .map((candidate) => (
+                    <Deputado key={candidate.candidateId} {...candidate} />
+                  ))
+              }
             </div>
           </div>
         </div>

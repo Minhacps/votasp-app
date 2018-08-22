@@ -55,7 +55,7 @@ class MainMenu extends Component {
             </NavLink>
           </li>
           <li className="navigation-menu__list">
-            <NavLink to="/calculando-ranking" activeClassName="active" className="navigation-menu__link">
+            <NavLink to="/ranking" activeClassName="active" className="navigation-menu__link">
               Ver meu ranking
             </NavLink>
           </li>
