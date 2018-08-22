@@ -5,6 +5,7 @@
   padding: 15px 20px;
   transition: max-height 0.3s ease-in-out;
   will-change: max-height;
+  border-radius: 20px;
 }
 
 .question-item-button {
