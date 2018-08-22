@@ -1,38 +1,27 @@
 import React from 'react';
+
 import './Deputado.scss';
-import CircleButton from '../CircleButton/CircleButton';
 
-const noop = () => {};
-
-const Deputado = ({ nome, numero, partido, afinidade, onClickShare, onClickPlus }) => (
+const Deputado = ({ name, number, politicalParty, matchScore }) => (
   <div className='deputado-list-item'>
     <div className='photo'>
-      <img src="http://via.placeholder.com/150x150?text=Foto" alt={`Foto do candidato ${nome}`} />
+      <img src="http://via.placeholder.com/150x150?text=Foto" alt={`Foto do candidato ${name}`} />
     </div>
     <div className='info'>
       <div>
-        <span className='candidat-name'>{nome}</span>
-        <span className='candidat-number'>{numero}</span>
+        <span className='candidate-name'>{name}</span>
+        <span className='candidate-number'>{number}</span>
       </div>
 
       <div>
-        <span className='partido-name'>{partido}</span>
+        <span className='partido-name'>{politicalParty}</span>
       </div>
 
       <div>
-        Afinidade: <span className='match-percent'>{afinidade}%</span>
+        Afinidade: <span className='match-percent'>{matchScore / 100}%</span>
       </div>
-    </div>
-    <div className='buttons'>
-      <CircleButton content={<i className='fa fa-plus' />} onClick={onClickShare} />
-      <CircleButton content={<i className='fa fa-share-alt' />} onClick={onClickPlus} />
     </div>
   </div>
 )
-
-Deputado.defaultProps = {
-  onClickShare: noop,
-  onClickPlus: noop
-};
 
 export default Deputado;

@@ -1,165 +1,96 @@
 import React, { Component } from 'react';
-import Candidate from './Candidate/Candidate';
+import firebase from 'firebase';
 
-import firebase from 'firebase/app';
-import functions from 'firebase/functions';
+import Deputado from '../components/Deputado/Deputado';
+import Loader from '../components/Loader/Loader';
+import PageLayout from '../components/PageLayout/PageLayout';
+
+import {
+  watchAnswers,
+} from '../Questionario/QuestionarioService';
+
+import './Ranking.scss';
 
 class Ranking extends Component {
-
-  constructor(props) {
-    super(props);
-    this.authListener = null;
-  }
-
   state = {
-    activeTab: 'Estadual',
     candidates: [],
-    loading: true
-  }
+    loading: true,
+    candidateViewType: 'federal',
+  };
 
   componentDidMount() {
+    watchAnswers('voter_answers').onSnapshot(this.storeCandidates);
+  }
 
-    let data = {
-      "1": "CP",
-      "2": "DP",
-      "3": "DP",
-      "4": "DP",
-      "5": "D",
-      "6": "C",
-      "7": "D",
-      "8": "D",
-      "9": "DP",
-      "10": "D",
-      "11": "D",
-      "12": "DP",
-      "13": "C",
-      "14": "DP",
-      "15": "CP",
-      "16": "DP",
-      "17": "DP",
-      "18": "CP",
-      "19": "C",
-      "20": "C",
-      "21": "DP",
-      "22": "D",
-      "23": "D",
-      "24": "D",
-      "25": "DP",
-      "26": "DP",
-      "27": "C",
-      "28": "C",
-      "29": "CP",
-      "30": "C",
-      "31": "D",
-      "32": "CP",
-      "33": "CP",
-      "34": "D",
-      "35": "D",
-      "36": "D",
-      "37": "D",
-      "38": "D",
-      "39": "CP",
-      "40": "CP"
-    };
-    // console.log(firebase);
-    let candidates = [];
-    this.authListener = firebase.auth().onAuthStateChanged(user => {
-      var getTopMatches = firebase.functions().httpsCallable('getTopMatches');
-      getTopMatches(data).then(function (result) {
-        let results = result.data;
-        // console.log(results);
-        results.forEach(candidate => {
-          let candidateId = candidate.candidateId;
-          firebase
-            .firestore()
-            .collection("users")
-            .doc(candidateId)
-            .get().then(function (doc) {
-              // console.log(doc);
-              if (doc.exists) {
-                // console.log("Document data:", doc.data());
-                candidate.name = doc.data().name;
-                candidate.politicalParty = doc.data().politicalParty;
-                candidate.number = doc.data().number;
-                candidate.level = doc.data().level;
-                candidates.push(candidate);
-              } else {
-                console.log("Documento não existe!");
+  storeCandidates = snapshot => {
+    const userAnswers = snapshot.data();
+    const getTopMatches = firebase.functions().httpsCallable('getTopMatches');
+
+    getTopMatches(userAnswers).then((matches) => {
+      matches.data.forEach(candidate => {
+        const { candidateId } = candidate;
+
+        firebase
+          .firestore()
+          .collection("users")
+          .doc(candidateId)
+          .get().then((doc) => {
+            if (doc.exists) {
+              const candidateDetails = { ...doc.data() }
+              const actualCandidate = {
+                ...candidate,
+                ...candidateDetails,
               }
-            }).catch(function (error) {
-              console.log("Erro ao tentar coletar o documento:", error);
-            });
-        });
-      });
-      this.setState({ candidates });
-      this.setState({ loading: false });
-      console.log('State', this.state.candidates);
-    });
-  }
 
-  componentWillUnmount() {
-    this.authListener();
-  }
+              const rankedCandidates = [
+                ...this.state.candidates,
+                actualCandidate,
+              ];
 
-  handleTabChange() {
-    if (this.state) {
-      let activeTab = 'Estadual';
-      console.log(this.state);
-      if (activeTab === 'Estadual') {
-        this.setState({ activeTab: 'Federal' })
-      } else {
-        this.setState({ activeTab: 'Estadual' })
-      };
-    }
+              this.setState({
+                candidates: rankedCandidates,
+                loading: false,
+              });
+            } else {
+              console.log("Documento não existe!");
+            }
+          }).catch(function (error) {
+            console.log("Erro ao tentar coletar o documento:", error);
+          });
+      })
+    })
+  };
+
+  switchView = (level) => {
+    this.setState({
+      candidateViewType: level,
+    })
   }
 
   render() {
-    let candidatesPage = [];
-    const { candidatesData } = this.state.candidates;
+    const { candidates, loading, candidateViewType } = this.state;
 
-    console.log("Impressão de dentro do render", candidatesData);
-    // if (this.state.loading) {
-    //   console.log("Loading");
-
-    // } else {
-    //   let candidates = [...this.state.candidates];
-    //   console.log("Passei pelo render dentro do if");
-    //   console.log("candidates", candidates);
-    //   console.log("Candidates length", candidates.length);
-    //   candidates.forEach(deputy => {
-    //     console.log("Level:", deputy.level);
-    //     // console.log("Active Tab:", this.state.activeTab);
-    //     // if (this.state.activeTab === deputy.level) {
-    //     //   candidatesPage.push(
-    //     //     <Candidate
-    //     //       key={deputy.number}
-    //     //       name={deputy.name}
-    //     //       number={deputy.number}
-    //     //       politicalParty={deputy.politicalParty}
-    //     //       ranking={deputy.ranking}
-    //     //       photoUrl={deputy.photoUrl}
-    //     //       alt={deputy.number}
-    //     //     />
-    //     //   )
-    //     // }
-    //   });
-    // }
-
+    if (loading) {
+      return <Loader />;
+    }
 
     return (
-      <React.Fragment>
-        <h3>Ranking</h3>
-        <p>Veja os candidatos e candidatas que pensam mais parecido com você.</p>
-        <button onClick={this.handleTabChange}>Deputado Federal</button>
-        <button onClick={this.handleTabChange}>Deputado Estadual</button>
-        <section>
-          {candidatesPage}
-        </section>
-        <section>
-
-        </section>
-      </React.Fragment>
-    );
+      <PageLayout>
+        <div className='container ranking'>
+          <div className='description'>
+            <h1 className='uppercase'>Ranking</h1>
+            <p>Veja os candidatos e candidatas que pensam mais parecido com você.</p>
+          </div>
+          <div className='content'>
+            <div className='deputados'>
+              {candidates.map((candidate) => (
+                <Deputado key={candidate.candidateId} {...candidate} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </PageLayout>
+    )
   }
 }
 
