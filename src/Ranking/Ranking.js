@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import firebase from 'firebase';
-import { default as firebaseApp } from 'firebase/app';
 
 import Deputado from '../components/Deputado/Deputado';
 import Loader from '../components/Loader/Loader';
@@ -28,9 +27,9 @@ class Ranking extends Component {
   };
 
   componentDidMount() {
-    this.authListener = firebaseApp.auth().onAuthStateChanged(user => {
+    this.authListener = firebase.auth().onAuthStateChanged(user => {
 
-      firebaseApp
+      firebase
         .firestore()
         .collection('users')
         .doc(user.uid)
