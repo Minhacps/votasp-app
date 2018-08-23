@@ -169,9 +169,15 @@ export class RawQuestionario extends Component {
 
   proximaQuestao = () => {
     const { perguntas, questionario } = this.props;
+    const { isCandidate } = this.state;
+
+    if (isCandidate && (questionario.currentQuestion === perguntas.length - 1)) {
+      this.props.history.push('/questionario-finalizado');
+      return;
+    }
 
     if (questionario.currentQuestion === perguntas.length - 1) {
-      this.props.history.push('/calculando-ranking');
+      this.props.history.push('/ranking');
       return;
     }
 
@@ -272,13 +278,15 @@ export class RawQuestionario extends Component {
               </button>
             )}
 
-            <Link
-              to="/calculando-ranking"
-              className="btn btn-light"
-              disabled={isAnswering || userAnswers.length < 20}
-            >
-              Calcular afinidade
-            </Link>
+            {!isCandidate &&
+              <Link
+                to="/ranking"
+                className="btn btn-light"
+                disabled={isAnswering || userAnswers.length < 20}
+              >
+                Calcular afinidade
+              </Link>
+            }
 
             {isCandidate && (
               <button
