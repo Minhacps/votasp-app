@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import firebase from 'firebase';
+import { default as firebaseApp } from 'firebase/app';
 
 import Deputado from '../components/Deputado/Deputado';
 import Loader from '../components/Loader/Loader';
 import PageLayout from '../components/PageLayout/PageLayout';
+import { CANDIDATE } from '../constants/userRoles';
 
 import {
   watchAnswers,
@@ -13,6 +15,12 @@ import {
 import './Ranking.scss';
 
 class Ranking extends Component {
+  constructor(props) {
+    super(props);
+
+    this.authListener = null;
+  }
+
   state = {
     candidates: [],
     loading: true,
@@ -20,7 +28,27 @@ class Ranking extends Component {
   };
 
   componentDidMount() {
-    watchAnswers('voter_answers').onSnapshot(this.storeCandidates);
+    this.authListener = firebaseApp.auth().onAuthStateChanged(user => {
+
+      firebaseApp
+        .firestore()
+        .collection('users')
+        .doc(user.uid)
+        .onSnapshot(snapshot => {
+          const userData = snapshot.data();
+
+          if (userData.role === CANDIDATE) {
+            this.props.history.push('/');
+            return;
+          }
+
+          watchAnswers('voter_answers').onSnapshot(this.storeCandidates);
+        });
+    });
+  }
+
+  componentWillUnmount() {
+    this.authListener();
   }
 
   storeCandidates = snapshot => {
