@@ -54,11 +54,13 @@ class MainMenu extends Component {
               Questões
             </NavLink>
           </li>
-          <li className="navigation-menu__list">
-            <NavLink to="/ranking" activeClassName="active" className="navigation-menu__link">
-              Ver meu ranking
+          {!isCandidate &&
+            <li className="navigation-menu__list">
+              <NavLink to="/ranking" activeClassName="active" className="navigation-menu__link">
+                Ver meu ranking
             </NavLink>
-          </li>
+            </li>
+          }
           {isCandidate &&
             <li className="navigation-menu__list">
               <NavLink to="/atualizar-informacoes" activeClassName="active" className="navigation-menu__link">
