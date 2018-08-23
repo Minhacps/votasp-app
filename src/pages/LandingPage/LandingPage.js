@@ -5,17 +5,27 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import PassosComoFunciona from '../../components/ComoFunciona/PassosComoFunciona';
 
+import Banner from '../../img/bannerprincipal.svg';
+
 import './LandingPage.css';
 
 const LandingPage = () => (
   <React.Fragment>
     <Header />
     <div className="landing-page__projeto">
+      <section className="banner">
+        <img src={Banner} />
+        <div className="landing-page__call-to-action">
+          <NavLink to="/app" className="btn">
+            Quero participar!
+        </NavLink>
+        </div>
+      </section>
       <div className="landing-page__descricao container">
-        <h1>O projeto</h1>
+        <h1>Como Funciona</h1>
         <p>
           O projeto VotaSP nasceu com o objetivo de ajudar a população do estado de São Paulo a
-          escolher os seus candidatos a Deputado Estadual e Federal com mais consciência com base no
+          escolher os seus candidatos(as) a Deputado Estadual e Federal com mais consciência com base no
           que defendem em suas campanhas.
         </p>
         <p>
@@ -25,11 +35,6 @@ const LandingPage = () => (
       </div>
       <div className="como-funciona">
         <PassosComoFunciona />
-      </div>
-      <div className="landing-page__call-to-action">
-        <NavLink to="/app" className="btn btn-primary btn-lg">
-          Quero participar!
-        </NavLink>
       </div>
     </div>
     <div className="landing-page__realizacao">

@@ -1,9 +1,10 @@
 .landing-page__projeto {
   background-color: #fbd9ae;
-  padding: 20px 0;
+  margin: 0px;
 }
 
 .landing-page__descricao {
+  margin-top: 15%;
   text-align: center;
   font-size: 16px;
   color: #443148;
@@ -20,5 +21,20 @@
 }
 
 .landing-page__call-to-action {
+  margin-top: -5%;
   text-align: center;
+}
+
+.banner{
+  margin: 0px;
+}
+
+.banner img{
+  width: 100%;
+  margin: 0px;
+}
+
+.btn{
+  color: #57455c;
+  background-color: #feb557;
 }
