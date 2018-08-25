@@ -1,6 +1,8 @@
 import React from 'react';
 import './Realizacao.scss';
 
+import Picture from './Picture/Picture';
+
 import Amanda from '../../img/realizacao/Amanda.png';
 import Anderson from '../../img/realizacao/Anderson.png';
 import Andre from '../../img/realizacao/Andre.png';
@@ -22,35 +24,51 @@ import VMiguez from '../../img/realizacao/VMiguez.png';
 import VPerin from '../../img/realizacao/VPerin.png';
 
 const realizacao = () => {
-  return (
-    <section className='Realizacao'>
-      <h2>Realizacão</h2>
-      <p>O Vota SP foi promovido pela Minha Campinas e desenvolvido em parceria com o Instituto Federal de São Paulo - Campinas e com o FrontEnd Campinas, um grupo de programadores e iprogramadoras independentes que utilizam tecnologia para a construção de um sociedade melhor.
-    </p>
-      <section className='Photos'>
-        <img src={Amanda} alt='Foto da Amanda' />
-        <img src={Anderson} alt='Foto do Anderson' />
-        <img src={Andre} alt='Foto do Andre' />
-        <img src={Bruno} alt='Foto do Bruno' />
-        <img src={Claudia} alt='Foto do Claudia' />
-        <img src={Eduardo} alt='Foto do Eduardo' />
-        <img src={Elisa} alt='Foto do Elsia' />
-        <img src={Gabriel} alt='Foto do Gabriel' />
-        <img src={Giulia} alt='Foto do Giulia' />
-        <img src={Guilherme} alt='Foto do Guilherme' />
-        <img src={Henrique} alt='Foto do Henrique' />
-        <img src={Juliana} alt='Foto do Juliana' />
-        <img src={Lai} alt='Foto do Lai' />
-        <img src={Lucas} alt='Foto do Lucas' />
-        <img src={Marcelo} alt='Foto do Marcelo' />
-        <img src={Mathias} alt='Foto do Mathias' />
-        <img src={Van} alt='Foto do Vanessa' />
-        <img src={VMiguez} alt='Foto do Victor Miguez' />
-        <img src={VPerin} alt='Foto do Vitor Perin' />
-      </section>
+  const persons = [
+    { name: 'Amanda', picture: Amanda, role:'UX Designer', altPicture:'Foto da realizadora'},
+    { name: 'Anderson', picture: Anderson, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'André', picture: Andre, role:'IFSP', altPicture:'Foto da realizadora'},
+    { name: 'Bruno', picture: Bruno, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Claudia', picture: Claudia, role:'Minha Campinas', altPicture:'Foto da realizadora'},
+    { name: 'Eduardo', picture: Eduardo, role:'Minha Campinas', altPicture:'Foto da realizadora'},
+    { name: 'Elisa', picture: Elisa, role:'Minha Campinas', altPicture:'Foto da realizadora'},
+    { name: 'Gabriel', picture: Gabriel, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Giulia', picture: Giulia, role:'Jornalista', altPicture:'Foto da realizadora'},
+    { name: 'Guilherme', picture: Guilherme, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Henrique', picture: Henrique, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Juliana', picture: Juliana, role:'Minha Campinas', altPicture:'Foto da realizadora'},
+    { name: 'Lai', picture: Lai, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Lucas', picture: Lucas, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Marcelo', picture: Marcelo, role:'Minha Campinas', altPicture:'Foto da realizadora'},
+    { name: 'Mathias', picture: Mathias, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Van', picture: Van, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Victor Miguez', picture: VMiguez, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Vitor Perin', picture: VPerin, role:'Developer', altPicture:'Fotos da realizadora' }
+  ];
 
-    </section>
-  );
+  let page = [];
+  persons.forEach(person => {
+    page.push(
+      <Picture
+        key={person.name}
+        name={person.name}
+        picture={person.picture}
+        role={person.role}
+      />
+    )
+  });
+
+return (
+  <section className='Realizacao'>
+    <h2>Realização</h2>
+    <p>O site VotaSp foi idealizado pela organização Minha Campinas. A organização <a href="http://www.minhacampinas.org.br" target="_blank">Minha Campinas</a> tem como objetivo buscar uma maior participação da população nas tomadas de decisão de interesse público da cidade.
+      </p>
+    <p>Além da Minha Campinas participaram da realização do projeto o <a href="https://www.cmp.ifsp.edu.br/" target="_blank">Instituto Federal de São paulo campus Campinas </a> e o Front End Campinas que é um grupo de programadores e programadoras independentes que utilizam tecnologia para a construção de um sociedade melhor.
+    </p>
+    {page}
+
+  </section>
+);
 }
 
 export default realizacao;
