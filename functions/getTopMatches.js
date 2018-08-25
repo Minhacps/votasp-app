@@ -4,6 +4,7 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 
 const cacheTimeoutMs = 15 * 60 * 1000
+const validAnswers = ['CP', 'C', 'I', 'D', 'DP']
 
 let lastFetch = -1;
 
@@ -51,6 +52,25 @@ const getMatchScores = (voterAnswers, allCandidatesData) => {
 const getTopMatches = (voterAnswers, context) => {
     if (!context.auth) {
       throw new functions.https.HttpsError('unauthenticated', 'You must be logged in to call this function.');
+    }
+
+    const answeredQuestionsCount = Object.keys(voterAnswers).reduce((count, idx) => {
+
+      if (!(idx >= 1 && idx <= 40)) {
+        throw new functions.https.HttpsError('invalid-argument', 'The answers must be indexed from 1 to 40.');
+      }
+
+      const answer = voterAnswers[idx];
+
+      if (!validAnswers.includes(answer)) {
+        throw new functions.https.HttpsError('invalid-argument', 'The answers must be one of: ' + validAnswers.join(' ')+'.');
+      }
+
+      return  answer === 'I' ? count : count + 1
+    }, 0)
+
+    if (answeredQuestionsCount < 21) {
+      throw new functions.https.HttpsError('invalid-argument', 'You must answer at least 21 questions non-indifferently to have a match score.');
     }
 
     return getCandidateAnswers().then(allCandidatesData => {
