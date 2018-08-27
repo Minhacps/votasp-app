@@ -7,6 +7,8 @@ import classnames from 'classnames';
 import { VOTER, CANDIDATE } from '../../constants/userRoles';
 import { getCurrentUser } from '../../Questionario/QuestionarioService';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
+import BotaoContribua from '../BotaoContribua/BotaoContribua';
+
 import './MainMenu.css';
 
 class MainMenu extends Component {
@@ -53,11 +55,13 @@ class MainMenu extends Component {
         <HamburgerMenu onClick={this.toggleMainMenu} />
         <ul className="navigation-menu">
           {!firebase.auth().currentUser && (
-            <li className="navigation-menu__list">
-              <NavLink to="/app" className="navigation-menu__link">
-                Quero participar!
+            <div>
+              <li className="navigation-menu__list">
+                <NavLink to="/app" className="navigation-menu__link">
+                  Quero participar!
               </NavLink>
-            </li>
+              </li>
+            </div>
           )}
 
           {firebase.auth().currentUser && (
@@ -104,6 +108,11 @@ class MainMenu extends Component {
                 <button className="navigation-menu__link" onClick={this.handleLogout}>
                   Sair
                 </button>
+              </li>
+              <li className="navigation-menu__list">
+                <NavLink to="https://www.paypal-brasil.com.br/doe/doecompaypal?qc=&qn=Minha+&qs=25#minha-campinas" className="navigation-menu__link btn-contribua btn btn-primary">
+                Contribua
+                </NavLink>
               </li>
             </React.Fragment>
           )}

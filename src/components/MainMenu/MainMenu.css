@@ -105,6 +105,15 @@ ul.navigation-menu {
   transform: scaleX(0);
 }
 
+.navigation-menu .btn-contribua{
+  background-color: #feb557;
+}
+
+.navigation-menu .btn-contribua:hover{
+  color: #333;
+  background-color: #feb557;
+}
+
 @media (min-width: 800px) {
   .navigation-menu {
     padding: 0;
