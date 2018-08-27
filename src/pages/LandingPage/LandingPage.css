@@ -11,13 +11,14 @@
 }
 
 .landing-page__descricao h1 {
+  margin-top: 10px;
   text-transform: uppercase;
   font-size: 26px;
   font-weight: bold;
 }
 
 .landing-page__realizacao {
-  margin: 30px 0 10px;
+  margin: 0px 0 10px;
 }
 
 .landing-page__call-to-action {
