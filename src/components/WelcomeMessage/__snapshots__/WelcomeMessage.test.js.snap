@@ -14,7 +14,8 @@ exports[`<WelcomeMessage /> should accept valid regionTag 1`] = `
     <p>
       O projeto 
       VotaSP
-       nasceu com o objetivo de ajudar a população do estado de 
+       nasceu com o objetivo de ajudar a população do estado de
+       
       São Paulo
        a escolher seus candidatos. Através de questões objetivas os eleitores podem verificar suas afinidades com os candidatos.
       <br />
@@ -23,9 +24,9 @@ exports[`<WelcomeMessage /> should accept valid regionTag 1`] = `
       </strong>
     </p>
     <Link
-      className="btn btn-primary btn--big"
+      className="btn btn-primary btn-lg"
       replace={false}
-      to="/questionario"
+      to="/app/questionario/1"
     >
       Começar
     </Link>
@@ -47,7 +48,8 @@ exports[`<WelcomeMessage /> should render component without props 1`] = `
     <p>
       O projeto 
       VotaSP
-       nasceu com o objetivo de ajudar a população do estado de 
+       nasceu com o objetivo de ajudar a população do estado de
+       
       São Paulo
        a escolher seus candidatos. Através de questões objetivas os eleitores podem verificar suas afinidades com os candidatos.
       <br />
@@ -56,9 +58,9 @@ exports[`<WelcomeMessage /> should render component without props 1`] = `
       </strong>
     </p>
     <Link
-      className="btn btn-primary btn--big"
+      className="btn btn-primary btn-lg"
       replace={false}
-      to="/questionario"
+      to="/app/questionario/1"
     >
       Começar
     </Link>
@@ -80,7 +82,8 @@ exports[`<WelcomeMessage /> should use sp if invalid regionTag 1`] = `
     <p>
       O projeto 
       VotaSP
-       nasceu com o objetivo de ajudar a população do estado de 
+       nasceu com o objetivo de ajudar a população do estado de
+       
       São Paulo
        a escolher seus candidatos. Através de questões objetivas os eleitores podem verificar suas afinidades com os candidatos.
       <br />
@@ -89,9 +92,9 @@ exports[`<WelcomeMessage /> should use sp if invalid regionTag 1`] = `
       </strong>
     </p>
     <Link
-      className="btn btn-primary btn--big"
+      className="btn btn-primary btn-lg"
       replace={false}
-      to="/questionario"
+      to="/app/questionario/1"
     >
       Começar
     </Link>
