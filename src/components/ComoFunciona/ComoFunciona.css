@@ -72,3 +72,54 @@
   color: #333;
   line-height: 1.5;
 }
+
+.algoritmo .titulo {
+  padding-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.algoritmo p {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: bold;
+  color: var(--roxo);
+  text-align: left;
+  margin: 20px;
+}
+
+.algoritmo .passosItem2 {
+  margin-left: 40px;
+}
+
+.algoritmo .passo2Itemb{
+  margin-left: 60px;
+}
+
+.algoritmo .tabelaRanking .bold{
+  font-weight: bold;
+}
+
+.algoritmo .tabelaRanking .number{
+  text-align: center;
+}
+
+hr {
+  background-color: var(--roxo);
+  width: 70%;
+  border: 2px;
+}
+
+.tabelaRanking{
+  color: #57455c;
+  border: solid 1px black;
+  background-color: #feb557;
+  margin: auto;
+}
+
+.tabelaRanking td{
+  border: solid 1px black;
+  background-color: #feb557;
+  padding: 5px;
+}
+

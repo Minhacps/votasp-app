@@ -1,0 +1,136 @@
+.navigation-menu {
+  display: flex;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  margin-right: 15px;
+}
+
+.navigation-menu__link {
+  background: none;
+  border: none;
+  padding: 0 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  position: relative;
+}
+
+.navigation-menu__list:not(:last-child) {
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+
+.navigation-menu__link::before {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  content: '';
+  border-radius: 50px;
+  transition: 0.3s background-color;
+  will-change: background-color;
+}
+
+.navigation-menu__link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navigation-menu__link.active::before,
+.navigation-menu__link:hover::before {
+  background-color: var(--amarelo);
+}
+
+ul.navigation-menu {
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  transform: translateX( 0 );
+  transition: opacity 0.15s, transform 0.3s;
+  will-change: translateX;
+  padding: 20px;
+  opacity: 0;
+  padding-top: 65px;
+}
+
+.navigation-menu.opened .navigation-menu {
+  opacity: 1;
+  transform: translateX( 250px );
+}
+
+.navigation-menu.opened .navigation-menu__link {
+  display: inline-block;
+}
+
+.navigation-menu.opened .navigation-menu__link:hover {
+  color: inherit;
+}
+
+.hamburger-menu {
+  transition: transform 0.3s;
+  position: relative;
+  z-index: 5;
+  border: none;
+  background-color: transparent;
+  border: none;
+}
+
+.listraHamburguer {
+  fill: #fff;
+  transition: fill .3s, transform .5s;
+  will-change: fill, transform;
+}
+
+.navigation-menu.opened .listraHamburguer {
+  fill: #333;
+}
+
+.navigation-menu.opened .listraHamburguer:nth-child(2) {
+  transform: rotateZ(-40deg) translate(-10px, -5px);
+}
+
+.navigation-menu.opened .listraHamburguer:first-child {
+  transform: rotateZ(40deg) translate(5px, 0);
+}
+
+.navigation-menu.opened .listraHamburguer:last-child {
+  transform: scaleX(0);
+}
+
+@media (min-width: 800px) {
+  .navigation-menu {
+    padding: 0;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .navigation-menu__list:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  ul.navigation-menu {
+    flex-direction: row;
+    position: relative;
+    z-index: 2;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    left: 0;
+    opacity: 1;
+    padding: 0;
+  }
+
+  .navigation-menu__link {
+    color: #fff;
+  }
+}

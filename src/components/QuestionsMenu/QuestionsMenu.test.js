@@ -23,6 +23,7 @@ describe('QuestionsMenu', () => {
       <QuestionMenu
         answersArray={answersMock}
         questionsArray={questionsMock}
+        userAnswers={[]}
         currentQuestion={30}
       />
     ))
@@ -36,6 +37,7 @@ describe('QuestionsMenu', () => {
       <QuestionMenu
         answersArray={answersMock}
         questionsArray={questionsMock}
+        userAnswers={[]}
         currentQuestion={30}
       />
     ))

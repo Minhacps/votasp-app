@@ -41,17 +41,15 @@ body {
   padding: 15px 20px;
 }
 
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 8px;
-  padding: 5px 8px;
+.btn-primary {
+  background-color: var(--roxo);
+  border-color: var(--roxo);
+  color: #fff;
 }
 
-.btn-primary {
-  font-size: 16px;
-  background-color: var(--roxo);
-  color: #fff;
+.btn-primary:hover {
+  background-color: #3e2c43;
+  border-color: var(--roxo);
 }
 
 .btn-light {

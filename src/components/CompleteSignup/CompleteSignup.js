@@ -4,7 +4,7 @@ import firebase from 'firebase/app';
 import PageLayout from '../PageLayout/PageLayout';
 import CompleteSignupForm from './CompleteSignupForm';
 
-import { VOTER, CANDIDATE } from '../../constants/userRoles';
+import { VOTER } from '../../constants/userRoles';
 
 class CompleteSignup extends PureComponent {
   handleSubmit = event => {
@@ -37,7 +37,9 @@ class CompleteSignup extends PureComponent {
       level: fields.level.value,
       cnpj: fields.cnpj.value,
       number: fields.number.value,
-      politicalParty: fields.politicalParty.value
+      politicalParty: fields.politicalParty.value,
+      description: fields.description.value,
+      homologated: false
     };
 
     return {

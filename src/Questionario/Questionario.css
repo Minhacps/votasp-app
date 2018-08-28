@@ -1,7 +1,6 @@
 .questionario__container {
   display: flex;
   flex-direction: column;
-  height: calc(100% - 135px);
   padding: 20px;
 }
 
@@ -13,4 +12,20 @@
   display: flex;
   justify-content: space-around;
   margin-top: auto;
+  flex-shrink: 0;
+  padding: 10px 0 20px;
+}
+
+.questionario__aviso-candidato {
+  color: #727273;
+  font-size: 12px;
+  margin: 0 0 10px 0;
+}
+
+.justification-field {
+  margin-top: 20px;
+}
+
+.justification-field textarea {
+  height: 94px;
 }
