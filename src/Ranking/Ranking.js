@@ -24,6 +24,7 @@ class Ranking extends Component {
     candidates: [],
     loading: true,
     view: 'federal',
+    pictures: {}
   };
 
   componentDidMount() {
@@ -65,10 +66,12 @@ class Ranking extends Component {
           .get().then((doc) => {
             if (doc.exists) {
               const candidateDetails = { ...doc.data() }
+              this.getCanditatePicture(candidateDetails.number);
+
               const actualCandidate = {
                 ...candidate,
                 ...candidateDetails,
-              }
+              };
 
               const rankedCandidates = [
                 ...this.state.candidates,
@@ -89,6 +92,24 @@ class Ranking extends Component {
     })
   };
 
+  getCanditatePicture = (number) => {
+    firebase
+      .firestore()
+      .collection('candidates_pictures')
+      .where('number', '==', parseInt(number))
+      .limit(1)
+      .get()
+      .then(querySnapshot => {
+        const { pictures } = this.state;
+        this.setState({
+          pictures: {
+            ...pictures,
+            [number]: querySnapshot.docs[0].data().picture,
+          },
+        })
+      });
+  }
+
   switchView = (view) => {
     this.setState({
       view,
@@ -96,7 +117,7 @@ class Ranking extends Component {
   }
 
   render() {
-    const { candidates, loading, view } = this.state;
+    const { candidates, loading, view, pictures } = this.state;
 
     if (loading) {
       return <Loader />;
@@ -135,7 +156,11 @@ class Ranking extends Component {
                 candidates
                   .filter(candidate => candidate.level === 'federal')
                   .map((candidate) => (
-                    <Deputado key={candidate.candidateId} {...candidate} />
+                    <Deputado
+                      key={candidate.candidateId}
+                      {...candidate}
+                      picture={pictures[candidate.number]}
+                    />
                   ))
               }
 
@@ -143,7 +168,11 @@ class Ranking extends Component {
                 candidates
                   .filter(candidate => candidate.level === 'estadual')
                   .map((candidate) => (
-                    <Deputado key={candidate.candidateId} {...candidate} />
+                    <Deputado
+                      key={candidate.candidateId}
+                      {...candidate}
+                      picture={pictures[candidate.number]}
+                    />
                   ))
               }
             </div>
