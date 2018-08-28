@@ -1,0 +1,24 @@
+.landing-page__projeto {
+  background-color: #fbd9ae;
+  padding: 20px 0;
+}
+
+.landing-page__descricao {
+  text-align: center;
+  font-size: 16px;
+  color: #443148;
+}
+
+.landing-page__descricao h1 {
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.landing-page__realizacao {
+  margin: 30px 0 10px;
+}
+
+.landing-page__call-to-action {
+  text-align: center;
+}
