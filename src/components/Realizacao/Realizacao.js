@@ -19,7 +19,7 @@ import Lai from '../../img/realizacao/Lai.png';
 import Lucas from '../../img/realizacao/Lucas.png';
 import Marcelo from '../../img/realizacao/Marcelo.png';
 import Mathias from '../../img/realizacao/Mathias.png';
-import Van from '../../img/realizacao/Van.png';
+import Vanessa from '../../img/realizacao/Vanessa.png';
 import VMiguez from '../../img/realizacao/VMiguez.png';
 import VPerin from '../../img/realizacao/VPerin.png';
 
@@ -32,16 +32,16 @@ const realizacao = () => {
     { name: 'Claudia Oliveira', picture: Claudia, role:'Minha Campinas', altPicture:'Foto da realizadora'},
     { name: 'Eduardo Silva', picture: Eduardo, role:'Minha Campinas', altPicture:'Foto da realizadora'},
     { name: 'Elisa Mueller', picture: Elisa, role:'Minha Campinas', altPicture:'Foto da realizadora'},
-    { name: 'Gabriel Ribeiro', picture: Gabriel, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Gabriel Ribeiro', picture: Gabriel, role:'Batman', altPicture:'Foto da realizadora'},
     { name: 'Giulia Losnak', picture: Giulia, role:'Jornalista', altPicture:'Foto da realizadora'},
     { name: 'Guilherme Luchesi', picture: Guilherme, role:'Developer', altPicture:'Foto da realizadora'},
     { name: 'Henrique Degrecci', picture: Henrique, role:'Developer', altPicture:'Foto da realizadora'},
     { name: 'Juliana Patete', picture: Juliana, role:'Minha Campinas', altPicture:'Foto da realizadora'},
     { name: 'Lai Xuancheng', picture: Lai, role:'Developer', altPicture:'Foto da realizadora'},
     { name: 'Lucas Guima', picture: Lucas, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Marcelo Nisida', picture: Marcelo, role:'Minha Campinas', altPicture:'Foto da realizadora'},
+    { name: 'Marcelo Nisida', picture: Marcelo, role:'Midiólogo', altPicture:'Foto da realizadora'},
     { name: 'Mathias Geno', picture: Mathias, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Vanessa Souza', picture: Van, role:'Developer', altPicture:'Foto da realizadora'},
+    { name: 'Vanessa Souza', picture: Vanessa, role:'Developer', altPicture:'Foto da realizadora'},
     { name: 'Victor Miguez', picture: VMiguez, role:'Developer', altPicture:'Foto da realizadora'},
     { name: 'Vitor Perin', picture: VPerin, role:'Developer', altPicture:'Fotos da realizadora' }
   ];
