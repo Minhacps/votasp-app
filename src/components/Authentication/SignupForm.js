@@ -1,42 +1,51 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import firebase from 'firebase/app';
 
 import cities from './cities';
 
 import FormLayout from './FormLayout';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
-class SignupForm extends Component {
-  state = {
-    errorMessage: null
-  };
+class SignupForm extends PureComponent {
 
-  handleSubmit = event => {
-    event.preventDefault();
-
-    const values = {
-      email: event.target.email.value,
-      password: event.target.password.value,
-      name: event.target.name.value,
-      city: event.target.city.value
+  constructor(props){
+    super(props);
+    this.state = {
+      errorMessage: null,
+      statusCadastro: 'parado',
     };
-    this.updateErrorMessage(null);
+  }
 
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(values.email, values.password)
-      .then(async ({ user }) => {
-        await firebase
-          .firestore()
-          .collection('users')
-          .doc(user.uid)
-          .set({
-            name: values.name,
-            email: values.email,
-            city: values.city
-          });
-        await user.updateProfile({ displayName: values.name });
-      })
-      .catch(this.handleSignupFailure);
+  handleSubmit = async (event) => {
+    try {
+      this.setState({statusCadastro: 'realizando'});
+      event.preventDefault();
+      const values = {
+        email: event.target.email.value,
+        password: event.target.password.value,
+        name: event.target.name.value,
+        city: event.target.city.value
+      };
+      this.updateErrorMessage(null);
+      const { user } = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(values.email, values.password);
+      await firebase
+        .firestore()
+        .collection('users')
+        .doc(user.uid)
+        .set({
+          name: values.name,
+          email: values.email,
+          city: values.city
+        });
+      await user.updateProfile({ displayName: values.name });
+      this.setState({statusCadastro: 'parado'});
+    } catch (e) {
+      this.setState({statusCadastro: 'parado'});
+      this.handleSignupFailure(e);
+    }
   };
 
   handleSignupFailure = error => {
@@ -98,8 +107,9 @@ class SignupForm extends Component {
               </select>
             </div>
           </div>
-
-          <button className="authentication__submit-button">Cadastrar</button>
+          <button className="authentication__submit-button">
+            {this.state.statusCadastro === 'parado' ? 'Cadastrar' : <FontAwesomeIcon icon={faSpinner} pulse/> }
+          </button>
         </form>
       </FormLayout>
     );
