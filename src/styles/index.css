@@ -56,6 +56,7 @@ body {
   background: #fff;
   border: 1px solid var(--roxo);
   min-width: 90px;
+  border-radius: 10px;
 }
 
 .btn-light:disabled,

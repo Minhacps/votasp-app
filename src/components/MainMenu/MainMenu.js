@@ -80,15 +80,13 @@ class MainMenu extends Component {
                   Como funciona
                 </NavLink>
               </li>
-              <li className="navigation-menu__list">
-                <NavLink
-                  to="/app/calculando-ranking"
-                  activeClassName="active"
-                  className="navigation-menu__link"
-                >
-                  Ver meu ranking
-                </NavLink>
-              </li>
+              {!isCandidate &&
+                <li className="navigation-menu__list">
+                  <NavLink to="/app/ranking" activeClassName="active" className="navigation-menu__link">
+                    Ver meu ranking
+                  </NavLink>
+                </li>
+              }
               {isCandidate && (
                 <li className="navigation-menu__list">
                   <NavLink
