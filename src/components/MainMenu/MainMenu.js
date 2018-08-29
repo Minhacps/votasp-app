@@ -4,10 +4,9 @@ import { NavLink, withRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
 import classnames from 'classnames';
 
-import { VOTER, CANDIDATE } from '../../constants/userRoles';
+import { CANDIDATE } from '../../constants/userRoles';
 import { getCurrentUser } from '../../Questionario/QuestionarioService';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
-import BotaoContribua from '../BotaoContribua/BotaoContribua';
 
 import './MainMenu.css';
 
@@ -109,7 +108,7 @@ class MainMenu extends Component {
               </li>
               <li className="navigation-menu__list">
                 <NavLink to="https://www.paypal-brasil.com.br/doe/doecompaypal?qc=&qn=Minha+&qs=25#minha-campinas" className="navigation-menu__link btn-contribua btn btn-primary">
-                Contribua
+                  Contribua
                 </NavLink>
               </li>
             </React.Fragment>
