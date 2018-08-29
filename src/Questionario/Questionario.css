@@ -30,18 +30,12 @@
 }
 
 .questions_box {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 800px) {
   .questions_box {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .questions_box {
-    width: 30%;
+    width: 80%;
   }
 }

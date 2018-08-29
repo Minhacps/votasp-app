@@ -61,7 +61,7 @@
 
 @media screen and (min-width: 767px){
   .footer {
-    position: fixed;
+    position: static;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -88,52 +88,3 @@
       padding-bottom: 5px;
   }
 }
-
-/*
-.footer .realizacao { margin: 10px 0; }
-.footer .ajude { margin: 15px 0; }
-
-
-
-.contato,
-.ajude,
-.realizacao{
-    color: #fff;
-}
-
-.contato h4,
-.ajude h4,
-.realizacao h4{
-    color: #feb557;
-    margin-top: 0;
-    padding-top: 10px;
-}
-
-
-
-.realizacao img{
-    width: 90px;
-    margin: 0px 5px;
-}
-
-
-
-@media screen and (max-width: 1024px){
-    .footer { 
-        padding: 30px 0;
-        position: relative;
-        bottom: 0;
-        width: 100%
-    }
-    .footer .ajude { margin: 0; }
-    .footer h4 { margin: 0 0 10px; }
-    .realizacao img {
-        width: 100px;
-        margin: 0 5px;
-    }
-    .footer .cont{
-        padding-bottom: 5px;
-    }
-}
-
-*/
