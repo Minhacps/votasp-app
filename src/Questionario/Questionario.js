@@ -273,13 +273,13 @@ export class RawQuestionario extends Component {
                 </button>
               )}
 
-            <Link
-              to="/app/calculando-ranking"
-              className="btn btn-light"
-              disabled={isAnswering || userAnswers.length < 20}
-            >
-              Calcular afinidade
-            </Link>
+              <Link
+                to="/app/calculando-ranking"
+                className="btn btn-light"
+                disabled={isAnswering || userAnswers.length < 20}
+              >
+                Calcular afinidade
+              </Link>
 
               {isCandidate && (
                 <button
