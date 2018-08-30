@@ -1,7 +1,5 @@
 const functions = require('firebase-functions');
 const matcher = require('./matcher.js');
-const admin = require('firebase-admin');
-admin.initializeApp();
 
 const cacheTimeoutMs = 15 * 60 * 1000
 const validAnswers = ['CP', 'C', 'I', 'D', 'DP']
@@ -15,18 +13,18 @@ let candidateData = {
   }
 };
 
-const getCandidateAnswers = () => {
+const getCandidateAnswers = (admin) => {
   if (candidateData.isUpToDate()) {
     return new Promise(
       (resolve, reject) => resolve(candidateData.answers)
     );
   }
-  candidateData.answers = fetchCandidateAnswers();
+  candidateData.answers = fetchCandidateAnswers(admin);
   lastFetch = new Date();
   return candidateData.answers;
 };
 
-const fetchCandidateAnswers = () => {
+const fetchCandidateAnswers = (admin) => {
   const candidateAnswersCollection = admin.firestore().collection('candidate_answers');
   const numQuestions = 40;
 
@@ -49,7 +47,8 @@ const getMatchScores = (voterAnswers, allCandidatesData) => {
     .sort((a, b) => b.matchScore - a.matchScore);
 }
 
-const getTopMatches = (voterAnswers, context) => {
+const getTopMatches = (admin) => {
+  return (voterAnswers, context) => {
     if (!context.auth) {
       throw new functions.https.HttpsError('unauthenticated', 'You must be logged in to call this function.');
     }
@@ -72,6 +71,7 @@ const getTopMatches = (voterAnswers, context) => {
     return getCandidateAnswers().then(allCandidatesData => {
       return getMatchScores(voterAnswers, allCandidatesData).slice(0,100);
     });
+  }
 };
 
 module.exports = getTopMatches;
