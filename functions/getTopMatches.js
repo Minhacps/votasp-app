@@ -30,7 +30,7 @@ const fetchCandidateAnswers = () => {
   const candidateAnswersCollection = admin.firestore().collection('candidate_answers');
   const numQuestions = 40;
 
-  return candidateAnswersCollection.where('homologated', '==', true).where('40', '>', '').get().then(querySnapshot => querySnapshot.docs)
+  return candidateAnswersCollection.where('40', '>', '').get().then(querySnapshot => querySnapshot.docs)
 };
 
 const getMatchScores = (voterAnswers, allCandidatesData) => {
