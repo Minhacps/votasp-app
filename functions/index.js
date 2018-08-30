@@ -6,4 +6,4 @@ admin.initializeApp();
 
 exports.getTopMatches = functions.https.onCall(getTopMatches(admin));
 
-//exports.updateSnapshot = functions.https.onRequest(updateSnapshot(admin));
+exports.updateSnapshot = functions.https.onRequest(updateSnapshot(admin));
