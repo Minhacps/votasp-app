@@ -113,7 +113,7 @@ const questoes = [
   },
   {
     "id": 29,
-    "question": "As Universidades Públicas deveriam ser paga por quem pode pagar."
+    "question": "As Universidades Públicas deveriam ser pagas por quem pode pagar."
   },
   {
     "id": 30,
