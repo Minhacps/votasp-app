@@ -26,7 +26,8 @@ class CompleteSignup extends PureComponent {
     const userMetadata = {
       role: fields.role.value,
       city: city || fields.city.value,
-      name: name || fields.name.value
+      name: name || fields.name.value.trim(),
+      createdAt: new Date().toISOString()
     };
 
     if (userMetadata.role === VOTER) {
@@ -35,11 +36,11 @@ class CompleteSignup extends PureComponent {
 
     const candidateData = {
       level: fields.level.value,
-      cnpj: fields.cnpj.value,
-      number: fields.number.value,
-      politicalParty: fields.politicalParty.value,
-      description: fields.description.value,
-      homologated: false
+      cnpj: fields.cnpj.value.trim(),
+      number: fields.number.value.trim(),
+      politicalParty: fields.politicalParty.value.trim(),
+      description: fields.description.value.trim(),
+      homologated: true
     };
 
     return {

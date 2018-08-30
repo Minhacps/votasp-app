@@ -66,13 +66,12 @@ class Perfil extends Component {
 
     return {
       level: fields.level.value,
-      cnpj: fields.cnpj.value,
-      number: fields.number.value,
+      cnpj: fields.cnpj.value.trim(),
+      number: fields.number.value.trim(),
       politicalParty: fields.politicalParty.value,
-      description: fields.description.value,
-      homologated: false,
+      description: fields.description.value.trim(),
       city: city || fields.city.value,
-      name: name || fields.name.value
+      name: name || fields.name.value.trim()
     };
   };
 
