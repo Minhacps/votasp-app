@@ -107,9 +107,9 @@ class MainMenu extends Component {
                 </button>
               </li>
               <li className="navigation-menu__list">
-                <NavLink to="https://www.paypal-brasil.com.br/doe/doecompaypal?qc=&qn=Minha+&qs=25#minha-campinas" className="navigation-menu__link btn-contribua btn btn-primary">
+                <a href="https://www.paypal-brasil.com.br/doe/doecompaypal?qc=&qn=Minha+&qs=25#minha-campinas" className="navigation-menu__link btn-contribua btn btn-primary" target="_blank">
                   Contribua
-                </NavLink>
+                </a>
               </li>
             </React.Fragment>
           )}
