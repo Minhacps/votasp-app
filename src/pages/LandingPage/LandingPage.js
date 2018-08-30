@@ -15,13 +15,11 @@ const LandingPage = () => (
       <div className="landing-page__descricao container">
         <h1>O projeto</h1>
         <p>
-          O projeto VotaSP nasceu com o objetivo de ajudar a população do estado de São Paulo a
-          escolher os seus candidatos a Deputado Estadual e Federal com mais consciência com base no
-          que defendem em suas campanhas.
+        O Vota SP é um site que vai ajudar a população do Estado de São Paulo escolher seus candidatos e candidatas a deputado, deputada estadual e federal.
         </p>
         <p>
           Através de questões objetivas os eleitores podem verificar sua afinidade com os
-          candidatos. <strong>É muito simples e prático!</strong>
+          candidatos e candidatas. <strong>É muito simples e prático!</strong>
         </p>
       </div>
       <div className="como-funciona">

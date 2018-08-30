@@ -25,25 +25,25 @@ import VPerin from '../../img/realizacao/VPerin.png';
 
 const realizacao = () => {
   const persons = [
-    { name: 'Amanda Yoshizumi', picture: Amanda, role:'UX Designer', altPicture:'Foto da realizadora'},
-    { name: 'Anderson Silva', picture: Anderson, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'André Bordignon', picture: Andre, role:'IFSP', altPicture:'Foto da realizadora'},
-    { name: 'Bruno Wowk', picture: Bruno, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Claudia Oliveira', picture: Claudia, role:'Minha Campinas', altPicture:'Foto da realizadora'},
-    { name: 'Eduardo Silva', picture: Eduardo, role:'Minha Campinas', altPicture:'Foto da realizadora'},
-    { name: 'Elisa Mueller', picture: Elisa, role:'Minha Campinas', altPicture:'Foto da realizadora'},
-    { name: 'Gabriel Ribeiro', picture: Gabriel, role:'Batman', altPicture:'Foto da realizadora'},
-    { name: 'Giulia Losnak', picture: Giulia, role:'Jornalista', altPicture:'Foto da realizadora'},
-    { name: 'Guilherme Luchesi', picture: Guilherme, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Henrique Degrecci', picture: Henrique, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Juliana Patete', picture: Juliana, role:'Minha Campinas', altPicture:'Foto da realizadora'},
-    { name: 'Lai Xuancheng', picture: Lai, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Lucas Guima', picture: Lucas, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Marcelo Nisida', picture: Marcelo, role:'Midiólogo', altPicture:'Foto da realizadora'},
-    { name: 'Mathias Geno', picture: Mathias, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Vanessa Souza', picture: Vanessa, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Victor Miguez', picture: VMiguez, role:'Developer', altPicture:'Foto da realizadora'},
-    { name: 'Vitor Perin', picture: VPerin, role:'Developer', altPicture:'Fotos da realizadora' }
+    { name: 'Amanda Yoshizumi', picture: Amanda, role: 'UX Designer', altPicture: 'Foto da realizadora' },
+    { name: 'Anderson Silva', picture: Anderson, role: 'Developer', altPicture: 'Foto da realizadora' },
+    { name: 'André Bordignon', picture: Andre, role: 'IFSP', altPicture: 'Foto da realizadora' },
+    { name: 'Bruno Wowk', picture: Bruno, role: 'Developer', altPicture: 'Foto da realizadora' },
+    { name: 'Claudia Oliveira', picture: Claudia, role: 'Minha Campinas', altPicture: 'Foto da realizadora' },
+    { name: 'Eduardo Silva', picture: Eduardo, role: 'Minha Campinas', altPicture: 'Foto da realizadora' },
+    { name: 'Elisa Mueller', picture: Elisa, role: 'Minha Campinas', altPicture: 'Foto da realizadora' },
+    { name: 'Gabriel Ribeiro', picture: Gabriel, role: 'Batman', altPicture: 'Foto da realizadora' },
+    { name: 'Giulia Losnak', picture: Giulia, role: 'Jornalista', altPicture: 'Foto da realizadora' },
+    { name: 'Guilherme Luchesi', picture: Guilherme, role: 'Developer', altPicture: 'Foto da realizadora' },
+    { name: 'Henrique Degrecci', picture: Henrique, role: 'Developer', altPicture: 'Foto da realizadora' },
+    { name: 'Juliana Patete', picture: Juliana, role: 'Minha Campinas', altPicture: 'Foto da realizadora' },
+    { name: 'Lai Xuancheng', picture: Lai, role: 'Developer', altPicture: 'Foto da realizadora' },
+    { name: 'Lucas Guima', picture: Lucas, role: 'Developer', altPicture: 'Foto da realizadora' },
+    { name: 'Marcelo Nisida', picture: Marcelo, role: 'Midiólogo', altPicture: 'Foto da realizadora' },
+    { name: 'Mathias Geno', picture: Mathias, role: 'Developer', altPicture: 'Foto da realizadora' },
+    { name: 'Vanessa Souza', picture: Vanessa, role: 'Developer', altPicture: 'Foto da realizadora' },
+    { name: 'Victor Miguez', picture: VMiguez, role: 'Developer', altPicture: 'Foto da realizadora' },
+    { name: 'Vitor Perin', picture: VPerin, role: 'Developer', altPicture: 'Fotos da realizadora' }
   ];
 
   let page = [];
@@ -58,17 +58,18 @@ const realizacao = () => {
     )
   });
 
-return (
-  <section className='Realizacao'>
-    <h2>Realização</h2>
-    <p>O site VotaSp foi idealizado pela organização Minha Campinas. A organização <a href="http://www.minhacampinas.org.br" target="_blank">Minha Campinas</a> tem como objetivo buscar uma maior participação da população nas tomadas de decisão de interesse público da cidade.
+  return (
+    <section className='Realizacao'>
+      <h2>Realização</h2>
+      <p>
+        O site Vota SP foi idealizado pela <a href="http://www.minhacampinas.org.br" target="_blank">Minha Campinas</a>, uma organização que tem por objetivo buscar uma maior participação da população nas tomadas de decisão de interesse público da cidade.
       </p>
-    <p>Além da Minha Campinas participaram da realização do projeto o <a href="https://www.cmp.ifsp.edu.br/" target="_blank">Instituto Federal de São paulo campus Campinas </a> e o Front End Campinas que é um grupo de programadores e programadoras independentes que utilizam tecnologia para a construção de um sociedade melhor.
+      <p>
+        Participaram da realização do projeto o <a href="https://www.cmp.ifsp.edu.br/" target="_blank">Instituto Federal de São paulo campus Campinas</a> e o Front End Campinas: um grupo de programadores e programadoras independentes que utilizam tecnologia para a construção de um sociedade melhor.
     </p>
-    {page}
-
-  </section>
-);
+      {page}
+    </section>
+  );
 }
 
 export default realizacao;
