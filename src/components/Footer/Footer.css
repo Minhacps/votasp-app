@@ -3,7 +3,6 @@
 
 .footer h4 {
   color: var(--amarelo);
-  margin: 0 15px 0 0;
   font-size: 16px;
 }
 
@@ -28,25 +27,13 @@
 
 
 @media screen and (min-width: 768px){
-  .footer{ position: relative; height: 90px;}
-  .footer .contato{
-    width: 30%;
+  .footer{
     position: relative;
-    float: left;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
   }
 
-  .footer .ajude{
-    width: 30%;
-    position: relative;
-    float: left;
-    text-align: center;
-  }
-
-  .footer .realizacao{
-    width: 40%;
-    position: relative;
-    float: left;
+  .footer .ajude {
     text-align: center;
   }
 
@@ -58,16 +45,6 @@
   }
 
 }
-
-@media screen and (min-width: 767px){
-  .footer {
-    position: static;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
-}
-
 
 @media screen and (max-width: 767px){
   .footer {
