@@ -69,10 +69,6 @@ const getTopMatches = (voterAnswers, context) => {
       return  answer === 'I' ? count : count + 1
     }, 0)
 
-    if (answeredQuestionsCount < 21) {
-      throw new functions.https.HttpsError('invalid-argument', 'You must answer at least 21 questions non-indifferently to have a match score.');
-    }
-
     return getCandidateAnswers().then(allCandidatesData => {
       return getMatchScores(voterAnswers, allCandidatesData).slice(0,100);
     });
