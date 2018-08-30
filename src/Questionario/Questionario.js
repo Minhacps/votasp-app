@@ -177,7 +177,7 @@ export class RawQuestionario extends Component {
     }
 
     if (questionario.currentQuestion === perguntas.length - 1) {
-      this.props.history.push('/ranking');
+      this.props.history.push('/app/ranking');
       return;
     }
 
@@ -281,7 +281,7 @@ export class RawQuestionario extends Component {
 
               {!isCandidate &&
                 <Link
-                  to="/ranking"
+                  to="/app/ranking"
                   className="btn btn-light"
                   disabled={isAnswering || userAnswers.length < 20}
                 >
