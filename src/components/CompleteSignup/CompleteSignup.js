@@ -48,6 +48,7 @@ class CompleteSignup extends PureComponent {
       .firestore()
       .collection('candidates_pictures')
       .where('number', '==', Number(candidateData.number))
+      .limit(1)
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(function(doc) {
