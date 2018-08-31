@@ -61,6 +61,7 @@ body {
   background: #fff;
   border: 1px solid var(--meu_voto_style_verde);
   min-width: 90px;
+  border-radius: 10px;
 }
 
 .btn-light:disabled,

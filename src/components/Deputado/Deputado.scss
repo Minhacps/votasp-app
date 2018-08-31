@@ -4,7 +4,7 @@
   padding: 0px 0px;
 
   & > div {
-    padding: 10px;
+    padding: 15px;
   }
 
   .photo img {
@@ -16,11 +16,12 @@
   .info {
     flex-grow: 1;
 
-    .candidat-name {
+    .candidate-name {
       font-weight: bold;
+      text-transform: capitalize;
     }
 
-    .candidat-number {
+    .candidate-number {
       margin-left: 10px;
     }
 

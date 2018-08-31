@@ -30,7 +30,7 @@ const fetchCandidateAnswers = () => {
   const candidateAnswersCollection = admin.firestore().collection('candidate_answers');
   const numQuestions = 40;
 
-  return candidateAnswersCollection.where('homologated', '==', true).where('40', '>', '').get().then(querySnapshot => querySnapshot.docs)
+  return candidateAnswersCollection.where('40', '>', '').get().then(querySnapshot => querySnapshot.docs)
 };
 
 const getMatchScores = (voterAnswers, allCandidatesData) => {
@@ -68,10 +68,6 @@ const getTopMatches = (voterAnswers, context) => {
 
       return  answer === 'I' ? count : count + 1
     }, 0);
-
-    if (answeredQuestionsCount < 21) {
-      throw new functions.https.HttpsError('invalid-argument', 'You must answer at least 21 questions non-indifferently to have a match score.');
-    }
 
     return getCandidateAnswers().then(allCandidatesData => {
       return getMatchScores(voterAnswers, allCandidatesData).slice(0,100);

@@ -4,6 +4,7 @@
   margin-bottom: 0;
   padding-left: 0;
   margin-right: 15px;
+  align-items: center;
 }
 
 .navigation-menu__link {
@@ -103,6 +104,15 @@ ul.navigation-menu {
 
 .navigation-menu.opened .listraHamburguer:last-child {
   transform: scaleX(0);
+}
+
+.navigation-menu .btn-contribua{
+  background-color: #feb557;
+}
+
+.navigation-menu .btn-contribua:hover{
+  color: #333;
+  background-color: #feb557;
 }
 
 @media (min-width: 800px) {

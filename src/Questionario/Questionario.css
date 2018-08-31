@@ -12,9 +12,8 @@
 .questionario__actions-container {
   display: flex;
   justify-content: space-around;
-  margin-top: auto;
   flex-shrink: 0;
-  padding: 10px 0 20px;
+  margin-top: 30px;
 }
 
 .questionario__aviso-candidato {
@@ -32,22 +31,12 @@
 }
 
 .questions_box {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
 
-.questions_box .questions-menu {
-  margin-top: 30px !important;
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 800px) {
   .questions_box {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .questions_box {
-    width: 30%;
+    width: 80%;
   }
 }
