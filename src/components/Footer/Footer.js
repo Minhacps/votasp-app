@@ -11,6 +11,10 @@ const Footer = () => {
         <h4 className="bold upper">Fale Conosco</h4>
           <a href="mailto:contato@minhacampinas.org.br">contato@minhacampinas.org.br</a><br />
           <a href="tel:01925152252">(19) 2515-2252</a>
+          <small>
+            <br />
+          <a href="/politica-de-privacidade">Política de           Privacidade</a>
+          </small>
       </div>
 
       <div className="ajude">
