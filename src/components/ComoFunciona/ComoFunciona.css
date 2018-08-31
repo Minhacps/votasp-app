@@ -6,7 +6,7 @@
  .como-funciona .col-6.col-lg-3 { padding: 0 40px; }
  .footer {
      padding:10px;
-     background-color: #57455c;
+     background-color: var(--meu_voto_style_chumbo);
  }
 
  /*
@@ -27,7 +27,7 @@
  .como-funciona .passos::before {
      display: inline-block;
      color: #fff;
-     background-color: var(--roxo);
+     background-color: var(--meu_voto_style_chumbo);
      padding-left: 9px;
      width: 30px;
      height: 30px;
@@ -42,7 +42,7 @@
  .como-funciona { margin: 20px 0; }
  .como-funciona .passos img { max-width: 60%; }
  .como-funciona .passos {
-     background-color: var(--amarelo);
+     background-color: #fff;
      width: 120px;
      height: 120px;
      margin: 20px auto 14px;
@@ -111,7 +111,7 @@ hr {
 }
 
 .tabelaRanking{
-  color: #57455c;
+  color: var(--meu_voto_style_chumbo);
   border: solid 1px black;
   background-color: #feb557;
   margin: auto;

@@ -37,6 +37,6 @@
 
 @media screen and (min-width: 800px) {
   .questions_box {
-    width: 80%;
+    width: 50%;
   }
 }
