@@ -7,10 +7,10 @@ import CompleteSignupForm from './CompleteSignupForm';
 import { VOTER } from '../../constants/userRoles';
 
 class CompleteSignup extends PureComponent {
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
 
-    const userData = this.formatUserData(event.target);
+    const userData = await this.formatUserData(event.target);
     const currentUser = firebase.auth().currentUser;
 
     firebase
@@ -20,7 +20,7 @@ class CompleteSignup extends PureComponent {
       .set({ ...userData, email: currentUser.email });
   };
 
-  formatUserData = fields => {
+  formatUserData = async fields => {
     const { city, name } = this.props.userData || {};
 
     const userMetadata = {
@@ -40,8 +40,21 @@ class CompleteSignup extends PureComponent {
       number: fields.number.value.trim(),
       politicalParty: fields.politicalParty.value.trim(),
       description: fields.description.value.trim(),
-      homologated: true
+      homologated: true,
+      picture: null
     };
+
+    await firebase
+      .firestore()
+      .collection('candidates_pictures')
+      .where('number', '==', Number(candidateData.number))
+      .limit(1)
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(function(doc) {
+          candidateData.picture = doc.data().picture;
+        });
+      })
 
     return {
       ...userMetadata,
