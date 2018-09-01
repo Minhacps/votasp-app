@@ -64,7 +64,6 @@ class Ranking extends Component {
           .then(doc => {
             if (doc.exists) {
               const candidateDetails = { ...doc.data() };
-              this.getCanditatePicture(candidateDetails.number);
 
               const actualCandidate = {
                 ...candidate,
@@ -81,29 +80,9 @@ class Ranking extends Component {
               console.log('Documento não existe!');
             }
           })
-          .catch(function(error) {
-            console.log('Erro ao tentar coletar o documento:', error);
-          });
+          .catch(console.log);
       });
     });
-  };
-
-  getCanditatePicture = number => {
-    firebase
-      .firestore()
-      .collection('candidates_pictures')
-      .where('number', '==', parseInt(number))
-      .limit(1)
-      .get()
-      .then(querySnapshot => {
-        const { pictures } = this.state;
-        this.setState({
-          pictures: {
-            ...pictures,
-            [number]: querySnapshot.docs[0].data().picture
-          }
-        });
-      });
   };
 
   switchView = view => {
@@ -155,7 +134,6 @@ class Ranking extends Component {
                     <Deputado
                       key={candidate.candidateId}
                       {...candidate}
-                      picture={pictures[candidate.number]}
                     />
                   ))}
 
