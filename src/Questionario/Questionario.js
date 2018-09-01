@@ -23,6 +23,15 @@ import { storeQuestionario } from '../redux/modules/questionario';
 import './Questionario.css';
 
 export class RawQuestionario extends Component {
+  propTypes = {
+    history: PropTypes.object,
+    location: PropTypes.object,
+    match: PropTypes.object,
+    questionario: PropTypes.shape({
+      currentQuestion: PropTypes.number
+    })
+  };
+
   state = {
     isAnswering: false,
     userAnswers: [],
@@ -97,9 +106,9 @@ export class RawQuestionario extends Component {
     const data = snapshot.data();
     const userAnswers = data
       ? Object.keys(data).map(answerKey => ({
-        id: answerKey,
-        answer: data[answerKey]
-      }))
+          id: answerKey,
+          answer: data[answerKey]
+        }))
       : [];
 
     this.setState({
@@ -111,9 +120,9 @@ export class RawQuestionario extends Component {
     const data = snapshot.data();
     const candidateJustifications = data
       ? Object.keys(data).map(answerKey => ({
-        id: answerKey,
-        justification: data[answerKey]
-      }))
+          id: answerKey,
+          justification: data[answerKey]
+        }))
       : [];
 
     this.setState(
@@ -284,7 +293,7 @@ export class RawQuestionario extends Component {
                   disabled={isAnswering || userAnswers.length < 20}
                 >
                   Calcular afinidade
-              </Link>
+                </Link>
               )}
 
               {isCandidate && (
