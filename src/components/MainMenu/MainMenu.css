@@ -107,12 +107,12 @@ ul.navigation-menu {
 }
 
 .navigation-menu .btn-contribua{
-  background-color: #feb557;
+  background-color: var(--meu_voto_style_chumbo);
 }
 
 .navigation-menu .btn-contribua:hover{
   color: #333;
-  background-color: #feb557;
+  background-color: #fff;
 }
 
 @media (min-width: 800px) {

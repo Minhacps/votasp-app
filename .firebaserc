@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "meu-voto"
+    "prod": "meu-voto-prd",
+    "dev": "meu-voto-c3dea"
   }
 }
