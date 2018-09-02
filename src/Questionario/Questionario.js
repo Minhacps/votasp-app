@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -17,12 +18,20 @@ import {
   getCurrentUser,
   watchAnswerJustification
 } from './QuestionarioService';
-import { storePerguntas } from '../redux/modules/perguntas';
 import { storeQuestionario } from '../redux/modules/questionario';
 
 import './Questionario.css';
 
 export class RawQuestionario extends Component {
+  propTypes = {
+    history: PropTypes.object,
+    location: PropTypes.object,
+    match: PropTypes.object,
+    questionario: PropTypes.shape({
+      currentQuestion: PropTypes.number
+    })
+  };
+
   state = {
     isAnswering: false,
     userAnswers: [],
@@ -41,7 +50,6 @@ export class RawQuestionario extends Component {
       })
     );
 
-    store.dispatch(storePerguntas(questoes));
     getCurrentUser().then(this.saveUser);
   }
 
@@ -98,9 +106,9 @@ export class RawQuestionario extends Component {
     const data = snapshot.data();
     const userAnswers = data
       ? Object.keys(data).map(answerKey => ({
-        id: answerKey,
-        answer: data[answerKey]
-      }))
+          id: answerKey,
+          answer: data[answerKey]
+        }))
       : [];
 
     this.setState({
@@ -112,9 +120,9 @@ export class RawQuestionario extends Component {
     const data = snapshot.data();
     const candidateJustifications = data
       ? Object.keys(data).map(answerKey => ({
-        id: answerKey,
-        justification: data[answerKey]
-      }))
+          id: answerKey,
+          justification: data[answerKey]
+        }))
       : [];
 
     this.setState(
@@ -168,15 +176,15 @@ export class RawQuestionario extends Component {
   };
 
   proximaQuestao = () => {
-    const { perguntas, questionario } = this.props;
+    const { questionario } = this.props;
     const { isCandidate } = this.state;
 
-    if (isCandidate && (questionario.currentQuestion === perguntas.length - 1)) {
+    if (isCandidate && questionario.currentQuestion === questoes.length - 1) {
       this.props.history.push('/questionario-finalizado');
       return;
     }
 
-    if (questionario.currentQuestion === perguntas.length - 1) {
+    if (questionario.currentQuestion === questoes.length - 1) {
       this.props.history.push('/app/ranking');
       return;
     }
@@ -215,13 +223,8 @@ export class RawQuestionario extends Component {
   };
 
   render() {
-    const {
-      isAnswering,
-      userAnswers,
-      isCandidate,
-      currentJustification,
-    } = this.state;
-    const { perguntas, questionario, history } = this.props;
+    const { isAnswering, userAnswers, isCandidate, currentJustification } = this.state;
+    const { questionario, history } = this.props;
 
     const { currentQuestion } = questionario;
     const [currentAnswer] = userAnswers.filter(answer => answer.id == currentQuestion + 1);
@@ -247,9 +250,9 @@ export class RawQuestionario extends Component {
               </p>
             )}
 
-            {perguntas.length && (
+            {questoes.length && (
               <Pergunta
-                pergunta={perguntas[currentQuestion]}
+                pergunta={questoes[currentQuestion]}
                 responderQuestao={this.responderQuestao}
                 isAnswering={isAnswering}
                 userAnswer={currentAnswer ? currentAnswer.answer : undefined}
@@ -274,20 +277,24 @@ export class RawQuestionario extends Component {
 
             <div className="questionario__actions-container">
               {!isCandidate && (
-                <button onClick={this.pularQuestao} className="btn btn-light" disabled={isAnswering}>
+                <button
+                  onClick={this.pularQuestao}
+                  className="btn btn-light"
+                  disabled={isAnswering}
+                >
                   Pular
                 </button>
               )}
 
-              {!isCandidate &&
+              {!isCandidate && (
                 <Link
                   to="/app/ranking"
                   className="btn btn-light"
                   disabled={isAnswering || userAnswers.length < 20}
                 >
                   Calcular afinidade
-              </Link>
-              }
+                </Link>
+              )}
 
               {isCandidate && (
                 <button
@@ -306,8 +313,7 @@ export class RawQuestionario extends Component {
   }
 }
 
-const mapStateToProps = ({ perguntas, questionario }) => ({
-  perguntas,
+const mapStateToProps = ({ questionario }) => ({
   questionario
 });
 
