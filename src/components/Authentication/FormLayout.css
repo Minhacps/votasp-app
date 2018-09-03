@@ -19,7 +19,6 @@
   position: relative;
   background-color: #fff;
   border-radius: 3px;
-  overflow: hidden;
   top: 50%;
   transform: translateY(-50%);
 }

@@ -1,14 +1,34 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
+import Select from "react-virtualized-select";
 
 import cities from './cities';
 
 import FormLayout from './FormLayout';
 
+import "react-select/dist/react-select.css";
+import "react-virtualized-select/styles.css";
+
 class SignupForm extends Component {
   state = {
-    errorMessage: null
+    errorMessage: null,
+    selectedCity: null,
   };
+
+  handleChangeCity = (selectedCity) => {
+    this.setState({ selectedCity });
+  }
+
+  allCities = () => {
+    const citiesOptions = cities.map(city => (
+      {
+        value: city,
+        label: city,
+      }
+    ));
+
+    return citiesOptions;
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -17,7 +37,7 @@ class SignupForm extends Component {
       email: event.target.email.value,
       password: event.target.password.value,
       name: event.target.name.value,
-      city: event.target.city.value
+      city: this.state.selectedCity,
     };
     this.updateErrorMessage(null);
 
@@ -64,6 +84,8 @@ class SignupForm extends Component {
   };
 
   render() {
+    const options = this.allCities();
+
     return (
       <FormLayout
         showLoginPage={this.props.showLoginPage}
@@ -89,13 +111,11 @@ class SignupForm extends Component {
 
             <div className="field-wrapper">
               <label htmlFor="city">Cidade</label>
-              <select className="input" name="city" id="city">
-                {cities.map(city => (
-                  <option value={city} key={city}>
-                    {city}
-                  </option>
-                ))}
-              </select>
+              <Select
+                options={options}
+                value={this.state.selectedCity}
+                onChange={this.handleChangeCity}
+              />
             </div>
           </div>
 
