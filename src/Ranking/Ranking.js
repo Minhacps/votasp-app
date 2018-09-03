@@ -144,7 +144,6 @@ class Ranking extends Component {
                     <Deputado
                       key={candidate.candidateId}
                       {...candidate}
-                      picture={pictures[candidate.number]}
                     />
                   ))}
             </div>
