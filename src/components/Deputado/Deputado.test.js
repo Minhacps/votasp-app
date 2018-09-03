@@ -6,10 +6,10 @@ import Deputado from './Deputado';
 import CircleButton from '../CircleButton/CircleButton';
 
 const deputado = {
-  nome: 'Nome do Candidato 1',
-  numero: 999,
-  partido: 'Nome Partido 1',
-  afinidade: 80
+  name: 'Nome do Candidato 1',
+  number: 999,
+  politicalParty: 'Nome Partido 1',
+  matchScore: 8000
 };
 
 const props = {
@@ -21,10 +21,8 @@ const props = {
 describe('<Deputado />', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow((
-      <Deputado {...props} />
-    ));
-  })
+    wrapper = shallow(<Deputado {...props} />);
+  });
 
   it('should match snapshot', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
