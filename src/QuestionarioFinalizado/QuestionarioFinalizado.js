@@ -2,7 +2,7 @@ import React from 'react';
 
 import PageLayout from '../components/PageLayout/PageLayout';
 
-const ResultsWarning = () => {
+const QuestionarioFinalizado = () => {
   return (
     <PageLayout>
       <section>
@@ -11,7 +11,7 @@ const ResultsWarning = () => {
             <strong>Obrigado por responder!</strong>
           </h2>
           <p>
-            Estamos coletando dados para que o ranking seja o mais assertivo para você. Em breve teremos resultados e te avisaremos para que você possa consultá-los.
+            A partir de agora você aparecerá no ranking para todos os eleitores.
           </p>
         </div>
       </section>
@@ -19,4 +19,4 @@ const ResultsWarning = () => {
   );
 };
 
-export default ResultsWarning;
+export default QuestionarioFinalizado;

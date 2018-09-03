@@ -15,7 +15,7 @@ const Footer = () => {
 
       <div className="ajude">
         <h4 className="bold upper">Ajude o projeto</h4>
-        <a href="https://www.eufaco.minhacampinas.org.br/" target="_blank" rel="noopener noreferrer" className="contribua">Contribua!</a>
+        <a href="https://www.paypal-brasil.com.br/doe/doecompaypal?qc=&qn=Minha+&qs=25#minha-campinas" target="_blank" rel="noopener noreferrer" className="contribua">Contribua!</a>
       </div>
       
       <div className="realizacao">

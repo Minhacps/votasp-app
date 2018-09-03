@@ -11,9 +11,8 @@
 .questionario__actions-container {
   display: flex;
   justify-content: space-around;
-  margin-top: auto;
   flex-shrink: 0;
-  padding: 10px 0 20px;
+  margin-top: 30px;
 }
 
 .questionario__aviso-candidato {
@@ -28,4 +27,15 @@
 
 .justification-field textarea {
   height: 94px;
+}
+
+.questions_box {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 800px) {
+  .questions_box {
+    width: 80%;
+  }
 }

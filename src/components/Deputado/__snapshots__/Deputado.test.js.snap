@@ -17,12 +17,12 @@ exports[`<Deputado /> should match snapshot 1`] = `
   >
     <div>
       <span
-        className="candidat-name"
+        className="candidate-name"
       >
         Nome do Candidato 1
       </span>
       <span
-        className="candidat-number"
+        className="candidate-number"
       >
         999
       </span>
@@ -43,26 +43,6 @@ exports[`<Deputado /> should match snapshot 1`] = `
         %
       </span>
     </div>
-  </div>
-  <div
-    className="buttons"
-  >
-    <Component
-      content={
-        <i
-          className="fa fa-plus"
-        />
-      }
-      onClick={[MockFunction]}
-    />
-    <Component
-      content={
-        <i
-          className="fa fa-share-alt"
-        />
-      }
-      onClick={[MockFunction]}
-    />
   </div>
 </div>
 `;
