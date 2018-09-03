@@ -5,8 +5,8 @@ import Authentication from './components/Authentication/Authentication';
 
 import LandingPage from './pages/LandingPage/LandingPage';
 import Home from './Home/Home';
-import Results from './Results/Results';
-import ResultsWarning from './ResultsWarning/ResultsWarning';
+import Ranking from './Ranking/Ranking';
+import QuestionarioFinalizado from './QuestionarioFinalizado/QuestionarioFinalizado';
 import Questionario from './Questionario/Questionario';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
 import Perfil from './Perfil/Perfil';
@@ -21,6 +21,7 @@ const Routes = () => (
   <React.Fragment>
     <Route exact path="/" component={LandingPage} />
     <Route exact path="/como-funciona" component={ComoFunciona} />
+    <Route exact path="/questionario-finalizado" component={QuestionarioFinalizado} />
     <Route exact path="/app" render={props => RenderAuthenticated(Home, props)} />
     <Route
       path="/app/questionario/:question"
@@ -28,10 +29,9 @@ const Routes = () => (
     />
     <Route
       exact
-      path="/app/calculando-ranking"
-      render={props => RenderAuthenticated(ResultsWarning, props)}
+      path="/app/ranking"
+      render={props => RenderAuthenticated(Ranking, props)}
     />
-    <Route exact path="/app/ranking" render={props => RenderAuthenticated(Results, props)} />
     <Route
       exact
       path="/app/atualizar-informacoes"

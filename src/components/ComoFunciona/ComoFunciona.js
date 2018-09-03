@@ -13,14 +13,12 @@ const ComoFunciona = () => {
         <div className="container">
           <div className="row">
             <div className="col">
-              <h2 className="upper text-center titulo">Como Funciona</h2>
+              <h2 className="upper text-center titulo">Como Funciona?</h2>
             </div>
           </div>
           <div className="row descricao">
             <h4 className="text-center">
-              O projeto VotaSP nasceu com o objetivo de ajudar a população do estado de São Paulo a
-              escolher os seus candidatos a deputado Estadual e Federal com mais consciência com
-              base no que defendem em suas campanhas.
+            O Vota SP é um site que vai ajudar a população do Estado de São Paulo escolher seus candidatos e candidatas a deputado, deputada estadual e federal.
             </h4>
           </div>
           <PassosComoFunciona />
@@ -31,20 +29,18 @@ const ComoFunciona = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h2 className="upper text-center titulo">Como é Feito o Cálculo do Ranking</h2>
+              <h2 className="upper text-center titulo">Como é Feito o Cálculo do Ranking?</h2>
             </div>
             <div>
               <div className="row">
                 <div className="col-12">
                   <p className="bold">1. Coletamos as respostas do eleitor ou da eleitora. </p>
                   <p>
-                    2. Para cada pergunta respondida seguimos os passos seguintes para cada
-                    candidato(a)
+                    2. Para cada pergunta respondida seguimos os seguintes passos: 
                   </p>
                   <div className="passosItem2">
                     <p>
-                      a. Comparamos a resposta x do eleitor com a resposta x do candidato e
-                      pontuamos de acordo com a tabela abaixo:
+                      a. Comparamos a resposta do eleitor ou da eleitora com a resposta do candidato ou candidata e pontuamos de acordo com a tabela abaixo:
                     </p>
                     <div>
                       <table className="tabelaRanking">
@@ -148,26 +144,22 @@ const ComoFunciona = () => {
                     </p>
                     <div className="passo2Itemb">
                       <p>
-                        i. O máximo de pontos que um candidato(a) pode obter é o número de respostas
-                        do eleitor multiplicado por 4, que é a pontuação máxima.
+                        i. O máximo de pontos que um candidato ou candidata pode obter é o número de respostas do eleitor ou eleitora multiplicado por 4.
                       </p>
                       <p>
-                        ii. Suponha que o eleitor(a) tenha respondido 20 questões. O máximo portanto
-                        seria 20 * 4 = 80.{' '}
+                        ii. Suponha que o eleitor ou eleitora tenha respondido 20 questões. O máximo portanto 
+                        seria 20 * 4 = 80 pontos.{' '}
                       </p>
                       <p>
-                        iii. Se o candidato(a), a partir da tabela acima, obteve 60 pontos dividimos
-                        60 por 80 o que resulta no valor 0,75.
+                        iii. Se o candidato ou candidata, a partir da tabela acima, obteve 60 pontos, dividimos 60 por 80, o que resulta no valor 0,75.
                       </p>
                       <p>
-                        iv. Multiplicamos esse valor por 100 o que resulta em um índice de afinidade
-                        de 75% considerando as 20 respostas que o eleitor(a) respondeu.
+                        iv. Em seguida, multiplicamos esse valor por 100, o que resulta em um índice de afinidade de 75%, considerando assim as 20 respostas que o eleitor ou a eleitora respondeu.
                       </p>
                     </div>
                     <p>c. Fazemos esse mesmo cálculo para todos os candidatos e candidatas.</p>
                     <p>
-                      d. Ordenamos de forma descendente pela pontuação de cada candidato e exibimos
-                      os 100 melhores pontuados como possibilidade do usuário(a) ver todos(as)
+                      d. Ordenamos de forma descendente pela pontuação de cada candidato ou candidata e exibimos uma lista por ordem de afinidade. 
                     </p>
                   </div>
                 </div>

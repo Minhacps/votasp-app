@@ -12,17 +12,13 @@ describe('<WelcomeMessage />', () => {
   });
 
   it('should accept valid regionTag', () => {
-    const welcomeMessage = shallow(
-      <WelcomeMessage regionTag="sp" userName="Foo Bar" />
-    );
+    const welcomeMessage = shallow(<WelcomeMessage regionTag="sp" userName="Foo Bar" />);
 
     expect(toJson(welcomeMessage)).toMatchSnapshot();
   });
 
   it('should use sp if invalid regionTag', () => {
-    const welcomeMessage = shallow(
-      <WelcomeMessage regionTag="huehuehue" userName="Foo Bar" />
-    );
+    const welcomeMessage = shallow(<WelcomeMessage regionTag="huehuehue" userName="Foo Bar" />);
 
     expect(toJson(welcomeMessage)).toMatchSnapshot();
   });

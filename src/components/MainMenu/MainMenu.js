@@ -4,9 +4,10 @@ import { NavLink, withRouter } from 'react-router-dom';
 import firebase from 'firebase/app';
 import classnames from 'classnames';
 
-import { VOTER, CANDIDATE } from '../../constants/userRoles';
+import { CANDIDATE } from '../../constants/userRoles';
 import { getCurrentUser } from '../../Questionario/QuestionarioService';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
+
 import './MainMenu.css';
 
 class MainMenu extends Component {
@@ -53,11 +54,13 @@ class MainMenu extends Component {
         <HamburgerMenu onClick={this.toggleMainMenu} />
         <ul className="navigation-menu">
           {!firebase.auth().currentUser && (
-            <li className="navigation-menu__list">
-              <NavLink to="/app" className="navigation-menu__link">
-                Quero participar!
+            <div>
+              <li className="navigation-menu__list">
+                <NavLink to="/app" className="navigation-menu__link">
+                  Quero participar!
               </NavLink>
-            </li>
+              </li>
+            </div>
           )}
 
           {firebase.auth().currentUser && (
@@ -80,15 +83,13 @@ class MainMenu extends Component {
                   Como funciona
                 </NavLink>
               </li>
-              <li className="navigation-menu__list">
-                <NavLink
-                  to="/app/calculando-ranking"
-                  activeClassName="active"
-                  className="navigation-menu__link"
-                >
-                  Ver meu ranking
-                </NavLink>
-              </li>
+              {!isCandidate &&
+                <li className="navigation-menu__list">
+                  <NavLink to="/app/ranking" activeClassName="active" className="navigation-menu__link">
+                    Ver meu ranking
+                  </NavLink>
+                </li>
+              }
               {isCandidate && (
                 <li className="navigation-menu__list">
                   <NavLink
@@ -104,6 +105,11 @@ class MainMenu extends Component {
                 <button className="navigation-menu__link" onClick={this.handleLogout}>
                   Sair
                 </button>
+              </li>
+              <li className="navigation-menu__list">
+                <a href="https://www.paypal-brasil.com.br/doe/doecompaypal?qc=&qn=Minha+&qs=25#minha-campinas" className="navigation-menu__link btn-contribua btn btn-primary" target="_blank">
+                  Contribua
+                </a>
               </li>
             </React.Fragment>
           )}

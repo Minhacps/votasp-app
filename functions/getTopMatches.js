@@ -1,8 +1,10 @@
 const functions = require('firebase-functions');
 const matcher = require('./matcher.js');
+const admin = require('firebase-admin');
+admin.initializeApp();
 
-const cacheTimeoutMs = 5 * 60 * 1000
-const alternatives = ["CP", "C", "D", "DP"];
+const cacheTimeoutMs = 15 * 60 * 1000
+const validAnswers = ['CP', 'C', 'I', 'D', 'DP']
 
 let lastFetch = -1;
 
@@ -15,34 +17,33 @@ let candidateData = {
 
 const getCandidateAnswers = () => {
   if (candidateData.isUpToDate()) {
-    return candidateData.answers;
+    return new Promise(
+      (resolve, reject) => resolve(candidateData.answers)
+    );
   }
   candidateData.answers = fetchCandidateAnswers();
   lastFetch = new Date();
   return candidateData.answers;
 };
 
-// TODO: replace by fetch on firestore
 const fetchCandidateAnswers = () => {
+  const candidateAnswersCollection = admin.firestore().collection('candidate_answers');
   const numQuestions = 40;
-  const numCandidates = 4000;
-  return Array(numCandidates).fill(1).map( (v, i) => {
-    return {
-      id: 'candidate-'+i,
-      answers: Array(numQuestions).fill(1).reduce((answers, vv, j) => {
-        answers[j] = alternatives[Math.floor(Math.random() * alternatives.length)];
-        return answers;
-      }, {})
-    }
-  });
+
+  return candidateAnswersCollection.where('40', '>', '').get().then(querySnapshot => querySnapshot.docs)
 };
 
 const getMatchScores = (voterAnswers, allCandidatesData) => {
   return allCandidatesData
-    .map((candidateData) => {
+    .filter((candidateData) => {
+      amountOfAnswers = Object.keys(candidateData.data()).length
+      return amountOfAnswers === 40
+    }).map((candidateData) => {
+      const score = matcher.getMatchScore(voterAnswers, candidateData.data()).normalized;
+
       return {
         candidateId: candidateData.id,
-        matchScore: matcher.getMatchScore(voterAnswers, candidateData.answers).normalized
+        matchScore: score
       }
     })
     .sort((a, b) => b.matchScore - a.matchScore);
@@ -53,9 +54,24 @@ const getTopMatches = (voterAnswers, context) => {
       throw new functions.https.HttpsError('unauthenticated', 'You must be logged in to call this function.');
     }
 
-    const allCandidatesData = getCandidateAnswers();
+    const answeredQuestionsCount = Object.keys(voterAnswers).reduce((count, idx) => {
 
-    return getMatchScores(voterAnswers, allCandidatesData).slice(0,100);
+      if (!(idx >= 1 && idx <= 40)) {
+        throw new functions.https.HttpsError('invalid-argument', 'The answers must be indexed from 1 to 40.');
+      }
+
+      const answer = voterAnswers[idx];
+
+      if (!validAnswers.includes(answer)) {
+        throw new functions.https.HttpsError('invalid-argument', 'The answers must be one of: ' + validAnswers.join(' ')+'.');
+      }
+
+      return  answer === 'I' ? count : count + 1
+    }, 0)
+
+    return getCandidateAnswers().then(allCandidatesData => {
+      return getMatchScores(voterAnswers, allCandidatesData).slice(0,100);
+    });
 };
 
 module.exports = getTopMatches;
