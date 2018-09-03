@@ -10,6 +10,7 @@ import QuestionarioFinalizado from './QuestionarioFinalizado/QuestionarioFinaliz
 import Questionario from './Questionario/Questionario';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
 import Perfil from './Perfil/Perfil';
+import CandidateAnswers from './components/CandidateAnswers/CandidateAnswers';
 
 const RenderAuthenticated = (Component, props) => (
   <Authentication>
@@ -22,6 +23,7 @@ const Routes = () => (
     <Route exact path="/" component={LandingPage} />
     <Route exact path="/como-funciona" component={ComoFunciona} />
     <Route exact path="/questionario-finalizado" component={QuestionarioFinalizado} />
+    <Route exact path="/candidateanswers/:id" component={CandidateAnswers} />
     <Route exact path="/app" render={props => RenderAuthenticated(Home, props)} />
     <Route
       path="/app/questionario/:question"

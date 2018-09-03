@@ -1,0 +1,71 @@
+.CandidateData {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 0px 0px;
+  
+    & > div {
+      padding: 15px;
+    }
+  
+    .photo img {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+    }
+  
+    .info {
+      flex-grow: 1;
+  
+      .candidate-name {
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+  
+      .candidate-number {
+        margin-left: 10px;
+      }
+  
+      .match-percent {
+        border-radius: 40px;
+        background-color: var(--roxoClaro);
+        color: #fff;
+        padding: 1px 20px;
+        display: inline-block;
+        font-size: var(--fontSize3);
+      }
+    }
+  
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+  
+      button {
+        background-color: var(--cinzaClaro);
+        color: var(--cinza);
+      }
+    }
+  }
+
+  .CandidateAnswers{
+    margin: 10px;
+
+      .QuestionTitle{
+          margin: 0 0 20px 0;
+          font-size: 1em;
+          color: #333;
+      }
+
+      .QuestionNumber{
+          font-weight: bold;
+      }
+
+      .QuestionAnswer{
+        font-weight: bold;
+        }
+
+        .QuestionJustification{
+            font-weight: bold;
+        }
+  }
+  
