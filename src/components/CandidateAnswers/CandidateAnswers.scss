@@ -24,6 +24,10 @@
       .candidate-number {
         margin-left: 10px;
       }
+
+      .candidate-description{
+        margin-left: 0px;
+      }
   
       .match-percent {
         border-radius: 40px;
@@ -48,7 +52,7 @@
   }
 
   .CandidateAnswers{
-    margin: 10px;
+    margin: 20px;
 
       .QuestionTitle{
           margin: 0 0 20px 0;
@@ -58,14 +62,22 @@
 
       .QuestionNumber{
           font-weight: bold;
+          margin-right: 5px;
       }
 
       .QuestionAnswer{
         font-weight: bold;
+        margin-left: 25px;
         }
 
         .QuestionJustification{
             font-weight: bold;
+            margin-left: 25px;
+
         }
+  }
+
+  .Titulo{
+    text-align: center;
   }
   

@@ -23,7 +23,7 @@ const Routes = () => (
     <Route exact path="/" component={LandingPage} />
     <Route exact path="/como-funciona" component={ComoFunciona} />
     <Route exact path="/questionario-finalizado" component={QuestionarioFinalizado} />
-    <Route exact path="/candidateanswers/:id" component={CandidateAnswers} />
+    <Route exact path="/perfil/:id" component={CandidateAnswers} />
     <Route exact path="/app" render={props => RenderAuthenticated(Home, props)} />
     <Route
       path="/app/questionario/:question"
