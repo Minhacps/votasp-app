@@ -15,12 +15,7 @@ exports[`<WelcomeMessage /> should accept valid regionTag 1`] = `
       O projeto 
       VotaSP
        nasceu com o objetivo de ajudar a população do estado de
-<<<<<<< HEAD
-       
-      São Paulo
-=======
        São Paulo
->>>>>>> ed4baa1e03939d290c0fa56137d121d59bc6d662
        a escolher seus candidatos. Através de questões objetivas os eleitores podem verificar suas afinidades com os candidatos.
       <br />
       <strong>
@@ -86,12 +81,7 @@ exports[`<WelcomeMessage /> should use sp if invalid regionTag 1`] = `
       O projeto 
       VotaSP
        nasceu com o objetivo de ajudar a população do estado de
-<<<<<<< HEAD
-       
-      São Paulo
-=======
        São Paulo
->>>>>>> ed4baa1e03939d290c0fa56137d121d59bc6d662
        a escolher seus candidatos. Através de questões objetivas os eleitores podem verificar suas afinidades com os candidatos.
       <br />
       <strong>

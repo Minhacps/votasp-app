@@ -2,6 +2,16 @@
 
 exports[`<Questionario /> should match snapshot 1`] = `
 <PageLayout>
+  <Component
+    label="PROGRESSO DAS RESPOSTAS"
+    values={
+      Array [
+        Object {
+          "value": 0,
+        },
+      ]
+    }
+  />
   <div
     className="questions_box"
   >
