@@ -75,7 +75,7 @@ class CandidateAnswers extends Component {
                 <span className='QuestionNumber'>{i}.</span>
                 {questions[i - 1].question}
               </p>
-              <p className='QuestionAnswer'>
+              <p className='QuestionAnswer BtnAnswer'>
                 {candidate.answers[i]}
               </p>
               <p className='QuestionJustification'>

@@ -75,6 +75,20 @@
             margin-left: 25px;
 
         }
+
+        .BtnAnswer{
+        border: 1px solid #ccc;
+        border-color: var(--roxo);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 10px 8px 10px 28px;
+        font-size: 14px;
+        cursor: pointer;
+        position: relative;
+        width: 200px;
+        color: #333;
+        }
   }
 
   .Titulo{
