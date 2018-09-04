@@ -59,6 +59,9 @@ class MainMenu extends Component {
                 <NavLink to="/app" className="navigation-menu__link">
                   Quero participar!
               </NavLink>
+              <NavLink to="/app/redefinepassword" className="navigation-menu__link">
+                  Esqueci minha senha!
+              </NavLink>
               </li>
             </div>
           )}

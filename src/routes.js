@@ -10,6 +10,7 @@ import QuestionarioFinalizado from './QuestionarioFinalizado/QuestionarioFinaliz
 import Questionario from './Questionario/Questionario';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
 import Perfil from './Perfil/Perfil';
+import RedefinePassword from './components/RedefinePassword/RedefinePassword';
 
 const RenderAuthenticated = (Component, props) => (
   <Authentication>
@@ -21,6 +22,7 @@ const Routes = () => (
   <React.Fragment>
     <Route exact path="/" component={LandingPage} />
     <Route exact path="/como-funciona" component={ComoFunciona} />
+    <Route exact path="/app/redefinepassword" component={RedefinePassword} />
     <Route exact path="/questionario-finalizado" component={QuestionarioFinalizado} />
     <Route exact path="/app" render={props => RenderAuthenticated(Home, props)} />
     <Route
