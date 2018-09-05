@@ -95,7 +95,7 @@ class CandidateAnswers extends Component {
     return (
       <PageLayout>
         <div className="container candidate-profile">
-          <h1 className="uppercase">Perfil</h1>
+          <h1 className="uppercase">Perfil do candidato</h1>
           <div className='CandidateData'>
             <div className='photo'>
               <img src={candidate.picture} alt={`Foto do candidato ${candidate.name}`} />
