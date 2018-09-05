@@ -3,11 +3,13 @@ import firebase from 'firebase/app';
 import './CandidateAnswers.scss';
 import questions from '../../Questionario/questoes';
 import PageLayout from '../PageLayout/PageLayout';
+import Loader from '../Loader/Loader';
 
 class CandidateAnswers extends Component {
 
   state = {
-    candidate: {}
+    candidate: {},
+    loading: true,
   }
 
   componentDidMount() {
@@ -33,8 +35,7 @@ class CandidateAnswers extends Component {
                 .onSnapshot(snapshot => {
                   const candidate_answers = snapshot.data();
                   candidate.answers = candidate_answers;
-                  // console.log(candidate);
-                  this.setState({ candidate });
+                  this.setState({ candidate, loading: false });
                 });
             });
         });
@@ -46,6 +47,8 @@ class CandidateAnswers extends Component {
   }
 
   render() {
+    const { loading } = this.state;
+
     let candidate = this.state.candidate;
     let page = [];
     if (candidate.answers) {
@@ -63,14 +66,11 @@ class CandidateAnswers extends Component {
       candidate.answers = answers;
     }
 
-    // console.log(candidate);
-    // console.log(questions);
-    // console.log(questions[3].question);
     if (candidate.justifications) {
       if (candidate.answers) {
         for (let i = 1; i <= 40; i++) {
           page.push(
-            <section key={i}>
+            <section key={i} className="candidate-answer">
               <p className='QuestionTitle'>
                 <span className='QuestionNumber'>{i}.</span>
                 {questions[i - 1].question}
@@ -78,20 +78,24 @@ class CandidateAnswers extends Component {
               <p className='QuestionAnswer BtnAnswer'>
                 {candidate.answers[i]}
               </p>
-              <p className='QuestionJustification'>
+              <p className='candidate-answer__justification'>
+                <b>Justificativa:</b> <br />
                 {candidate.justifications[i]}
               </p>
-              <hr />
             </section>
           )
         }
       }
     }
 
+    if (loading) {
+      return <Loader />;
+    }
+
     return (
       <PageLayout>
-        <div>
-          <h3 className='Titulo'>Perfil</h3>
+        <div className="container candidate-profile">
+          <h1 className="uppercase">Perfil</h1>
           <div className='CandidateData'>
             <div className='photo'>
               <img src={candidate.picture} alt={`Foto do candidato ${candidate.name}`} />
