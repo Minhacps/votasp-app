@@ -18,9 +18,10 @@ const WelcomeMessage = ({ regionTag, userName }) => {
           <strong>Olá, {userName}</strong>
         </h2>
         <p>
-          O projeto {region.projectName} nasceu com o objetivo de ajudar a população do estado de{' '}
-          {region.name} a escolher seus candidatos. Através de questões objetivas os eleitores podem
-          verificar suas afinidades com os candidatos.<br />
+          O projeto {region.projectName} nasceu com o objetivo de ajudar a população do estado de
+          {` ${region.name}`} a escolher seus candidatos. Através de questões objetivas os eleitores
+          podem verificar suas afinidades com os candidatos.
+          <br />
           <strong>É muito simples e prático!</strong>
         </p>
 

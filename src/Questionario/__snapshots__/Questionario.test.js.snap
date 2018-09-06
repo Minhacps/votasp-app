@@ -3,35 +3,206 @@
 exports[`<Questionario /> should match snapshot 1`] = `
 <PageLayout>
   <div
-    className="questionario__container"
+    className="questions_box"
   >
-    <Pergunta
-      isAnswering={false}
-      pergunta={
+    <QuestionsMenu
+      history={
         Object {
-          "id": 1,
-          "question": "Legalização do aborto para todos os casos.",
+          "push": [Function],
         }
       }
-      responderQuestao={[Function]}
+      questionsArray={
+        Array [
+          Object {
+            "id": 1,
+            "question": "Liberação do porte de armas no Brasil.",
+          },
+          Object {
+            "id": 2,
+            "question": "Regulamentação dos meios de comunicação.",
+          },
+          Object {
+            "id": 3,
+            "question": "O governo tem um papel essencial na regulação dos mercados para garantir os direitos dos consumidores e consumidoras.",
+          },
+          Object {
+            "id": 4,
+            "question": "Maior carga tributária para empresas estrangeiras com o objetivo de beneficiar empresas brasileiras.",
+          },
+          Object {
+            "id": 5,
+            "question": "Garantia pelo governo de aposentadoria para todas e todos os brasileiros.",
+          },
+          Object {
+            "id": 6,
+            "question": "Saúde pública de qualidade e gratuita para toda a população.",
+          },
+          Object {
+            "id": 7,
+            "question": "Isenção de impostos de instituições religiosas.",
+          },
+          Object {
+            "id": 8,
+            "question": "Legalização do consumo da maconha.",
+          },
+          Object {
+            "id": 9,
+            "question": "Adoção de cotas raciais nas universidades públicas.",
+          },
+          Object {
+            "id": 10,
+            "question": "Garantia de mesmos direitos dos brasileiros(as) para imigrantes.",
+          },
+          Object {
+            "id": 11,
+            "question": "Os ricos deveriam pagar mais impostos.",
+          },
+          Object {
+            "id": 12,
+            "question": "Legalização do aborto para todos os casos.",
+          },
+          Object {
+            "id": 13,
+            "question": "Pena de morte.",
+          },
+          Object {
+            "id": 14,
+            "question": "Adoção de crianças por casais do mesmo sexo.",
+          },
+          Object {
+            "id": 15,
+            "question": "Crescimento econômico é mais importante que igualdade social.",
+          },
+          Object {
+            "id": 16,
+            "question": "Reforma agrária.",
+          },
+          Object {
+            "id": 17,
+            "question": "Debate de gênero nas escolas.",
+          },
+          Object {
+            "id": 18,
+            "question": "Redução da maioridade penal para 16 anos.",
+          },
+          Object {
+            "id": 19,
+            "question": "Definição exclusiva de família como homem mulher e filhos.",
+          },
+          Object {
+            "id": 20,
+            "question": "Privatização de serviços públicos como educação, saúde e cultura.",
+          },
+          Object {
+            "id": 21,
+            "question": "Campanhas eleitorais financiadas unicamente com dinheiro público.",
+          },
+          Object {
+            "id": 22,
+            "question": "Construção de moradias populares na periferia mesmo antes de garantir atendimento básico como centros de saúde e escolas.",
+          },
+          Object {
+            "id": 23,
+            "question": "Grandes empreendimentos podem iniciar suas obras mesmo antes de conseguirem licenciamento ambiental.",
+          },
+          Object {
+            "id": 24,
+            "question": "A conciliação é uma medida útil para ajudar nos casos de violência doméstica e familiar.",
+          },
+          Object {
+            "id": 25,
+            "question": "Interferência do estado na economia.",
+          },
+          Object {
+            "id": 26,
+            "question": "Leis para garantir a igualdade de salários entre homens e mulheres.",
+          },
+          Object {
+            "id": 27,
+            "question": "Intervenção militar para combater a criminalidade.",
+          },
+          Object {
+            "id": 28,
+            "question": "Privatização da previdência social.",
+          },
+          Object {
+            "id": 29,
+            "question": "As Universidades Públicas deveriam ser pagas por quem pode pagar.",
+          },
+          Object {
+            "id": 30,
+            "question": "A reforma trabalhista de 2017 modernizou as relações de trabalho do Brasil.",
+          },
+          Object {
+            "id": 31,
+            "question": "Construções de barragens para solucionar a crise hídrica.",
+          },
+          Object {
+            "id": 32,
+            "question": "Fim do auxílio moradia para juízes.",
+          },
+          Object {
+            "id": 33,
+            "question": "Privatização completa da Petrobrás.",
+          },
+          Object {
+            "id": 34,
+            "question": "Desapropriação de prédios ociosos para moradia popular.",
+          },
+          Object {
+            "id": 35,
+            "question": "O Brasil é um país racista.",
+          },
+          Object {
+            "id": 36,
+            "question": "Criminalização da homofobia no Brasil.",
+          },
+          Object {
+            "id": 37,
+            "question": "Em briga de marido e mulher ninguém mete a colher.",
+          },
+          Object {
+            "id": 38,
+            "question": "O financimento empresarial de campanhas políticas deixa o candidato com rabo preso.",
+          },
+          Object {
+            "id": 39,
+            "question": "Fim do foro privilegiado.",
+          },
+          Object {
+            "id": 40,
+            "question": "Redução da verba de gabinete para parlamentares.",
+          },
+        ]
+      }
+      userAnswers={Array []}
     />
     <div
-      className="questionario__actions-container"
+      className="questionario__container"
     >
-      <button
-        className="btn btn-light"
-        disabled={false}
-        onClick={[Function]}
+      <Pergunta
+        isAnswering={false}
+        responderQuestao={[Function]}
+      />
+      <div
+        className="questionario__actions-container"
       >
-        Pular
-      </button>
-      <button
-        className="btn btn-light"
-        disabled={false}
-        onClick={[Function]}
-      >
-        Calcular afinidade
-      </button>
+        <button
+          className="btn btn-light"
+          disabled={false}
+          onClick={[Function]}
+        >
+          Pular
+        </button>
+        <Link
+          className="btn btn-light"
+          disabled={true}
+          replace={false}
+          to="/app/ranking"
+        >
+          Calcular afinidade
+        </Link>
+      </div>
     </div>
   </div>
 </PageLayout>
