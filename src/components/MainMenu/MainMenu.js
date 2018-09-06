@@ -58,10 +58,7 @@ class MainMenu extends Component {
               <li className="navigation-menu__list">
                 <NavLink to="/app" className="navigation-menu__link">
                   Quero participar!
-              </NavLink>
-              <NavLink to="/app/redefinepassword" className="navigation-menu__link">
-                  Esqueci minha senha!
-              </NavLink>
+                </NavLink>
               </li>
             </div>
           )}
@@ -86,13 +83,17 @@ class MainMenu extends Component {
                   Como funciona
                 </NavLink>
               </li>
-              {!isCandidate &&
+              {!isCandidate && (
                 <li className="navigation-menu__list">
-                  <NavLink to="/app/ranking" activeClassName="active" className="navigation-menu__link">
+                  <NavLink
+                    to="/app/ranking"
+                    activeClassName="active"
+                    className="navigation-menu__link"
+                  >
                     Ver meu ranking
                   </NavLink>
                 </li>
-              }
+              )}
               {isCandidate && (
                 <li className="navigation-menu__list">
                   <NavLink
@@ -110,7 +111,11 @@ class MainMenu extends Component {
                 </button>
               </li>
               <li className="navigation-menu__list">
-                <a href="https://www.paypal-brasil.com.br/doe/doecompaypal?qc=&qn=Minha+&qs=25#minha-campinas" className="navigation-menu__link btn-contribua btn btn-primary" target="_blank">
+                <a
+                  href="https://www.paypal-brasil.com.br/doe/doecompaypal?qc=&qn=Minha+&qs=25#minha-campinas"
+                  className="navigation-menu__link btn-contribua btn btn-primary"
+                  target="_blank"
+                >
                   Contribua
                 </a>
               </li>
