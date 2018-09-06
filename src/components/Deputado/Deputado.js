@@ -4,6 +4,7 @@ import './Deputado.scss';
 
 const Deputado = ({
   name,
+  candidateId,
   number,
   politicalParty,
   matchScore,
@@ -15,7 +16,9 @@ const Deputado = ({
       </div>
       <div className='info'>
         <div>
-          <span className='candidate-name'>{name}</span>
+          <a href={`/perfil/${candidateId}`} >
+            <span className='candidate-name'>{name}</span>
+          </a>
           <span className='candidate-number'>{number}</span>
         </div>
 

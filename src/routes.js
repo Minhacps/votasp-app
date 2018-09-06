@@ -11,6 +11,7 @@ import Questionario from './Questionario/Questionario';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
 import Perfil from './Perfil/Perfil';
 import RedefinePassword from './components/RedefinePassword/RedefinePassword';
+import CandidateAnswers from './components/CandidateAnswers/CandidateAnswers';
 
 const RenderAuthenticated = (Component, props) => (
   <Authentication>
@@ -24,6 +25,7 @@ const Routes = () => (
     <Route exact path="/como-funciona" component={ComoFunciona} />
     <Route exact path="/app/redefinepassword" component={RedefinePassword} />
     <Route exact path="/questionario-finalizado" component={QuestionarioFinalizado} />
+    <Route exact path="/perfil/:id" component={CandidateAnswers} />
     <Route exact path="/app" render={props => RenderAuthenticated(Home, props)} />
     <Route
       path="/app/questionario/:question"
