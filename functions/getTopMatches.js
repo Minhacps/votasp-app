@@ -28,16 +28,14 @@ const getCandidateAnswers = () => {
 
 const fetchCandidateAnswers = () => {
   const candidateAnswersCollection = admin.firestore().collection('candidate_answers');
-  const numQuestions = 40;
-
-  return candidateAnswersCollection.where('40', '>', '').get().then(querySnapshot => querySnapshot.docs)
+  return candidateAnswersCollection.where('30', '>', '').get().then(querySnapshot => querySnapshot.docs)
 };
 
 const getMatchScores = (voterAnswers, allCandidatesData) => {
   return allCandidatesData
     .filter((candidateData) => {
-      amountOfAnswers = Object.keys(candidateData.data()).length
-      return amountOfAnswers === 40
+      const amountOfAnswers = Object.keys(candidateData.data()).length;
+      return amountOfAnswers === 30
     }).map((candidateData) => {
       const score = matcher.getMatchScore(voterAnswers, candidateData.data()).normalized;
 
