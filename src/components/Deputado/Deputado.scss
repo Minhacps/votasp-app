@@ -8,9 +8,14 @@
   }
 
   .photo img {
+    width: 60px;
+  }
+
+  .photo > .photo-container {
     border-radius: 50%;
     width: 60px;
     height: 60px;
+    overflow: hidden;
   }
 
   .info {
