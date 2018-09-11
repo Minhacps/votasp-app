@@ -5,21 +5,22 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import PassosComoFunciona from '../../components/ComoFunciona/PassosComoFunciona';
 import Realizacao from '../../components/Realizacao/Realizacao';
+import PageLayout from '../../components/PageLayout/PageLayout';
 
 import './LandingPage.css';
 
 const LandingPage = () => (
-  <React.Fragment>
-    <Header />
+  <PageLayout>
     <div className="landing-page__projeto">
       <div className="landing-page__descricao container">
         <h1>O projeto</h1>
         <p>
-        O Vota SP é um site que vai ajudar a população do Estado de São Paulo escolher seus candidatos e candidatas a deputado, deputada estadual e federal.
+          O Vota SP é um site que vai ajudar a população do Estado de São Paulo escolher seus
+          candidatos e candidatas a deputado, deputada estadual e federal.
         </p>
         <p>
-          Através de questões objetivas os eleitores podem verificar sua afinidade com os
-          candidatos e candidatas. <strong>É muito simples e prático!</strong>
+          Através de questões objetivas os eleitores podem verificar sua afinidade com os candidatos
+          e candidatas. <strong>É muito simples e prático!</strong>
         </p>
       </div>
       <div className="como-funciona">
@@ -36,8 +37,7 @@ const LandingPage = () => (
         <Realizacao />
       </div>
     </div>
-    <Footer />
-  </React.Fragment>
+  </PageLayout>
 );
 
 export default LandingPage;

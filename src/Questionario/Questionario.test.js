@@ -17,7 +17,14 @@ const defaultProps = {
       id: 2,
       question: 'Adoção de crianças por casais do mesmo sexo.'
     }
-  ]
+  ],
+  match: {
+    params: {}
+  },
+  history: {
+    push: () => {}
+  },
+  questionario: {}
 };
 
 describe('<Questionario />', () => {
@@ -29,24 +36,5 @@ describe('<Questionario />', () => {
     const questionario = shallow(<RawQuestionario {...defaultProps} />);
 
     expect(toJson(questionario)).toMatchSnapshot();
-  });
-
-  it('should increment currentQuestion state', async () => {
-    const questionario = shallow(<RawQuestionario {...defaultProps} />);
-
-    await questionario.instance().pularQuestao();
-    questionario.update();
-
-    expect(questionario.state('currentQuestion')).toBe(1);
-  });
-
-  it('should not increment currentQuestion state when it reaches final question', () => {
-    const questionario = shallow(<RawQuestionario {...defaultProps} />);
-
-    const currentQuestion = defaultProps.perguntas.length - 1;
-    questionario.setState({ currentQuestion });
-    questionario.instance().pularQuestao();
-
-    expect(questionario.state('currentQuestion')).toBe(1);
   });
 });

@@ -7,22 +7,30 @@ exports[`<Deputado /> should match snapshot 1`] = `
   <div
     className="photo"
   >
-    <img
-      alt="Foto do candidato Nome do Candidato 1"
-      src="http://via.placeholder.com/150x150?text=Foto"
-    />
+    <div
+      className="photo-container"
+    >
+      <img
+        alt="Foto do candidato Nome do Candidato 1"
+        src="http://via.placeholder.com/150x150?text=Foto"
+      />
+    </div>
   </div>
   <div
     className="info"
   >
     <div>
-      <span
-        className="candidat-name"
+      <a
+        href="/perfil/undefined"
       >
-        Nome do Candidato 1
-      </span>
+        <span
+          className="candidate-name"
+        >
+          Nome do Candidato 1
+        </span>
+      </a>
       <span
-        className="candidat-number"
+        className="candidate-number"
       >
         999
       </span>
@@ -43,26 +51,6 @@ exports[`<Deputado /> should match snapshot 1`] = `
         %
       </span>
     </div>
-  </div>
-  <div
-    className="buttons"
-  >
-    <Component
-      content={
-        <i
-          className="fa fa-plus"
-        />
-      }
-      onClick={[MockFunction]}
-    />
-    <Component
-      content={
-        <i
-          className="fa fa-share-alt"
-        />
-      }
-      onClick={[MockFunction]}
-    />
   </div>
 </div>
 `;

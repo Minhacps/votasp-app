@@ -15,23 +15,7 @@ exports[`<Header /> should match snapshot 1`] = `
         src="test-file-stub"
       />
     </Link>
-    <nav
-      className="navigation-menu"
-    >
-      <Link
-        className="navigation-menu__link"
-        replace={false}
-        to="/como-funciona"
-      >
-        Como funciona
-      </Link>
-      <button
-        className="navigation-menu__link"
-        onClick={[Function]}
-      >
-        Sair
-      </button>
-    </nav>
+    <withRouter(MainMenu) />
   </header>
 </React.Fragment>
 `;
