@@ -102,6 +102,15 @@ class MainMenu extends Component {
                 </li>
               )}
               <li className="navigation-menu__list">
+                <NavLink
+                  to="/app/list-candidates"
+                  activeClassName="active"
+                  className="navigation-menu__link"
+                >
+                  Candidatas e Candidatos
+                </NavLink>
+              </li>
+              <li className="navigation-menu__list">
                 <button className="navigation-menu__link" onClick={this.handleLogout}>
                   Sair
                 </button>

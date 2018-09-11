@@ -10,6 +10,7 @@ import QuestionarioFinalizado from './QuestionarioFinalizado/QuestionarioFinaliz
 import Questionario from './Questionario/Questionario';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
 import Perfil from './Perfil/Perfil';
+import ListCandidates from './components/ListCandidates/ListCandidates';
 
 const RenderAuthenticated = (Component, props) => (
   <Authentication>
@@ -21,6 +22,7 @@ const Routes = () => (
   <React.Fragment>
     <Route exact path="/" component={LandingPage} />
     <Route exact path="/como-funciona" component={ComoFunciona} />
+   
     <Route exact path="/questionario-finalizado" component={QuestionarioFinalizado} />
     <Route exact path="/app" render={props => RenderAuthenticated(Home, props)} />
     <Route
@@ -36,6 +38,10 @@ const Routes = () => (
       exact
       path="/app/atualizar-informacoes"
       render={props => RenderAuthenticated(Perfil, props)}
+    />
+    <Route
+      path="/app/list-candidates"
+      render={props => RenderAuthenticated(ListCandidates, props)}
     />
   </React.Fragment>
 );
