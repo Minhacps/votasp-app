@@ -36,7 +36,6 @@ class ListCandidates extends Component {
             .doc(candidate.id)
             .onSnapshot(snapshot => {
               let answers = snapshot.data();
-              // console.log(answers);
               if (answers) {
                 let answersCount = Object.keys(answers).length;
                 if (answersCount === 40) {
@@ -59,7 +58,6 @@ class ListCandidates extends Component {
         console.log("Erro ao buscar lista de candidatos: ", error);
       });
     this.setState({ candidates: candidates });
-    // this.verificaRespostas();
   }
 
   compare = (a, b) => {
@@ -75,14 +73,12 @@ class ListCandidates extends Component {
     candidates.sort(this.compare);
     if (loading) {
       return <Loader />;
-    } else {
-      // console.log(candidates);
     }
 
     return (
       <PageLayout>
-        <section className='list-candidates'>
-          <h3 className='titulo'>Lista de Candidatos e Candidatas</h3>
+        <section className="container list-candidates">
+          <h3 className="titulo">Lista de Candidatos e Candidatas</h3>
           <h4>Veja abaixo a lista de candidatos e candidatas que já fizeram o cadastro ou estão com cadastro incompleto no Vota SP.</h4>
           <h4>Caso você procure o candidato ou candidata e não encontre é porque ele ou ela ainda não fez o cadastro.</h4>
           <h4>Agradecemos muito se puder avisá-lo ou avaisá-la para se cadastrar.</h4>
@@ -91,7 +87,6 @@ class ListCandidates extends Component {
             <Candidate
               key={candidate.id}
               {...candidate}
-              teste={candidate.status}
             />
           ))}
         </section>
