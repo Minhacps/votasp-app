@@ -32,7 +32,7 @@ const realizacao = () => {
     { name: 'Claudia Oliveira', picture: Claudia, role: 'Minha Campinas', altPicture: 'Foto da realizadora' },
     { name: 'Eduardo Silva', picture: Eduardo, role: 'Minha Campinas', altPicture: 'Foto da realizadora' },
     { name: 'Elisa Mueller', picture: Elisa, role: 'Minha Campinas', altPicture: 'Foto da realizadora' },
-    { name: 'Gabriel Ribeiro', picture: Gabriel, role: 'Batman', altPicture: 'Foto da realizadora' },
+    { name: 'Gabriel Ribeiro', picture: Gabriel, role: 'Developer', altPicture: 'Foto da realizadora' },
     { name: 'Giulia Losnak', picture: Giulia, role: 'Jornalista', altPicture: 'Foto da realizadora' },
     { name: 'Guilherme Luchesi', picture: Guilherme, role: 'Developer', altPicture: 'Foto da realizadora' },
     { name: 'Henrique Degrecci', picture: Henrique, role: 'Developer', altPicture: 'Foto da realizadora' },
