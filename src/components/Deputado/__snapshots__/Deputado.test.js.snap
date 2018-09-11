@@ -7,10 +7,14 @@ exports[`<Deputado /> should match snapshot 1`] = `
   <div
     className="photo"
   >
-    <img
-      alt="Foto do candidato Nome do Candidato 1"
-      src="http://via.placeholder.com/150x150?text=Foto"
-    />
+    <div
+      className="photo-container"
+    >
+      <img
+        alt="Foto do candidato Nome do Candidato 1"
+        src="http://via.placeholder.com/150x150?text=Foto"
+      />
+    </div>
   </div>
   <div
     className="info"
