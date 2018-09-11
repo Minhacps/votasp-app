@@ -103,7 +103,7 @@ class MainMenu extends Component {
               )}
               <li className="navigation-menu__list">
                 <NavLink
-                  to="/app/list-candidates"
+                  to="/app/candidatos-e-candidatas"
                   activeClassName="active"
                   className="navigation-menu__link"
                 >

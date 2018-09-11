@@ -42,7 +42,7 @@ const Routes = () => (
       render={props => RenderAuthenticated(Perfil, props)}
     />
     <Route
-      path="/app/list-candidates"
+      path="/app/candidatos-e-candidatas"
       render={props => RenderAuthenticated(ListCandidates, props)}
     />
   </React.Fragment>
