@@ -64,8 +64,8 @@ class RedefinePassword extends Component {
         errorMessage={this.state.errorMessage}
       >
         <h1 className="redefine-password__title">Recuperação de senha</h1>
-        <section className="authentication__form-content">
-          <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit}>
+          <section className="authentication__form-content">
             <div className="field-wrapper">
               <label htmlFor="email">E-mail</label>
               <input
@@ -77,9 +77,9 @@ class RedefinePassword extends Component {
                 placeholder="Informe o e-mail cadastrado"
               />
             </div>
-          </form>
-        </section>
-        <button className="authentication__submit-button">Recuperar senha</button>
+          </section>
+          <button className="authentication__submit-button">Recuperar senha</button>
+        </form>
       </FormLayout>
     );
   }
