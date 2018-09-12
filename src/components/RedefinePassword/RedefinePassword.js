@@ -8,14 +8,19 @@ import './RedefinePassword.scss';
 
 class RedefinePassword extends Component {
   state = {
+    isLoading: false,
     successMessage: null,
     errorMessage: null
   };
 
   onSubmit = event => {
     event.preventDefault();
+
     const emailAddress = event.target.email.value;
-    var auth = firebase.auth();
+    const auth = firebase.auth();
+
+    this.setState({ isLoading: true });
+
     auth
       .sendPasswordResetEmail(emailAddress)
       .then(doc => {
@@ -49,11 +54,11 @@ class RedefinePassword extends Component {
   };
 
   updateSuccessMessage = successMessage => {
-    this.setState({ successMessage, errorMessage: null });
+    this.setState({ successMessage, errorMessage: null, isLoading: false });
   };
 
   updateErrorMessage = errorMessage => {
-    this.setState({ errorMessage, successMessage: null });
+    this.setState({ errorMessage, successMessage: null, isLoading: false });
   };
 
   render() {
@@ -78,7 +83,9 @@ class RedefinePassword extends Component {
               />
             </div>
           </section>
-          <button className="authentication__submit-button">Recuperar senha</button>
+          <button className="authentication__submit-button" disabled={this.state.isLoading}>
+            Recuperar senha
+          </button>
         </form>
       </FormLayout>
     );
