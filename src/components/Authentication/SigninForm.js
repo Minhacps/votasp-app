@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
+import { Link } from 'react-router-dom';
 
 import FormLayout from './FormLayout';
 import SocialLogin from './SocialLogin';
@@ -69,6 +70,7 @@ class SigninForm extends Component {
               <label htmlFor="password">Senha</label>
               <input type="password" className="input" name="password" id="password" required />
             </div>
+            <Link to="/app/redefinepassword">Esqueci minha senha</Link>
           </div>
           <button className="authentication__submit-button">Entrar</button>
         </form>

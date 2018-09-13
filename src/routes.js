@@ -10,6 +10,7 @@ import QuestionarioFinalizado from './QuestionarioFinalizado/QuestionarioFinaliz
 import Questionario from './Questionario/Questionario';
 import ComoFunciona from './components/ComoFunciona/ComoFunciona';
 import Perfil from './Perfil/Perfil';
+import RedefinePassword from './components/RedefinePassword/RedefinePassword';
 import ListCandidates from './components/ListCandidates/ListCandidates';
 import CandidateAnswers from './components/CandidateAnswers/CandidateAnswers';
 
@@ -23,6 +24,7 @@ const Routes = () => (
   <React.Fragment>
     <Route exact path="/" component={LandingPage} />
     <Route exact path="/como-funciona" component={ComoFunciona} />
+    <Route exact path="/app/redefinepassword" component={RedefinePassword} />
 
     <Route exact path="/questionario-finalizado" component={QuestionarioFinalizado} />
     <Route exact path="/perfil/:id" component={CandidateAnswers} />
