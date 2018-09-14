@@ -70,7 +70,7 @@ const getTopMatches = (voterAnswers, context) => {
     }, 0)
 
     return getCandidateAnswers().then(allCandidatesData => {
-      return getMatchScores(voterAnswers, allCandidatesData).slice(0,100);
+      return getMatchScores(voterAnswers, allCandidatesData);
     });
 };
 
