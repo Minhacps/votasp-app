@@ -37,8 +37,9 @@ class SignupForm extends Component {
       email: event.target.email.value,
       password: event.target.password.value,
       name: event.target.name.value,
-      city: this.state.selectedCity,
+      city: this.state.selectedCity.value,
     };
+
     this.updateErrorMessage(null);
 
     firebase
