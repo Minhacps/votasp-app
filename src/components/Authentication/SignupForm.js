@@ -112,6 +112,7 @@ class SignupForm extends Component {
             <div className="field-wrapper">
               <label htmlFor="city">Cidade</label>
               <Select
+                placeholder="Selecione sua cidade"
                 options={options}
                 value={this.state.selectedCity}
                 onChange={this.handleChangeCity}
