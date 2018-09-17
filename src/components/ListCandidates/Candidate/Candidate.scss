@@ -8,14 +8,9 @@
   }
 
   .photo img {
-    width: 60px;
-  }
-
-  .photo > .photo-container {
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    overflow: hidden;
   }
 
   .info {
@@ -30,15 +25,20 @@
       margin-left: 10px;
     }
 
-    .match-percent {
-      border-radius: 40px;
-      background-color: var(--roxoClaro);
-      color: #fff;
-      padding: 1px 20px;
-      display: inline-block;
-      font-size: var(--fontSize3);
+    .candidate-status{
+      margin-left: 10px;
+    }
+
+    .green{
+      color: darkgreen;
+    }
+
+    .red{
+      color: darkred;
     }
   }
+
+
 
   .buttons {
     display: flex;

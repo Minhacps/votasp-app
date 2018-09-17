@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> should match snapshot 1`] = `
-<React.Fragment>
+<Fragment>
   <header
     className="header"
   >
@@ -17,5 +17,5 @@ exports[`<Header /> should match snapshot 1`] = `
     </Link>
     <withRouter(MainMenu) />
   </header>
-</React.Fragment>
+</Fragment>
 `;

@@ -4,6 +4,7 @@ import './Deputado.scss';
 
 const Deputado = ({
   name,
+  candidateId,
   number,
   politicalParty,
   matchScore,
@@ -11,11 +12,15 @@ const Deputado = ({
 }) => (
     <div className='deputado-list-item'>
       <div className='photo'>
-        <img src={picture} alt={`Foto do candidato ${name}`} />
+        <div className='photo-container'>
+          <img src={picture} alt={`Foto do candidato ${name}`} />
+        </div>
       </div>
       <div className='info'>
         <div>
-          <span className='candidate-name'>{name}</span>
+          <a href={`/perfil/${candidateId}`} >
+            <span className='candidate-name'>{name}</span>
+          </a>
           <span className='candidate-number'>{number}</span>
         </div>
 
