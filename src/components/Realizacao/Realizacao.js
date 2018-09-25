@@ -62,7 +62,7 @@ const realizacao = () => {
     <section className='Realizacao'>
       <h2>Realização</h2>
       <p>
-        O site Vota SP foi idealizado pela <a href="http://www.minhacampinas.org.br" target="_blank">Minha Campinas</a>, uma organização que tem por objetivo buscar uma maior participação da população nas tomadas de decisão de interesse público da cidade.
+        O site Meu Voto / Vota SP foi idealizado pela <a href="http://www.minhacampinas.org.br" target="_blank">Minha Campinas</a>, uma organização que tem por objetivo buscar uma maior participação da população nas tomadas de decisão de interesse público da cidade.
       </p>
       <p>
         Participaram da realização do projeto o <a href="https://www.cmp.ifsp.edu.br/" target="_blank">Instituto Federal de São paulo campus Campinas</a> e o Front End Campinas: um grupo de programadores e programadoras independentes que utilizam tecnologia para a construção de um sociedade melhor.

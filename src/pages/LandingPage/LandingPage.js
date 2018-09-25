@@ -15,7 +15,7 @@ const LandingPage = () => (
       <div className="landing-page__descricao container">
         <h1>O projeto</h1>
         <p>
-          O Vota SP é um site que vai ajudar a população do Estado de São Paulo escolher seus
+          O Meu Voto é um site que vai ajudar a população do Estado do Rio Grande do Sul escolher seus
           candidatos e candidatas a deputado, deputada estadual e federal.
         </p>
         <p>

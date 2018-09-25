@@ -18,7 +18,7 @@ const ComoFunciona = () => {
           </div>
           <div className="row descricao">
             <h4 className="text-center">
-            O Vota SP é um site que vai ajudar a população do Estado de São Paulo escolher seus candidatos e candidatas a deputado, deputada estadual e federal.
+            O Meu Voto é um site que vai ajudar a população do Estado de São Paulo escolher seus candidatos e candidatas a deputado, deputada estadual e federal.
             </h4>
           </div>
           <PassosComoFunciona />
