@@ -114,6 +114,11 @@ class MainMenu extends Component {
                   Candidatas e Candidatos
                 </NavLink>
               </li>
+              <li className="navigation-menu__list contribua-git">
+                <a href="https://github.com/Minhacps/votasp-app/issues/138" target="_blank" className="navigation-menu__link">
+                  Contribua no Github
+                </a>
+              </li>
               <li className="navigation-menu__list">
                 <button className="navigation-menu__link" onClick={this.handleLogout}>
                   Sair
