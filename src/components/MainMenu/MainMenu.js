@@ -7,6 +7,7 @@ import classnames from 'classnames';
 import { CANDIDATE } from '../../constants/userRoles';
 import { getCurrentUser } from '../../Questionario/QuestionarioService';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
+import GitButton from '../GitButton/GitButton';
 
 import './MainMenu.css';
 
@@ -132,6 +133,11 @@ class MainMenu extends Component {
                 >
                   Contribua
                 </a>
+              </li>
+              <li className="navigation-menu__list">
+                <GitButton
+                  className="no-decorator"
+                />
               </li>
             </React.Fragment>
           )}
