@@ -121,7 +121,8 @@ ul.navigation-menu {
     padding: 0;
   }
 
-  .hamburger-menu {
+  .hamburger-menu,
+  .contribua-git {
     display: none;
   }
 
