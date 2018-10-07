@@ -18,6 +18,7 @@
   position: relative;
 }
 
+.navigation-menu__list { display: inline-block; }
 .navigation-menu__list:not(:last-child) {
   margin-right: 10px;
   margin-bottom: 25px;
