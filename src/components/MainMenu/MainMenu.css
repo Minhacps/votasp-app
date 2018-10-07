@@ -116,6 +116,10 @@ ul.navigation-menu {
   background-color: #feb557;
 }
 
+.navigation-menu__link.no-decorator:hover::before {
+  background-color: unset;
+}
+
 @media (min-width: 800px) {
   .navigation-menu {
     padding: 0;
