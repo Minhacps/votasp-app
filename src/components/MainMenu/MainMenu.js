@@ -128,7 +128,7 @@ class MainMenu extends Component {
               <li className="navigation-menu__list">
                 <a
                   href="https://www.paypal-brasil.com.br/doe/doecompaypal?qc=&qn=Minha+&qs=25#minha-campinas"
-                  className="navigation-menu__link btn-contribua btn btn-primary"
+                  className="navigation-menu__link btn-contribua btn btn-primary no-decorator"
                   target="_blank"
                 >
                   Contribua
