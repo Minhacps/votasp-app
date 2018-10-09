@@ -15,6 +15,10 @@
   font-weight: bold;
 }
 
+.landing-page__descricao .Picture span {
+  line-height: 0.8rem;
+}
+
 .landing-page__realizacao {
   margin: 30px 0 10px;
 }
